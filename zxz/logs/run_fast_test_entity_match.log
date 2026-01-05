@@ -1,0 +1,25 @@
+nohup: 忽略输入
+2025-11-17 14:34:41,448 - fast_test_entity_match - INFO - 读取题目数量: 20
+2025-11-17 14:34:41,532 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-17 14:34:41,533 - fast_test_entity_match - INFO - 处理题目 1 / 20
+2025-11-17 14:35:04,579 - fast_test_entity_match - INFO - 处理题目 2 / 20
+2025-11-17 14:35:24,221 - fast_test_entity_match - INFO - 处理题目 3 / 20
+2025-11-17 14:36:47,581 - fast_test_entity_match - INFO - 处理题目 4 / 20
+2025-11-17 14:37:38,362 - fast_test_entity_match - INFO - 处理题目 5 / 20
+2025-11-17 14:38:17,909 - fast_test_entity_match - INFO - 处理题目 6 / 20
+2025-11-17 14:38:42,129 - fast_test_entity_match - INFO - 处理题目 7 / 20
+2025-11-17 14:39:09,439 - fast_test_entity_match - INFO - 处理题目 8 / 20
+2025-11-17 14:40:02,121 - fast_test_entity_match - INFO - 处理题目 9 / 20
+2025-11-17 14:40:40,107 - fast_test_entity_match - INFO - 处理题目 10 / 20
+2025-11-17 14:41:02,475 - fast_test_entity_match - INFO - 处理题目 11 / 20
+2025-11-17 14:41:53,595 - fast_test_entity_match - INFO - 处理题目 12 / 20
+2025-11-17 14:42:55,058 - fast_test_entity_match - INFO - 处理题目 13 / 20
+2025-11-17 14:43:20,773 - fast_test_entity_match - INFO - 处理题目 14 / 20
+2025-11-17 14:43:50,064 - fast_test_entity_match - INFO - 处理题目 15 / 20
+2025-11-17 14:44:15,758 - fast_test_entity_match - INFO - 处理题目 16 / 20
+2025-11-17 14:44:56,624 - fast_test_entity_match - INFO - 处理题目 17 / 20
+2025-11-17 14:45:25,146 - fast_test_entity_match - INFO - 处理题目 18 / 20
+2025-11-17 14:46:02,363 - fast_test_entity_match - INFO - 处理题目 19 / 20
+2025-11-17 14:46:44,235 - fast_test_entity_match - INFO - 处理题目 20 / 20
+2025-11-17 14:47:12,711 - fast_test_entity_match - INFO - 输出结果: /media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling/zxz/match_results/fast_test_medqa_match_20251117_143441.jsonl
+2025-11-17 14:47:12,712 - fast_test_entity_match - INFO - 全部处理完成，结果文件: /media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling/zxz/match_results/fast_test_medqa_match_20251117_143441.jsonl

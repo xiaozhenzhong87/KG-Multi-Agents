@@ -1,0 +1,28 @@
+nohup: 忽略输入
+============================================================
+🏥 医疗知识图谱系统 v2.0
+============================================================
+📋 功能：多层级知识图谱构建、智能检索、动态更新
+⚠️  注意：API功能目前处于开发阶段，仅供参考
+============================================================
+2025-11-04 10:54:12,954 - __main__ - INFO - 🔗 正在连接数据库...
+2025-11-04 10:54:12,989 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-04 10:54:12,990 - __main__ - INFO - 数据库连接成功
+2025-11-04 10:54:12,990 - __main__ - INFO - 🔍 查询系统: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+🔍 正在查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 10:54:12,990 - __main__ - INFO - 开始查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 10:54:12,990 - src.retrieval.retriever - INFO - 开始PageRank检索流程: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 10:54:12,990 - src.retrieval.retriever - INFO - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-04 10:54:12,990 - root - INFO - 发送实体提取请求，问题: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 10:54:17,654 - root - INFO - 实体提取原始响应:
+hypertension, headaches, dizziness
+2025-11-04 10:54:17,654 - root - INFO - 使用最后一行进行解析: hypertension, headaches, dizziness
+2025-11-04 10:54:17,654 - root - INFO - LLM提取的实体（处理后）: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 10:54:17,654 - src.retrieval.retriever - INFO - LLM提取的实体: ['hypertension', 'dizziness', 'headaches']
+2025-11-04 10:54:17,654 - src.retrieval.pagerank_retriever - INFO - 开始PageRank检索: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 10:54:17,654 - src.retrieval.pagerank_retriever - INFO - 使用LLM提取的种子实体: ['hypertension', 'dizziness', 'headaches']
+2025-11-04 10:54:17,654 - src.retrieval.pagerank_retriever - INFO - 使用种子实体查找初始节点: ['hypertension', 'dizziness', 'headaches']
+2025-11-04 10:54:20,802 - src.retrieval.pagerank_retriever - INFO - 总共找到 40 个初始节点
+2025-11-04 10:54:20,802 - src.retrieval.pagerank_retriever - INFO - 找到 40 个初始节点
+2025-11-04 10:54:22,544 - src.retrieval.pagerank_retriever - INFO - 子图包含 193149 个节点

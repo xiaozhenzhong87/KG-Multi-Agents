@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "total_entities": 9,
+    "matched_entities": 9,
+    "unmatched_entities": 0,
+    "coverage_ratio": 1.0
+  },
+  "results": [
+    {
+      "entity_name": "Carpal gland",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "Carpal gland",
+          "cui": "C0222062",
+          "entity_type": "Body Part, Organ, or Organ Component",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "carpal spasm",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "carpal spasm",
+          "cui": "C2025281",
+          "entity_type": "Sign or Symptom",
+          "namespace": "umls_kg",
+          "definition": "A spasmodic contraction of the muscles of the hands, especially the wrists, such as during alkalosis or tetany. (ACC-AHA)"
+        }
+      ]
+    },
+    {
+      "entity_name": "Carpal groove",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "Carpal groove",
+          "cui": "C1184160",
+          "entity_type": "Body Space or Junction",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "6 metacarpals",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "6 metacarpals",
+          "cui": "C1861360",
+          "entity_type": "Finding",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "Carpal hygroma",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "Carpal hygroma",
+          "cui": "C0263943",
+          "entity_type": "Disease or Syndrome",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "Entire flexor tendon",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "Entire flexor tendon",
+          "cui": "C1282749",
+          "entity_type": "Body Part, Organ, or Organ Component",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "FLEXOR TENDON REPAIR",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "FLEXOR TENDON REPAIR",
+          "cui": "C0744057",
+          "entity_type": "Therapeutic or Preventive Procedure",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "Flexor tendon of thumb",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "Flexor tendon of thumb",
+          "cui": "C0224910",
+          "entity_type": "Body Part, Organ, or Organ Component",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    },
+    {
+      "entity_name": "FLEXOR TENDON LACERATION",
+      "matched": true,
+      "match_count": 1,
+      "matches": [
+        {
+          "name": "FLEXOR TENDON LACERATION",
+          "cui": "C0744055",
+          "entity_type": "Injury or Poisoning",
+          "namespace": "umls_kg",
+          "definition": "No definition available"
+        }
+      ]
+    }
+  ]
+}

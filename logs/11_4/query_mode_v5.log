@@ -1,0 +1,444 @@
+nohup: 忽略输入
+2025-11-05 19:33:54,295 - __main__ - INFO - 🔗 正在连接数据库...
+2025-11-05 19:33:54,445 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-05 19:33:54,445 - __main__ - INFO - 数据库连接成功
+2025-11-05 19:33:54,445 - __main__ - INFO - 🔍 查询系统: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:33:54,445 - __main__ - INFO - 开始查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:33:54,447 - src.retrieval.type_analyzer - INFO - 成功加载prompt配置: /home/ymkj/zxz-new/healthcare-modeling-v01/healthcare-modeling/src/retrieval/prompts/query_rewrite_prompt.yaml
+2025-11-05 19:33:54,448 - src.retrieval.type_analyzer - INFO - 成功加载prompt配置: /home/ymkj/zxz-new/healthcare-modeling-v01/healthcare-modeling/src/retrieval/prompts/type_analysis_prompt.yaml
+2025-11-05 19:33:54,449 - src.retrieval.type_analyzer - INFO - 加载了 127 个节点类型和 389 个关系类型
+2025-11-05 19:33:54,449 - src.retrieval.retriever - INFO - 开始完整检索流程: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:33:54,449 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:33:54,449 - src.retrieval.retriever - INFO - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-05 19:33:54,449 - root - INFO - 发送实体提取请求，问题: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:34:08,715 - root - INFO - 实体提取原始响应:
+hypertension, headaches, dizziness
+2025-11-05 19:34:08,715 - root - INFO - 使用最后一行进行解析: hypertension, headaches, dizziness
+2025-11-05 19:34:08,715 - root - INFO - LLM提取的实体（处理后）: ['hypertension', 'headaches', 'dizziness']
+2025-11-05 19:34:08,715 - src.retrieval.retriever - INFO - LLM提取的实体: ['dizziness', 'hypertension', 'headaches']
+2025-11-05 19:34:08,715 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:34:08,715 - src.retrieval.retriever - INFO - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-05 19:34:08,715 - src.retrieval.pagerank_retriever - INFO - 开始PageRank检索: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:34:08,715 - src.retrieval.pagerank_retriever - INFO - 使用LLM提取的种子实体: ['dizziness', 'hypertension', 'headaches']
+2025-11-05 19:34:08,715 - src.retrieval.pagerank_retriever - INFO - 使用种子实体查找初始节点: ['dizziness', 'hypertension', 'headaches']
+2025-11-05 19:34:08,945 - src.retrieval.pagerank_retriever - INFO - 总共找到 9 个初始节点
+2025-11-05 19:34:08,945 - src.retrieval.pagerank_retriever - INFO - 找到 9 个初始节点
+2025-11-05 19:34:08,945 - src.retrieval.pagerank_retriever - INFO - 子图限制已启用: 最大深度=2, 每层最大节点数=1000, 总节点数上限=5000
+2025-11-05 19:34:08,948 - src.retrieval.pagerank_retriever - INFO - 深度 1: 添加了 156 个新节点，子图总节点数: 165
+2025-11-05 19:34:08,958 - src.retrieval.pagerank_retriever - INFO - 深度 2: 添加了 960 个新节点，子图总节点数: 1125
+2025-11-05 19:34:08,958 - src.retrieval.pagerank_retriever - INFO - 子图构建完成，总节点数: 1125 (限制: 5000)
+2025-11-05 19:34:08,958 - src.retrieval.pagerank_retriever - INFO - 子图包含 1125 个节点
+2025-11-05 19:34:08,958 - src.retrieval.pagerank_retriever - INFO - 使用Personalized PageRank (PPR)
+2025-11-05 19:34:08,958 - src.retrieval.pagerank_retriever - INFO - Personalized PageRank: 9 个初始节点，reset probability总和: 1.000000
+2025-11-05 19:34:10,016 - src.retrieval.pagerank_retriever - INFO - Personalized PageRank计算完成，计算了 1125 个节点的分数
+2025-11-05 19:34:10,043 - neo4j.notifications - WARNING - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-05 19:34:10,051 - src.retrieval.pagerank_retriever - INFO - PageRank检索完成，返回 50 个节点和 225 个关系
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - 步骤2完成: 找到 50 个节点, 225 个关系
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - 步骤3: 生成结构化上下文Context...
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - 步骤3完成: 上下文长度 6321 字符
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:34:10,051 - src.retrieval.retriever - INFO - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-05 19:34:10,051 - src.retrieval.type_analyzer - INFO - 开始分析查询类型: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-05 19:34:10,051 - src.retrieval.type_analyzer - INFO - 步骤1: 使用LLM改写query...
+2025-11-05 19:34:42,617 - src.retrieval.type_analyzer - INFO - 改写后的query: Patient has hypertension (high blood pressure) and recently developed symptoms of headache and dizziness. What medical advice should be given? Does this require urgent medical attention?
+2025-11-05 19:34:42,617 - src.retrieval.type_analyzer - INFO - 步骤2: 根据改写后的query筛选类型...
+2025-11-05 19:35:42,664 - src.retrieval.type_analyzer - ERROR - 类型筛选失败: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-11-05 19:35:42,664 - src.retrieval.type_analyzer - INFO - 筛选结果 - 节点类型: 0 个, 关系类型: 0 个
+2025-11-05 19:35:42,664 - src.retrieval.type_analyzer - INFO - 筛选出的节点类型: []
+2025-11-05 19:35:42,664 - src.retrieval.type_analyzer - INFO - 筛选出的关系类型: []
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 改写后的query: Patient has hypertension (high blood pressure) and recently developed symptoms of headache and dizziness. What medical advice should be given? Does this require urgent medical attention?
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤4完成: 识别出 0 个节点类型, 0 个关系类型
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤5: 根据节点类型和关系类型过滤结果...
+2025-11-05 19:35:42,664 - src.retrieval.result_filter - INFO - 未指定过滤条件，返回原结果
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤5完成: 过滤后剩余 50 个节点, 225 个关系
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤6: 生成结构化上下文Context（过滤后）...
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤6完成: 上下文长度 6321 字符
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - **User Query:** I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+**PageRank Retrieval Results:**
+- Total Entities: 50
+- Total Relationships: 225
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Dizziness
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.055881
+   - Definition: An imprecise term which may refer to a sense of spatial disorientation, motion of the environment, or lightheadedness....
+
+2. Acquired Immunodeficiency Syndrome
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.054044
+   - Definition: An acquired defect of cellular immunity associated with infection by the human immunodeficiency virus (HIV), a CD4-positive T-lymphocyte count under 2...
+
+3. Portal Hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.031079
+   - Definition: Abnormal increase of resistance to blood flow within the hepatic PORTAL SYSTEM, frequently seen in LIVER CIRRHOSIS and conditions with obstruction of ...
+
+4. Fever of Unknown Origin
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.029215
+   - Definition: Fever in which the etiology cannot be ascertained....
+
+5. Malignant Hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.028167
+   - Definition: A condition of markedly elevated BLOOD PRESSURE with DIASTOLIC PRESSURE usually greater than 120 mm Hg. Malignant hypertension is characterized by wid...
+
+6. Goldblatt hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.028054
+   - Definition: Hypertenze způsobená renální ischemií. V roce 1934 popsal Harry Goldblatt vznik hypertenze experimentálně - pomocí chirurgické spony se uzavře krevníh...
+
+7. Postural dizziness
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025972
+   - Definition: No definition available...
+
+8. intractable headaches
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+9. neurology goal to reduce headaches
+   - Type: Idea or Concept
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+10. Exertional dizziness
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+11. HYPERTHERMIA, CUTANEOUS, WITH HEADACHES AND NAUSEA
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+12. nervous system disorder
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023481
+   - Definition: Diseases of the central and peripheral nervous system. This includes disorders of the brain, spinal cord, cranial nerves, peripheral nerves, nerve roo...
+
+13. Headache disorder
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.021989
+   - Definition: Allmänna tillstånd med ihållande eller återkommande huvudvärk. Klassificering av huvudvärkssyndrom kan utgå från etiologi (t ex vaskulär huvudvärk, hu...
+
+14. Fever
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.021832
+   - Definition: Fever: a documented body temperature higher than 38 degrees C., or 100.4 degrees F....
+
+15. Brain Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.020212
+   - Definition: Pathologic conditions affecting the BRAIN, which is composed of the intracranial components of the CENTRAL NERVOUS SYSTEM. This includes (but is not l...
+
+16. neurology goals
+   - Type: Idea or Concept
+   - CUI: None
+   - PageRank Score: 0.020112
+   - Definition: No definition available...
+
+17. CARDIOVASCULAR DISEASE
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017484
+   - Definition: Pathological conditions involving the CARDIOVASCULAR SYSTEM including the HEART; the BLOOD VESSELS; or the PERICARDIUM....
+
+18. Hypertensive disease, NOS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017414
+   - Definition: Persistently high systemic arterial BLOOD PRESSURE. Based on multiple readings (BLOOD PRESSURE DETERMINATION), hypertension is currently defined as wh...
+
+19. HIV infection
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017210
+   - Definition: any state of infection accompanied by evidence of HIV in the body (positive test for HIV genome, cDNA, proteins, antigens, or antibodies); may be medi...
+
+20. RENOVASCULAR HYPERTENSION
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015209
+   - Definition: Hypertension due to RENAL ARTERY OBSTRUCTION or compression....
+
+**Key Relationships:**
+**Is A:**
+  - Dizziness --[Is A]--> Postural dizziness
+  - Dizziness --[Is A]--> Vertigo
+  - Acquired Immunodeficiency Syndrome --[Is A]--> AIDS Dementia Complex
+
+**Is Parent Of:**
+  - Dizziness --[Is Parent Of]--> Dizziness and giddiness
+  - Dizziness --[Is Parent Of]--> nervous system disorder
+  - Dizziness --[Is Parent Of]--> Brain Diseases
+  - Acquired Immunodeficiency Syndrome --[Is Parent Of]--> HIV infection
+  - Portal Hypertension --[Is Parent Of]--> Hypertensive disease, NOS
+
+**Has Subtype:**
+  - Dizziness --[Has Subtype]--> Dizziness and giddiness
+  - Acquired Immunodeficiency Syndrome --[Has Subtype]--> HIV infection
+  - Portal Hypertension --[Has Subtype]--> Hypertensive disease, NOS
+
+**Is Broader Than:**
+  - Dizziness --[Is Broader Than]--> nervous system disorder
+  - Acquired Immunodeficiency Syndrome --[Is Broader Than]--> Unspecified immunity deficiency
+  - Portal Hypertension --[Is Broader Than]--> CARDIOVASCULAR DISEASE
+
+**Used For:**
+  - Dizziness --[Used For]--> Vertigo
+
+**Other Relation:**
+  - Dizziness --[Other Relation]--> Vertigo
+
+**Mapped From:**
+  - Dizziness --[Mapped From]--> Dizziness and giddiness
+  - Acquired Immunodeficiency Syndrome --[Mapped From]--> HIV infection
+
+**Clinically Associated With:**
+  - Dizziness --[Clinically Associated With]--> Acquired Immunodeficiency Syndrome
+  - Acquired Immunodeficiency Syndrome --[Clinically Associated With]--> Abdominal Pain
+
+**Is Interpreted By:**
+  - Dizziness --[Is Interpreted By]--> General wellbeing
+
+**Associated With:**
+  - Acquired Immunodeficiency Syndrome --[Associated With]--> Communicable diseases
+  - Acquired Immunodeficiency Syndrome --[Associated With]--> HIV
+
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 上下文长度: 6321 字符
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.retriever - INFO - 步骤7: 使用LLM生成最终响应...
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - 发送完整prompt到LLM
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - You are a professional physician specializing in the analysis of medical examination reports.
+
+**Premises:**
+- All information retrieved from the private layer represents authentic and factual reports.
+- Entities and relationships from the public layer constitute authoritative knowledge bases.
+
+1. Your task is to comprehensively analyze the report based solely on the provided background information and the user's report;
+2. You are required to predict potential (undiscovered) disease risks for indicators, including risk alerts [over/under alert, trend change alert], reasoning chain, and comprehensive information;
+3. Please provide the basis for your judgments and the reasoning chain;
+4. Use only the available sources of information, and do not add any content that is not included in the background information;
+5. If an answer cannot be found in the background information or the necessary sources are unavailable, please indicate that this information cannot be obtained from the provided background information or based on the current configuration.
+
+**Structured Background Information:**
+**User Query:** I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+**PageRank Retrieval Results:**
+- Total Entities: 50
+- Total Relationships: 225
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Dizziness
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.055881
+   - Definition: An imprecise term which may refer to a sense of spatial disorientation, motion of the environment, or lightheadedness....
+
+2. Acquired Immunodeficiency Syndrome
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.054044
+   - Definition: An acquired defect of cellular immunity associated with infection by the human immunodeficiency virus (HIV), a CD4-positive T-lymphocyte count under 2...
+
+3. Portal Hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.031079
+   - Definition: Abnormal increase of resistance to blood flow within the hepatic PORTAL SYSTEM, frequently seen in LIVER CIRRHOSIS and conditions with obstruction of ...
+
+4. Fever of Unknown Origin
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.029215
+   - Definition: Fever in which the etiology cannot be ascertained....
+
+5. Malignant Hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.028167
+   - Definition: A condition of markedly elevated BLOOD PRESSURE with DIASTOLIC PRESSURE usually greater than 120 mm Hg. Malignant hypertension is characterized by wid...
+
+6. Goldblatt hypertension
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.028054
+   - Definition: Hypertenze způsobená renální ischemií. V roce 1934 popsal Harry Goldblatt vznik hypertenze experimentálně - pomocí chirurgické spony se uzavře krevníh...
+
+7. Postural dizziness
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025972
+   - Definition: No definition available...
+
+8. intractable headaches
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+9. neurology goal to reduce headaches
+   - Type: Idea or Concept
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+10. Exertional dizziness
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+11. HYPERTHERMIA, CUTANEOUS, WITH HEADACHES AND NAUSEA
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023661
+   - Definition: No definition available...
+
+12. nervous system disorder
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.023481
+   - Definition: Diseases of the central and peripheral nervous system. This includes disorders of the brain, spinal cord, cranial nerves, peripheral nerves, nerve roo...
+
+13. Headache disorder
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.021989
+   - Definition: Allmänna tillstånd med ihållande eller återkommande huvudvärk. Klassificering av huvudvärkssyndrom kan utgå från etiologi (t ex vaskulär huvudvärk, hu...
+
+14. Fever
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.021832
+   - Definition: Fever: a documented body temperature higher than 38 degrees C., or 100.4 degrees F....
+
+15. Brain Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.020212
+   - Definition: Pathologic conditions affecting the BRAIN, which is composed of the intracranial components of the CENTRAL NERVOUS SYSTEM. This includes (but is not l...
+
+16. neurology goals
+   - Type: Idea or Concept
+   - CUI: None
+   - PageRank Score: 0.020112
+   - Definition: No definition available...
+
+17. CARDIOVASCULAR DISEASE
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017484
+   - Definition: Pathological conditions involving the CARDIOVASCULAR SYSTEM including the HEART; the BLOOD VESSELS; or the PERICARDIUM....
+
+18. Hypertensive disease, NOS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017414
+   - Definition: Persistently high systemic arterial BLOOD PRESSURE. Based on multiple readings (BLOOD PRESSURE DETERMINATION), hypertension is currently defined as wh...
+
+19. HIV infection
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.017210
+   - Definition: any state of infection accompanied by evidence of HIV in the body (positive test for HIV genome, cDNA, proteins, antigens, or antibodies); may be medi...
+
+20. RENOVASCULAR HYPERTENSION
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015209
+   - Definition: Hypertension due to RENAL ARTERY OBSTRUCTION or compression....
+
+**Key Relationships:**
+**Is A:**
+  - Dizziness --[Is A]--> Postural dizziness
+  - Dizziness --[Is A]--> Vertigo
+  - Acquired Immunodeficiency Syndrome --[Is A]--> AIDS Dementia Complex
+
+**Is Parent Of:**
+  - Dizziness --[Is Parent Of]--> Dizziness and giddiness
+  - Dizziness --[Is Parent Of]--> nervous system disorder
+  - Dizziness --[Is Parent Of]--> Brain Diseases
+  - Acquired Immunodeficiency Syndrome --[Is Parent Of]--> HIV infection
+  - Portal Hypertension --[Is Parent Of]--> Hypertensive disease, NOS
+
+**Has Subtype:**
+  - Dizziness --[Has Subtype]--> Dizziness and giddiness
+  - Acquired Immunodeficiency Syndrome --[Has Subtype]--> HIV infection
+  - Portal Hypertension --[Has Subtype]--> Hypertensive disease, NOS
+
+**Is Broader Than:**
+  - Dizziness --[Is Broader Than]--> nervous system disorder
+  - Acquired Immunodeficiency Syndrome --[Is Broader Than]--> Unspecified immunity deficiency
+  - Portal Hypertension --[Is Broader Than]--> CARDIOVASCULAR DISEASE
+
+**Used For:**
+  - Dizziness --[Used For]--> Vertigo
+
+**Other Relation:**
+  - Dizziness --[Other Relation]--> Vertigo
+
+**Mapped From:**
+  - Dizziness --[Mapped From]--> Dizziness and giddiness
+  - Acquired Immunodeficiency Syndrome --[Mapped From]--> HIV infection
+
+**Clinically Associated With:**
+  - Dizziness --[Clinically Associated With]--> Acquired Immunodeficiency Syndrome
+  - Acquired Immunodeficiency Syndrome --[Clinically Associated With]--> Abdominal Pain
+
+**Is Interpreted By:**
+  - Dizziness --[Is Interpreted By]--> General wellbeing
+
+**Associated With:**
+  - Acquired Immunodeficiency Syndrome --[Associated With]--> Communicable diseases
+  - Acquired Immunodeficiency Syndrome --[Associated With]--> HIV
+
+
+**User Report:**
+I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care? 
+
+**Output Format**
+0. Overall Analysis of the Patient's Medical/Physical Examination Report  
+- List all the indicators detected in all reports (private layer) and write down the corresponding detection time. 
+- Clearly present the specific numerical changes for each indicator (e.g., the value increased from 12 mm/h on the 12th to 30 mm/h).
+I. Risk Warning for Indicators (over/under alert, trend change alert); describe specific numerical changes for each indicator;
+II. Disease Attribution (reasoning chain)
+III. Prediction of Potential Disease Risks (comprehensive information)
+IV. Basis for Judgments and Reasoning Chain
+V. Final Addition as follows:
+**Disclaimer**: This analysis is based solely on the information provided and should not replace professional medical advice. Please consult a qualified healthcare professional for diagnosis and treatment.
+
+**Data Source**: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - Prompt总长度: 8796 字符
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - 结构化上下文长度: 6321 字符
+2025-11-05 19:35:42,664 - src.retrieval.llm_integration - INFO - ================================================================================

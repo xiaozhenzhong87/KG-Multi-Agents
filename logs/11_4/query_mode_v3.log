@@ -1,0 +1,513 @@
+nohup: 忽略输入
+============================================================
+🏥 医疗知识图谱系统 v2.0
+============================================================
+📋 功能：多层级知识图谱构建、智能检索、动态更新
+⚠️  注意：API功能目前处于开发阶段，仅供参考
+============================================================
+2025-11-04 11:22:26,741 - __main__ - INFO - 🔗 正在连接数据库...
+2025-11-04 11:22:26,776 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-04 11:22:26,776 - __main__ - INFO - 数据库连接成功
+2025-11-04 11:22:26,776 - __main__ - INFO - 🔍 查询系统: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+🔍 正在查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:22:26,776 - __main__ - INFO - 开始查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:22:26,776 - src.retrieval.retriever - INFO - 开始PageRank检索流程: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:22:26,776 - src.retrieval.retriever - INFO - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-04 11:22:26,776 - root - INFO - 发送实体提取请求，问题: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:22:29,340 - root - INFO - 实体提取原始响应:
+hypertension, headaches, dizziness
+2025-11-04 11:22:29,340 - root - INFO - 使用最后一行进行解析: hypertension, headaches, dizziness
+2025-11-04 11:22:29,340 - root - INFO - LLM提取的实体（处理后）: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 11:22:29,340 - src.retrieval.retriever - INFO - LLM提取的实体: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 11:22:29,340 - src.retrieval.pagerank_retriever - INFO - 开始PageRank检索: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:22:29,340 - src.retrieval.pagerank_retriever - INFO - 使用LLM提取的种子实体: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 11:22:29,340 - src.retrieval.pagerank_retriever - INFO - 使用种子实体查找初始节点: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 11:22:29,576 - src.retrieval.pagerank_retriever - INFO - 总共找到 9 个初始节点
+2025-11-04 11:22:29,576 - src.retrieval.pagerank_retriever - INFO - 找到 9 个初始节点
+2025-11-04 11:22:29,576 - src.retrieval.pagerank_retriever - INFO - 子图限制已启用: 最大深度=2, 每层最大节点数=1000, 总节点数上限=5000
+2025-11-04 11:22:29,578 - src.retrieval.pagerank_retriever - INFO - 深度 1: 添加了 156 个新节点，子图总节点数: 165
+2025-11-04 11:22:29,584 - src.retrieval.pagerank_retriever - INFO - 深度 2: 添加了 961 个新节点，子图总节点数: 1126
+2025-11-04 11:22:29,584 - src.retrieval.pagerank_retriever - INFO - 子图构建完成，总节点数: 1126 (限制: 5000)
+2025-11-04 11:22:29,584 - src.retrieval.pagerank_retriever - INFO - 子图包含 1126 个节点
+2025-11-04 11:22:30,510 - src.retrieval.pagerank_retriever - INFO - PageRank计算完成，计算了 1126 个节点的分数
+2025-11-04 11:22:30,532 - neo4j.notifications - WARNING - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-04 11:22:30,544 - src.retrieval.pagerank_retriever - INFO - PageRank检索完成，返回 50 个节点和 247 个关系
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - 步骤3: 格式化PageRank检索结果为结构化上下文...
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - **User Query:** I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+**PageRank Retrieval Results:**
+- Total Entities: 50
+- Total Relationships: 247
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Vascular Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.067260
+   - Definition: Pathological processes involving any of the BLOOD VESSELS in the cardiac or peripheral circulation. They include diseases of ARTERIES; VEINS; and rest...
+
+2. Ascites
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.042785
+   - Definition: Accumulation or retention of free fluid within the peritoneal cavity....
+
+3. CARDIOVASCULAR DISEASE
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.041537
+   - Definition: Pathological conditions involving the CARDIOVASCULAR SYSTEM including the HEART; the BLOOD VESSELS; or the PERICARDIUM....
+
+4. Abdomen
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.019243
+   - Definition: That portion of the body that lies between the THORAX and the PELVIS....
+
+5. Abdominal Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.018516
+   - Definition: Sensation of discomfort, distress, or agony in the abdominal region....
+
+6. Aneurysm
+   - Type: Pathologic Function
+   - CUI: None
+   - PageRank Score: 0.017913
+   - Definition: Pathological outpouching or sac-like dilatation in the wall of any blood vessel (ARTERIES or VEINS) or the heart (HEART ANEURYSM). It indicates a thin...
+
+7. Blood Vessel
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.016760
+   - Definition: Any of the tubular vessels conveying the blood (arteries, arterioles, capillaries, venules, and veins)....
+
+8. Body part
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.014830
+   - Definition: Anatomical structure, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with either the skull, a segm...
+
+9. Cardiovascular system
+   - Type: Body System
+   - CUI: None
+   - PageRank Score: 0.014649
+   - Definition: The HEART and the BLOOD VESSELS by which BLOOD is pumped and circulated through the body....
+
+10. Angina Pectoris
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.014644
+   - Definition: The symptom of paroxysmal pain consequent to MYOCARDIAL ISCHEMIA usually of distinctive character, location and radiation. It is thought to be provoke...
+
+11. Heart Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.014598
+   - Definition: Pathological conditions involving the HEART including its structural and functional abnormalities....
+
+12. Arteries
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.012756
+   - Definition: The vessels carrying blood away from the heart....
+
+13. Vascular
+   - Type: Qualitative Concept
+   - CUI: None
+   - PageRank Score: 0.011263
+   - Definition: Relating to or containing blood vessels....
+
+14. Abdominal distention
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.009937
+   - Definition: Distention of the abdomen. [https://orcid.org/0000-0002-0736-9199]...
+
+15. Atherosclerosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009557
+   - Definition: age, lifestyle, diet, and gene related degeneration of arteries due to deposition of lipoid plaques (atheromas) on inner arterial walls; main cause of...
+
+16. Arteriosclerosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009247
+   - Definition: Thickening and loss of elasticity of the walls of ARTERIES of all sizes. There are many forms classified by the types of lesions and arteries involved...
+
+17. Dizziness
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.009185
+   - Definition: An imprecise term which may refer to a sense of spatial disorientation, motion of the environment, or lightheadedness....
+
+18. Other and unspecified disorders of circulatory system
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008448
+   - Definition: Evidence of other disorder of circulatory system not specified elsewhere....
+
+19. Liver
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.008394
+   - Definition: A large lobed glandular organ in the abdomen of vertebrates that is responsible for detoxification, metabolism, synthesis and storage of various subst...
+
+20. Palpation of abdomen
+   - Type: Diagnostic Procedure
+   - CUI: None
+   - PageRank Score: 0.008376
+   - Definition: No definition available...
+
+**Key Relationships:**
+**Is A:**
+  - Vascular Diseases --[Is A]--> Aneurysm
+  - Vascular Diseases --[Is A]--> Perivascular inflammation
+  - Vascular Diseases --[Is A]--> Arterial Dissection
+  - CARDIOVASCULAR DISEASE --[Is A]--> Other and unspecified disorders of circulatory system
+  - CARDIOVASCULAR DISEASE --[Is A]--> Aneurysm
+
+**Associated With:**
+  - Vascular Diseases --[Associated With]--> Angina Pectoris
+
+**Is Parent Of:**
+  - Vascular Diseases --[Is Parent Of]--> medical dictionary for regulatory activities terminology (meddra)
+  - Vascular Diseases --[Is Parent Of]--> Vascular
+  - Ascites --[Is Parent Of]--> Liver function
+  - Ascites --[Is Parent Of]--> Body part
+  - Ascites --[Is Parent Of]--> other diseases of liver
+
+**Is Broader Than:**
+  - Vascular Diseases --[Is Broader Than]--> CARDIOVASCULAR DISEASE
+  - CARDIOVASCULAR DISEASE --[Is Broader Than]--> Disease
+
+**Is Child Of:**
+  - Vascular Diseases --[Is Child Of]--> Vasculitis
+  - Vascular Diseases --[Is Child Of]--> Arteriosclerosis
+  - Vascular Diseases --[Is Child Of]--> Hypertensive disease, NOS
+  - Vascular Diseases --[Is Child Of]--> Aneurysm
+  - CARDIOVASCULAR DISEASE --[Is Child Of]--> Aneurysm
+
+**Used For:**
+  - Vascular Diseases --[Used For]--> CARDIOVASCULAR DISEASE
+
+**Mapped From:**
+  - Vascular Diseases --[Mapped From]--> Other and unspecified disorders of circulatory system
+  - Vascular Diseases --[Mapped From]--> Unspecified circulatory system disorder
+
+**Related To:**
+  - Vascular Diseases --[Related To]--> Peripheral vascular disease
+
+**Clinically Associated With:**
+  - Vascular Diseases --[Clinically Associated With]--> Atherosclerosis
+  - Ascites --[Clinically Associated With]--> Abdominal distention
+
+**Replaced By:**
+  - Vascular Diseases --[Replaced By]--> Aneurysm
+
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - 上下文长度: 6472 字符
+2025-11-04 11:22:30,544 - src.retrieval.retriever - INFO - 步骤4: 使用LLM生成响应...
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - 发送完整prompt到LLM
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - You are a professional physician specializing in the analysis of medical examination reports.
+
+**Premises:**
+- All information retrieved from the private layer represents authentic and factual reports.
+- Entities and relationships from the public layer constitute authoritative knowledge bases.
+
+1. Your task is to comprehensively analyze the report based solely on the provided background information and the user's report;
+2. You are required to predict potential (undiscovered) disease risks for indicators, including risk alerts [over/under alert, trend change alert], reasoning chain, and comprehensive information;
+3. Please provide the basis for your judgments and the reasoning chain;
+4. Use only the available sources of information, and do not add any content that is not included in the background information;
+5. If an answer cannot be found in the background information or the necessary sources are unavailable, please indicate that this information cannot be obtained from the provided background information or based on the current configuration.
+
+**Structured Background Information:**
+**User Query:** I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+**PageRank Retrieval Results:**
+- Total Entities: 50
+- Total Relationships: 247
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Vascular Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.067260
+   - Definition: Pathological processes involving any of the BLOOD VESSELS in the cardiac or peripheral circulation. They include diseases of ARTERIES; VEINS; and rest...
+
+2. Ascites
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.042785
+   - Definition: Accumulation or retention of free fluid within the peritoneal cavity....
+
+3. CARDIOVASCULAR DISEASE
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.041537
+   - Definition: Pathological conditions involving the CARDIOVASCULAR SYSTEM including the HEART; the BLOOD VESSELS; or the PERICARDIUM....
+
+4. Abdomen
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.019243
+   - Definition: That portion of the body that lies between the THORAX and the PELVIS....
+
+5. Abdominal Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.018516
+   - Definition: Sensation of discomfort, distress, or agony in the abdominal region....
+
+6. Aneurysm
+   - Type: Pathologic Function
+   - CUI: None
+   - PageRank Score: 0.017913
+   - Definition: Pathological outpouching or sac-like dilatation in the wall of any blood vessel (ARTERIES or VEINS) or the heart (HEART ANEURYSM). It indicates a thin...
+
+7. Blood Vessel
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.016760
+   - Definition: Any of the tubular vessels conveying the blood (arteries, arterioles, capillaries, venules, and veins)....
+
+8. Body part
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.014830
+   - Definition: Anatomical structure, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with either the skull, a segm...
+
+9. Cardiovascular system
+   - Type: Body System
+   - CUI: None
+   - PageRank Score: 0.014649
+   - Definition: The HEART and the BLOOD VESSELS by which BLOOD is pumped and circulated through the body....
+
+10. Angina Pectoris
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.014644
+   - Definition: The symptom of paroxysmal pain consequent to MYOCARDIAL ISCHEMIA usually of distinctive character, location and radiation. It is thought to be provoke...
+
+11. Heart Diseases
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.014598
+   - Definition: Pathological conditions involving the HEART including its structural and functional abnormalities....
+
+12. Arteries
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.012756
+   - Definition: The vessels carrying blood away from the heart....
+
+13. Vascular
+   - Type: Qualitative Concept
+   - CUI: None
+   - PageRank Score: 0.011263
+   - Definition: Relating to or containing blood vessels....
+
+14. Abdominal distention
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.009937
+   - Definition: Distention of the abdomen. [https://orcid.org/0000-0002-0736-9199]...
+
+15. Atherosclerosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009557
+   - Definition: age, lifestyle, diet, and gene related degeneration of arteries due to deposition of lipoid plaques (atheromas) on inner arterial walls; main cause of...
+
+16. Arteriosclerosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009247
+   - Definition: Thickening and loss of elasticity of the walls of ARTERIES of all sizes. There are many forms classified by the types of lesions and arteries involved...
+
+17. Dizziness
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.009185
+   - Definition: An imprecise term which may refer to a sense of spatial disorientation, motion of the environment, or lightheadedness....
+
+18. Other and unspecified disorders of circulatory system
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008448
+   - Definition: Evidence of other disorder of circulatory system not specified elsewhere....
+
+19. Liver
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.008394
+   - Definition: A large lobed glandular organ in the abdomen of vertebrates that is responsible for detoxification, metabolism, synthesis and storage of various subst...
+
+20. Palpation of abdomen
+   - Type: Diagnostic Procedure
+   - CUI: None
+   - PageRank Score: 0.008376
+   - Definition: No definition available...
+
+**Key Relationships:**
+**Is A:**
+  - Vascular Diseases --[Is A]--> Aneurysm
+  - Vascular Diseases --[Is A]--> Perivascular inflammation
+  - Vascular Diseases --[Is A]--> Arterial Dissection
+  - CARDIOVASCULAR DISEASE --[Is A]--> Other and unspecified disorders of circulatory system
+  - CARDIOVASCULAR DISEASE --[Is A]--> Aneurysm
+
+**Associated With:**
+  - Vascular Diseases --[Associated With]--> Angina Pectoris
+
+**Is Parent Of:**
+  - Vascular Diseases --[Is Parent Of]--> medical dictionary for regulatory activities terminology (meddra)
+  - Vascular Diseases --[Is Parent Of]--> Vascular
+  - Ascites --[Is Parent Of]--> Liver function
+  - Ascites --[Is Parent Of]--> Body part
+  - Ascites --[Is Parent Of]--> other diseases of liver
+
+**Is Broader Than:**
+  - Vascular Diseases --[Is Broader Than]--> CARDIOVASCULAR DISEASE
+  - CARDIOVASCULAR DISEASE --[Is Broader Than]--> Disease
+
+**Is Child Of:**
+  - Vascular Diseases --[Is Child Of]--> Vasculitis
+  - Vascular Diseases --[Is Child Of]--> Arteriosclerosis
+  - Vascular Diseases --[Is Child Of]--> Hypertensive disease, NOS
+  - Vascular Diseases --[Is Child Of]--> Aneurysm
+  - CARDIOVASCULAR DISEASE --[Is Child Of]--> Aneurysm
+
+**Used For:**
+  - Vascular Diseases --[Used For]--> CARDIOVASCULAR DISEASE
+
+**Mapped From:**
+  - Vascular Diseases --[Mapped From]--> Other and unspecified disorders of circulatory system
+  - Vascular Diseases --[Mapped From]--> Unspecified circulatory system disorder
+
+**Related To:**
+  - Vascular Diseases --[Related To]--> Peripheral vascular disease
+
+**Clinically Associated With:**
+  - Vascular Diseases --[Clinically Associated With]--> Atherosclerosis
+  - Ascites --[Clinically Associated With]--> Abdominal distention
+
+**Replaced By:**
+  - Vascular Diseases --[Replaced By]--> Aneurysm
+
+
+**User Report:**
+I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care? 
+
+**Output Format**
+0. Overall Analysis of the Patient's Medical/Physical Examination Report  
+- List all the indicators detected in all reports (private layer) and write down the corresponding detection time. 
+- Clearly present the specific numerical changes for each indicator (e.g., the value increased from 12 mm/h on the 12th to 30 mm/h).
+I. Risk Warning for Indicators (over/under alert, trend change alert); describe specific numerical changes for each indicator;
+II. Disease Attribution (reasoning chain)
+III. Prediction of Potential Disease Risks (comprehensive information)
+IV. Basis for Judgments and Reasoning Chain
+V. Final Addition as follows:
+**Disclaimer**: This analysis is based solely on the information provided and should not replace professional medical advice. Please consult a qualified healthcare professional for diagnosis and treatment.
+
+**Data Source**: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - Prompt总长度: 8947 字符
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - 结构化上下文长度: 6472 字符
+2025-11-04 11:22:30,544 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-04 11:22:44,996 - root - INFO - LLM成功生成响应。
+2025-11-04 11:22:44,997 - src.retrieval.retriever - INFO - PageRank检索流程完成
+
+=== 查询结果 ===
+查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+检索方法: PageRank
+找到 50 个实体, 247 个关系
+
+--- 相关实体 ---
+- Disease or Syndrome: Vascular Diseases (PageRank: 0.0673)
+- Disease or Syndrome: Ascites (PageRank: 0.0428)
+- Disease or Syndrome: CARDIOVASCULAR DISEASE (PageRank: 0.0415)
+- Body Location or Region: Abdomen (PageRank: 0.0192)
+- Sign or Symptom: Abdominal Pain (PageRank: 0.0185)
+- Pathologic Function: Aneurysm (PageRank: 0.0179)
+- Body Part, Organ, or Organ Component: Blood Vessel (PageRank: 0.0168)
+- Body Part, Organ, or Organ Component: Body part (PageRank: 0.0148)
+- Body System: Cardiovascular system (PageRank: 0.0146)
+- Sign or Symptom: Angina Pectoris (PageRank: 0.0146)
+
+--- 相关关系 ---
+- is_a: C0042373 -> C0002940
+- is_a: C0042373 -> C0333359
+- is_a: C0042373 -> C0002949
+- associated_with: C0042373 -> C0002962
+- is_parent_of: C0042373 -> C1140263
+- is_parent_of: C0042373 -> C1801960
+- is_broader_than: C0042373 -> C0007222
+- is_child_of: C0042373 -> C0042384
+- is_child_of: C0042373 -> C0003850
+- is_child_of: C0042373 -> C0020538
+
+--- 推理链 ---
+## Analysis of Patient Report – Hypertension with Headaches/Dizziness
+
+**0. Overall Analysis of the Patient's Medical/Physical Examination Report**
+
+The patient reports a history of hypertension and recent onset of headaches and dizziness. No specific numerical data regarding blood pressure, headache severity, or dizziness frequency/duration is provided in the user report or the provided background information. Therefore, a detailed analysis of indicator changes is not possible.
+
+**I. Risk Warning for Indicators (over/under alert, trend change alert)**
+
+Based on the provided information, we can only infer potential risks.
+
+*   **Hypertension:** While not a new finding, the recent onset of symptoms (headaches/dizziness) *in the context of existing hypertension* warrants attention. This could indicate uncontrolled hypertension or a hypertensive crisis. *Trend Change Alert* – New symptom presentation with existing condition.
+*   **Headaches/Dizziness:** These are symptoms, not indicators with quantifiable values. However, their recent onset alongside hypertension is concerning. *Over Alert* – New symptom presentation requires investigation.
+
+**II. Disease Attribution (reasoning chain)**
+
+1.  **Patient presents with hypertension:** This is a pre-existing condition.
+2.  **Patient reports new symptoms: headaches and dizziness.**
+3.  **Based on the provided background information:**
+    *   Hypertension can be associated with headaches and dizziness.
+    *   Vascular Diseases (PageRank 0.067260) are linked to both hypertension and symptoms like dizziness.
+    *   CARDIOVASCULAR DISEASE (PageRank 0.041537) encompasses hypertension and vascular issues.
+4.  **Therefore, the symptoms could be directly related to uncontrolled or worsening hypertension, or a complication arising from the underlying cardiovascular condition.**
+
+**III. Prediction of Potential Disease Risks (comprehensive information)**
+
+Based on the provided information, potential disease risks include:
+
+*   **Hypertensive Crisis:** Severely elevated blood pressure requiring immediate medical attention. Symptoms can include severe headache, dizziness, and other neurological deficits.
+*   **Stroke/Transient Ischemic Attack (TIA):** Headaches and dizziness can be warning signs of a stroke or TIA, especially in individuals with hypertension. Vascular diseases are directly linked to these conditions.
+*   **Cerebral Vascular Accident (CVA):** Given the patient's hypertension and new neurological symptoms, the possibility of a CVA must be considered.
+*   **Complications of Cardiovascular Disease:** The patient's existing hypertension increases the risk of other cardiovascular complications, such as heart failure or kidney disease.
+*   **Aneurysm:** Vascular Diseases are linked to Aneurysm (Is A relationship). The new symptoms could potentially indicate a developing or ruptured aneurysm, though this is less likely without further information.
+
+**IV. Basis for Judgments and Reasoning Chain**
+
+The analysis is based on the following:
+
+*   **Patient-reported symptoms:** Hypertension and the recent onset of headaches and dizziness.
+*   **Background Information:** The provided UMLS data, specifically the definitions and relationships between entities like Vascular Diseases, CARDIOVASCULAR DISEASE, and associated symptoms.
+*   **PageRank Scores:** Higher PageRank scores were given more weight in the analysis, indicating greater relevance within the provided knowledge base.
+*   **Relationships:** The "Is A," "Associated With," and "Is Parent Of" relationships were used to connect hypertension and symptoms to potential underlying conditions.
+
+**V. Final Addition**
+
+**Disclaimer**: This analysis is based solely on the information provided and should not replace professional medical advice. Please consult a qualified healthcare professional for diagnosis and treatment.
+
+**Data Source**: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+
+
+**Regarding Urgent Care:** Given the potential severity of the conditions listed above (hypertensive crisis, stroke), the patient *should seek immediate medical attention*. The new onset of headaches and dizziness in a hypertensive patient warrants urgent evaluation to rule out life-threatening conditions.
+
+✅ 查询完成
+2025-11-04 11:22:44,999 - __main__ - INFO - 🔌 正在关闭数据库连接...
+👋 程序结束

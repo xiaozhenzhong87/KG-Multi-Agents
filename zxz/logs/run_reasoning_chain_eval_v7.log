@@ -1,0 +1,25 @@
+nohup: 忽略输入
+Traceback (most recent call last):
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/zxz/run_reasoning_chain_eval.py", line 18, in <module>
+    from src.core.database import Neo4jManager
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/src/__init__.py", line 9, in <module>
+    from .core import *
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/src/core/__init__.py", line 4, in <module>
+    from .database import Neo4jManager, get_db_manager, db_manager
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/src/core/database.py", line 11, in <module>
+    from ..config.settings import settings
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/src/config/__init__.py", line 4, in <module>
+    from .settings import settings
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling-MLMedKG/src/config/settings.py", line 6, in <module>
+    from pydantic_settings import BaseSettings  # 使用新版本
+  File "/home/inspur/.conda/envs/orthographrag/lib/python3.9/site-packages/pydantic_settings/__init__.py", line 2, in <module>
+    from .main import BaseSettings, CliApp, SettingsConfigDict
+  File "/home/inspur/.conda/envs/orthographrag/lib/python3.9/site-packages/pydantic_settings/main.py", line 19, in <module>
+    from .sources import (
+  File "/home/inspur/.conda/envs/orthographrag/lib/python3.9/site-packages/pydantic_settings/sources/__init__.py", line 11, in <module>
+    from .providers.aws import AWSSecretsManagerSettingsSource
+  File "/home/inspur/.conda/envs/orthographrag/lib/python3.9/site-packages/pydantic_settings/sources/providers/__init__.py", line 14, in <module>
+    from .dotenv import DotEnvSettingsSource
+  File "/home/inspur/.conda/envs/orthographrag/lib/python3.9/site-packages/pydantic_settings/sources/providers/dotenv.py", line 11, in <module>
+    from dotenv import dotenv_values
+ModuleNotFoundError: No module named 'dotenv'

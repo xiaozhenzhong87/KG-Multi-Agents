@@ -1,0 +1,1113 @@
+nohup: 忽略输入
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:95] - ================================================================================
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:96] - 医疗知识图谱系统评估
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:97] - ================================================================================
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:98] - 测试数据文件: eval_data/test_data.jsonl
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:99] - 最大评估数量: 全部
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:100] - 起始位置: 0
+2025-11-06 14:08:59,244 - __main__ - INFO - [run_evaluation.py:101] - ================================================================================
+2025-11-06 14:08:59,246 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:61] - 成功加载prompt配置: /home/ymkj/zxz-new/test-v01/healthcare-modeling/src/retrieval/prompts/query_rewrite_prompt.yaml
+2025-11-06 14:08:59,247 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:61] - 成功加载prompt配置: /home/ymkj/zxz-new/test-v01/healthcare-modeling/src/retrieval/prompts/type_analysis_prompt.yaml
+2025-11-06 14:08:59,248 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:92] - 加载了 127 个节点类型和 389 个关系类型
+2025-11-06 14:08:59,249 - evaluation.answer_predictor - INFO - [answer_predictor.py:47] - 成功加载prompt配置: /home/ymkj/zxz-new/test-v01/healthcare-modeling/evaluation/prompts/answer_prediction_prompt.yaml
+2025-11-06 14:08:59,249 - evaluation.evaluator - INFO - [evaluator.py:60] - 加载测试数据: eval_data/test_data.jsonl
+2025-11-06 14:08:59,249 - evaluation.evaluator - INFO - [evaluator.py:85] - 成功加载 10 条测试数据
+2025-11-06 14:08:59,249 - evaluation.evaluator - INFO - [evaluator.py:115] - 连接数据库...
+2025-11-06 14:08:59,281 - src.core.database - INFO - [database.py:39] - 成功连接到Neo4j数据库
+2025-11-06 14:08:59,281 - evaluation.evaluator - INFO - [evaluator.py:124] - 开始评估 10 条测试数据（从第 1 条开始）
+2025-11-06 14:08:59,281 - evaluation.evaluator - INFO - [evaluator.py:132] - 
+================================================================================
+2025-11-06 14:08:59,281 - evaluation.evaluator - INFO - [evaluator.py:133] - 评估进度: 1/10
+2025-11-06 14:08:59,281 - evaluation.evaluator - INFO - [evaluator.py:134] - 问题: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of ...
+2025-11-06 14:08:59,281 - evaluation.evaluator - INFO - [evaluator.py:139] - 执行检索: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of ...
+2025-11-06 14:08:59,281 - src.retrieval.retriever - INFO - [retriever.py:81] - 开始完整检索流程: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+2025-11-06 14:08:59,281 - src.retrieval.retriever - INFO - [retriever.py:82] - ================================================================================
+2025-11-06 14:08:59,281 - src.retrieval.retriever - INFO - [retriever.py:85] - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-06 14:08:59,281 - root - INFO - [identifier.py:93] - 发送实体提取请求，问题: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+2025-11-06 14:09:02,773 - root - INFO - [identifier.py:102] - 实体提取原始响应:
+HIV, zidovudine, blood pressure, heart rate, temperature, vaginal discharge, sexually transmitted infections, latent labor
+2025-11-06 14:09:02,773 - root - INFO - [identifier.py:110] - 使用最后一行进行解析: HIV, zidovudine, blood pressure, heart rate, temperature, vaginal discharge, sexually transmitted infections, latent labor
+2025-11-06 14:09:02,773 - root - INFO - [identifier.py:130] - LLM提取的实体（处理后）: ['HIV', 'zidovudine', 'blood pressure', 'heart rate', 'temperature', 'vaginal discharge', 'sexually transmitted infections', 'latent labor']
+2025-11-06 14:09:02,773 - src.retrieval.retriever - INFO - [retriever.py:87] - LLM提取的实体: ['latent labor', 'temperature', 'blood pressure', 'HIV', 'zidovudine', 'heart rate', 'vaginal discharge', 'sexually transmitted infections']
+2025-11-06 14:09:02,773 - src.retrieval.retriever - INFO - [retriever.py:88] - ================================================================================
+2025-11-06 14:09:02,773 - src.retrieval.retriever - INFO - [retriever.py:99] - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-06 14:09:02,774 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:65] - 开始PageRank检索: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+2025-11-06 14:09:02,774 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:67] - 使用LLM提取的种子实体: ['latent labor', 'temperature', 'blood pressure', 'HIV', 'zidovudine', 'heart rate', 'vaginal discharge', 'sexually transmitted infections']
+2025-11-06 14:09:02,774 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:130] - 使用种子实体查找初始节点: ['latent labor', 'temperature', 'blood pressure', 'HIV', 'zidovudine', 'heart rate', 'vaginal discharge', 'sexually transmitted infections']
+2025-11-06 14:09:04,374 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:134] - 已达到初始节点总数上限 (50)，停止查找
+2025-11-06 14:09:04,374 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:242] - 总共找到 50 个初始节点
+2025-11-06 14:09:04,374 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:83] - 找到 50 个初始节点
+2025-11-06 14:09:04,374 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:265] - 子图限制已启用: 最大深度=3, 每层最大节点数=3000, 总节点数上限=10000
+2025-11-06 14:09:04,395 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 1: 添加了 1799 个新节点，子图总节点数: 1849
+2025-11-06 14:09:04,426 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 2: 添加了 2621 个新节点，子图总节点数: 4470
+2025-11-06 14:09:04,456 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 3: 添加了 2569 个新节点，子图总节点数: 7039
+2025-11-06 14:09:04,456 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:337] - 子图构建完成，总节点数: 7039 (限制: 10000)
+2025-11-06 14:09:04,456 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:88] - 子图包含 7039 个节点
+2025-11-06 14:09:04,456 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:92] - 使用Personalized PageRank (PPR)
+2025-11-06 14:09:04,457 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:452] - Personalized PageRank: 50 个初始节点，reset probability总和: 1.000000
+2025-11-06 14:09:49,459 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:506] - Personalized PageRank计算完成，计算了 7039 个节点的分数
+2025-11-06 14:09:49,489 - neo4j.notifications - WARNING - [result.py:337] - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-06 14:09:49,494 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:105] - PageRank检索完成，返回 50 个节点和 109 个关系
+2025-11-06 14:09:49,494 - src.retrieval.retriever - INFO - [retriever.py:101] - 步骤2完成: 找到 50 个节点, 109 个关系
+2025-11-06 14:09:49,494 - src.retrieval.retriever - INFO - [retriever.py:102] - ================================================================================
+2025-11-06 14:09:49,494 - src.retrieval.retriever - INFO - [retriever.py:105] - 步骤3: 生成结构化上下文Context...
+2025-11-06 14:09:49,495 - src.retrieval.retriever - INFO - [retriever.py:109] - 步骤3完成: 上下文长度 7136 字符
+2025-11-06 14:09:49,495 - src.retrieval.retriever - INFO - [retriever.py:110] - ================================================================================
+2025-11-06 14:09:49,495 - src.retrieval.retriever - INFO - [retriever.py:115] - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-06 14:09:49,495 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:116] - 开始分析查询类型: A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+2025-11-06 14:09:49,495 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:148] - 步骤1: 使用LLM改写query...
+2025-11-06 14:09:55,498 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:123] - 改写后的query: A 24-year-old gravida 2, para 1 woman at 39 weeks’ gestation presents to the emergency department with painful uterine contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She denies vaginal discharge, bleeding, or leakage of amniotic fluid and reports no current medication use. Vital signs are: blood pressure 110/70 mm Hg, heart rate 86/min, and temperature 37.6°C (99.7°F). She has limited prenatal care and inconsistent condom use. Her sexually transmitted infection (STI) status is unknown. Rapid screening tests led to zidovudine administration during delivery for both mother and infant to reduce the risk of vertical transmission. A confirmatory test was performed on the mother to diagnose HIV. What are the characteristics and interpretation of this confirmatory HIV test?
+2025-11-06 14:09:55,498 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:189] - 步骤2: 根据改写后的query筛选类型...
+2025-11-06 14:10:07,056 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:131] - 筛选结果 - 节点类型: 7 个, 关系类型: 3 个
+2025-11-06 14:10:07,057 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:133] - 筛选出的节点类型: ['Disease or Syndrome', 'Finding', 'Sign or Symptom', 'Body Substance', 'Chemical', 'Anatomical Structure', 'Clinical Attribute']
+2025-11-06 14:10:07,057 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:134] - 筛选出的关系类型: ['has_sign_or_symptom', 'treats', 'result_of']
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:118] - 改写后的query: A 24-year-old gravida 2, para 1 woman at 39 weeks’ gestation presents to the emergency department with painful uterine contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She denies vaginal discharge, bleeding, or leakage of amniotic fluid and reports no current medication use. Vital signs are: blood pressure 110/70 mm Hg, heart rate 86/min, and temperature 37.6°C (99.7°F). She has limited prenatal care and inconsistent condom use. Her sexually transmitted infection (STI) status is unknown. Rapid screening tests led to zidovudine administration during delivery for both mother and infant to reduce the risk of vertical transmission. A confirmatory test was performed on the mother to diagnose HIV. What are the characteristics and interpretation of this confirmatory HIV test?
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:119] - 步骤4完成: 识别出 7 个节点类型, 3 个关系类型
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:123] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:128] - 步骤5: 根据节点类型和关系类型过滤结果...
+2025-11-06 14:10:07,057 - src.retrieval.result_filter - INFO - [result_filter.py:44] - 根据节点类型过滤: 7 个类型
+2025-11-06 14:10:07,057 - src.retrieval.result_filter - INFO - [result_filter.py:51] - 节点过滤: 50 -> 16
+2025-11-06 14:10:07,057 - src.retrieval.result_filter - INFO - [result_filter.py:57] - 根据关系类型过滤: 3 个类型
+2025-11-06 14:10:07,057 - src.retrieval.result_filter - INFO - [result_filter.py:73] - 关系过滤: 109 -> 0
+2025-11-06 14:10:07,057 - src.retrieval.result_filter - INFO - [result_filter.py:78] - 过滤完成: 最终节点数 16, 最终关系数 0
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:134] - 步骤5完成: 过滤后剩余 16 个节点, 0 个关系
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:138] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:141] - 步骤6: 生成结构化上下文Context（过滤后）...
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:145] - 步骤6完成: 上下文长度 4349 字符
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:148] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:149] - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:150] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:151] - **User Query:** A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+
+**PageRank Retrieval Results:**
+- Total Entities: 16
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Fetal Heart Rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.011205
+   - Definition: The heart rate of the FETUS. The normal range at term is between 120 and 160 beats per minute....
+
+2. HIV infection
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.010837
+   - Definition: any state of infection accompanied by evidence of HIV in the body (positive test for HIV genome, cDNA, proteins, antigens, or antibodies); may be medi...
+
+3. body temperature changes
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.008933
+   - Definition: Significant alterations in temperature of the human body, above or below 98.6 degrees F. or 37 degrees C. when taken orally....
+
+4. Decreased body temperature
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008933
+   - Definition: Lower than normal body temperature, especially in warm-blooded animals....
+
+5. Acquired Immunodeficiency Syndrome
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008749
+   - Definition: An acquired defect of cellular immunity associated with infection by the human immunodeficiency virus (HIV), a CD4-positive T-lymphocyte count under 2...
+
+6. Baseline fetal heart rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008406
+   - Definition: The number of fetal cardiac beats per minute, considered as the reference value against which measurements in the future can be made....
+
+7. Apgar heart rate score
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008308
+   - Definition: No definition available...
+
+8. Fetal heart rate variability
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.007321
+   - Definition: Fluctuations in the baseline fetal heart rate, determined in a 10 minute window while excluding accelerations and decelerations. They are irregular in...
+
+9. heart rate
+   - Type: Clinical Attribute
+   - CUI: None
+   - PageRank Score: 0.006624
+   - Definition: The number of times the HEART VENTRICLES contract per unit of time, usually per minute....
+
+10. Other disturbances of temperature regulation of newborn
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006217
+   - Definition: No definition available...
+
+11. Fever
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.005967
+   - Definition: Fever: a documented body temperature higher than 38 degrees C., or 100.4 degrees F....
+
+12. Shivering
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005663
+   - Definition: Involuntary contraction or twitching of the muscles. It is a physiologic method of heat production in man and other mammals....
+
+13. Component of Apgar score
+   - Type: Clinical Attribute
+   - CUI: None
+   - PageRank Score: 0.005145
+   - Definition: No definition available...
+
+14. Alteration in heart rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005129
+   - Definition: No definition available...
+
+15. Abnormal blood pressure
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005067
+   - Definition: No definition available...
+
+16. Cold intolerance
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005066
+   - Definition: The inability to maintain a comfortable body temperature in a cold environment or cold temperatures. [PMID:30724123]...
+
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:152] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:153] - 上下文长度: 4349 字符
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:154] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.retriever - INFO - [retriever.py:157] - 步骤7: 使用LLM生成最终响应...
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:96] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:97] - 发送完整prompt到LLM
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:98] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:99] - You are a professional physician proficient in clinical case analysis and medical exam question-solving (focusing on Step2&3 logic). Your core task is to analyze the patient’s case, deduce the suspected diagnosis, evaluate each option based on clinical evidence, and select the most accurate answer to confirm the diagnosis.
+**Premises**:
+- All information is based solely on the provided patient report and structured background (no external information added).
+- Adhere to authoritative clinical guidelines (referenced from UMLS) to match "suspected diagnosis → confirmatory examination" core logic.
+- Prioritize practicality: focus on "which examination can directly confirm the disease" rather than irrelevant indicator analysis.
+**Core Tasks**:
+ - Extract key clinical information from the patient’s report (symptoms, history, physical signs, exposure factors) and list it concisely.
+ - Deduce 1-2 most likely suspected diagnoses based on key information.
+ - Analyze each option one by one: explain why it is the correct answer (if applicable) or why it is excluded (clinical rationality, sensitivity/specificity, invasiveness, etc.).
+ - Clearly output the final answer (specify option letter + name) and summarize the core reasoning chain.
+
+**Structured Background Information:**
+**User Query:** A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test?
+
+**PageRank Retrieval Results:**
+- Total Entities: 16
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Fetal Heart Rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.011205
+   - Definition: The heart rate of the FETUS. The normal range at term is between 120 and 160 beats per minute....
+
+2. HIV infection
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.010837
+   - Definition: any state of infection accompanied by evidence of HIV in the body (positive test for HIV genome, cDNA, proteins, antigens, or antibodies); may be medi...
+
+3. body temperature changes
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.008933
+   - Definition: Significant alterations in temperature of the human body, above or below 98.6 degrees F. or 37 degrees C. when taken orally....
+
+4. Decreased body temperature
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008933
+   - Definition: Lower than normal body temperature, especially in warm-blooded animals....
+
+5. Acquired Immunodeficiency Syndrome
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008749
+   - Definition: An acquired defect of cellular immunity associated with infection by the human immunodeficiency virus (HIV), a CD4-positive T-lymphocyte count under 2...
+
+6. Baseline fetal heart rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008406
+   - Definition: The number of fetal cardiac beats per minute, considered as the reference value against which measurements in the future can be made....
+
+7. Apgar heart rate score
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.008308
+   - Definition: No definition available...
+
+8. Fetal heart rate variability
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.007321
+   - Definition: Fluctuations in the baseline fetal heart rate, determined in a 10 minute window while excluding accelerations and decelerations. They are irregular in...
+
+9. heart rate
+   - Type: Clinical Attribute
+   - CUI: None
+   - PageRank Score: 0.006624
+   - Definition: The number of times the HEART VENTRICLES contract per unit of time, usually per minute....
+
+10. Other disturbances of temperature regulation of newborn
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006217
+   - Definition: No definition available...
+
+11. Fever
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.005967
+   - Definition: Fever: a documented body temperature higher than 38 degrees C., or 100.4 degrees F....
+
+12. Shivering
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005663
+   - Definition: Involuntary contraction or twitching of the muscles. It is a physiologic method of heat production in man and other mammals....
+
+13. Component of Apgar score
+   - Type: Clinical Attribute
+   - CUI: None
+   - PageRank Score: 0.005145
+   - Definition: No definition available...
+
+14. Alteration in heart rate
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005129
+   - Definition: No definition available...
+
+15. Abnormal blood pressure
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005067
+   - Definition: No definition available...
+
+16. Cold intolerance
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.005066
+   - Definition: The inability to maintain a comfortable body temperature in a cold environment or cold temperatures. [PMID:30724123]...
+
+
+**User Report:**
+A 24-year-old G2P1 woman at 39 weeks’ gestation presents to the emergency department complaining of painful contractions occurring every 10 minutes for the past 2 hours, consistent with latent labor. She says she has not experienced vaginal discharge, bleeding, or fluid leakage, and is currently taking no medications. On physical examination, her blood pressure is 110/70 mm Hg, heart rate is 86/min, and temperature is 37.6°C (99.7°F). She has had little prenatal care and uses condoms inconsistently. Her sexually transmitted infections status is unknown. As part of the patient’s workup, she undergoes a series of rapid screening tests that result in the administration of zidovudine during delivery. The infant is also given zidovudine to reduce the risk of transmission. A confirmatory test is then performed in the mother to confirm the diagnosis of HIV. Which of the following is most true about the confirmatory test? 
+
+**Output Format (Strictly Follow)**:
+0. Key Clinical Information Extraction
+- List core symptoms, medical history, travel/exposure factors, and critical physical signs (only relevant to the rash/diagnosis).
+I. Suspected Diagnosis
+- Propose the most likely diagnosis(es) and briefly explain the matching basis with clinical information.
+II. Option-by-Option Analysis
+- For each option (A-E), write 1-2 sentences explaining:
+  - If it is the correct answer: Why it is the gold standard / 首选 confirmatory examination for the suspected diagnosis.
+  - If it is an incorrect answer: Why it is not suitable (e.g., low sensitivity, auxiliary only, irrelevant to diagnosis).
+III. Final Answer
+Explicitly state: "The most likely answer is [Option Letter]: [Option Name]."
+IV. Core Reasoning Chain Summary
+Connect "clinical information → suspected diagnosis → confirmatory examination (correct option)" in a logical line.
+Data Source: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:100] - ================================================================================
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:101] - Prompt总长度: 7863 字符
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:102] - 结构化上下文长度: 4349 字符
+2025-11-06 14:10:07,057 - src.retrieval.llm_integration - INFO - [llm_integration.py:103] - ================================================================================
+2025-11-06 14:10:26,318 - root - INFO - [llm_integration.py:114] - LLM成功生成响应。
+2025-11-06 14:10:26,319 - src.retrieval.retriever - INFO - [retriever.py:161] - 步骤7完成: LLM响应长度 2457 字符
+2025-11-06 14:10:26,319 - src.retrieval.retriever - INFO - [retriever.py:162] - ================================================================================
+2025-11-06 14:10:26,319 - src.retrieval.retriever - INFO - [retriever.py:172] - 完整检索流程完成
+2025-11-06 14:10:26,319 - evaluation.answer_predictor - INFO - [answer_predictor.py:280] - 调用LLM进行答案预测...
+2025-11-06 14:10:43,505 - evaluation.answer_predictor - INFO - [answer_predictor.py:297] - LLM预测答案: 
+2025-11-06 14:10:43,505 - evaluation.evaluator - INFO - [evaluator.py:176] - ❌ 错误 - 预测: , 正确答案: E
+2025-11-06 14:10:43,505 - evaluation.evaluator - INFO - [evaluator.py:132] - 
+================================================================================
+2025-11-06 14:10:43,505 - evaluation.evaluator - INFO - [evaluator.py:133] - 评估进度: 2/10
+2025-11-06 14:10:43,505 - evaluation.evaluator - INFO - [evaluator.py:134] - 问题: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling an...
+2025-11-06 14:10:43,505 - evaluation.evaluator - INFO - [evaluator.py:139] - 执行检索: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling an...
+2025-11-06 14:10:43,505 - src.retrieval.retriever - INFO - [retriever.py:81] - 开始完整检索流程: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+2025-11-06 14:10:43,505 - src.retrieval.retriever - INFO - [retriever.py:82] - ================================================================================
+2025-11-06 14:10:43,505 - src.retrieval.retriever - INFO - [retriever.py:85] - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-06 14:10:43,505 - root - INFO - [identifier.py:93] - 发送实体提取请求，问题: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+2025-11-06 14:10:55,879 - root - INFO - [identifier.py:102] - 实体提取原始响应:
+arthritis, knee swelling, pain, back pain, dandruff, pitting of nails
+2025-11-06 14:10:55,879 - root - INFO - [identifier.py:110] - 使用最后一行进行解析: arthritis, knee swelling, pain, back pain, dandruff, pitting of nails
+2025-11-06 14:10:55,879 - root - INFO - [identifier.py:130] - LLM提取的实体（处理后）: ['arthritis', 'knee swelling', 'pain', 'back pain', 'dandruff', 'pitting of nails']
+2025-11-06 14:10:55,879 - src.retrieval.retriever - INFO - [retriever.py:87] - LLM提取的实体: ['pain', 'dandruff', 'knee swelling', 'pitting of nails', 'back pain', 'arthritis']
+2025-11-06 14:10:55,879 - src.retrieval.retriever - INFO - [retriever.py:88] - ================================================================================
+2025-11-06 14:10:55,879 - src.retrieval.retriever - INFO - [retriever.py:99] - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-06 14:10:55,879 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:65] - 开始PageRank检索: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+2025-11-06 14:10:55,879 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:67] - 使用LLM提取的种子实体: ['pain', 'dandruff', 'knee swelling', 'pitting of nails', 'back pain', 'arthritis']
+2025-11-06 14:10:55,879 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:130] - 使用种子实体查找初始节点: ['pain', 'dandruff', 'knee swelling', 'pitting of nails', 'back pain', 'arthritis']
+2025-11-06 14:10:59,315 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:242] - 总共找到 50 个初始节点
+2025-11-06 14:10:59,315 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:83] - 找到 50 个初始节点
+2025-11-06 14:10:59,315 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:265] - 子图限制已启用: 最大深度=3, 每层最大节点数=3000, 总节点数上限=10000
+2025-11-06 14:10:59,334 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 1: 添加了 1957 个新节点，子图总节点数: 2007
+2025-11-06 14:10:59,362 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 2: 添加了 2727 个新节点，子图总节点数: 4734
+2025-11-06 14:10:59,391 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 3: 添加了 2651 个新节点，子图总节点数: 7385
+2025-11-06 14:10:59,391 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:337] - 子图构建完成，总节点数: 7385 (限制: 10000)
+2025-11-06 14:10:59,391 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:88] - 子图包含 7385 个节点
+2025-11-06 14:10:59,391 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:92] - 使用Personalized PageRank (PPR)
+2025-11-06 14:10:59,392 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:452] - Personalized PageRank: 50 个初始节点，reset probability总和: 1.000000
+2025-11-06 14:11:48,912 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:506] - Personalized PageRank计算完成，计算了 7385 个节点的分数
+2025-11-06 14:11:48,938 - neo4j.notifications - WARNING - [result.py:337] - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-06 14:11:48,944 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:105] - PageRank检索完成，返回 50 个节点和 160 个关系
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:101] - 步骤2完成: 找到 50 个节点, 160 个关系
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:102] - ================================================================================
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:105] - 步骤3: 生成结构化上下文Context...
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:109] - 步骤3完成: 上下文长度 6093 字符
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:110] - ================================================================================
+2025-11-06 14:11:48,944 - src.retrieval.retriever - INFO - [retriever.py:115] - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-06 14:11:48,944 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:116] - 开始分析查询类型: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+2025-11-06 14:11:48,945 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:148] - 步骤1: 使用LLM改写query...
+2025-11-06 14:11:56,977 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:123] - 改写后的query: A 67-year-old male with a 16-year history of arthritis presents with right knee swelling and pain. He previously experienced left knee swelling a few weeks ago. Now with bilateral knee involvement, he reports difficulty walking and expresses frustration. He also reports back pain limiting activity, with pain improving with rest. He has a history of dandruff, managed with special shampoos, and physical examination reveals nail pitting. What is the most likely diagnosis considering these clinical findings?
+2025-11-06 14:11:56,977 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:189] - 步骤2: 根据改写后的query筛选类型...
+2025-11-06 14:12:11,022 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:131] - 筛选结果 - 节点类型: 7 个, 关系类型: 5 个
+2025-11-06 14:12:11,022 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:133] - 筛选出的节点类型: ['Disease or Syndrome', 'Sign or Symptom', 'Body Part', 'Body Location or Region', 'Finding', 'Patient or Disabled Group', 'Anatomical Abnormality']
+2025-11-06 14:12:11,022 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:134] - 筛选出的关系类型: ['has_sign_or_symptom', 'manifestation_of', 'associated_finding_of', 'has_patient_type', 'location_of']
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:118] - 改写后的query: A 67-year-old male with a 16-year history of arthritis presents with right knee swelling and pain. He previously experienced left knee swelling a few weeks ago. Now with bilateral knee involvement, he reports difficulty walking and expresses frustration. He also reports back pain limiting activity, with pain improving with rest. He has a history of dandruff, managed with special shampoos, and physical examination reveals nail pitting. What is the most likely diagnosis considering these clinical findings?
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:119] - 步骤4完成: 识别出 7 个节点类型, 5 个关系类型
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:123] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:128] - 步骤5: 根据节点类型和关系类型过滤结果...
+2025-11-06 14:12:11,022 - src.retrieval.result_filter - INFO - [result_filter.py:44] - 根据节点类型过滤: 7 个类型
+2025-11-06 14:12:11,022 - src.retrieval.result_filter - INFO - [result_filter.py:51] - 节点过滤: 50 -> 34
+2025-11-06 14:12:11,022 - src.retrieval.result_filter - INFO - [result_filter.py:57] - 根据关系类型过滤: 5 个类型
+2025-11-06 14:12:11,022 - src.retrieval.result_filter - INFO - [result_filter.py:73] - 关系过滤: 160 -> 1
+2025-11-06 14:12:11,022 - src.retrieval.result_filter - INFO - [result_filter.py:78] - 过滤完成: 最终节点数 34, 最终关系数 1
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:134] - 步骤5完成: 过滤后剩余 34 个节点, 1 个关系
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:138] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:141] - 步骤6: 生成结构化上下文Context（过滤后）...
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:145] - 步骤6完成: 上下文长度 5074 字符
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:148] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:149] - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:150] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:151] - **User Query:** A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+
+**PageRank Retrieval Results:**
+- Total Entities: 34
+- Total Relationships: 1
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Back Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.033284
+   - Definition: Acute or chronic pain located in the posterior regions of the THORAX; LUMBOSACRAL REGION; or the adjacent regions....
+
+2. Abdominal Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.020260
+   - Definition: Sensation of discomfort, distress, or agony in the abdominal region....
+
+3. Infectious Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015110
+   - Definition: Arthritis caused by BACTERIA; RICKETTSIA; MYCOPLASMA; VIRUSES; FUNGI; or PARASITES....
+
+4. Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.013169
+   - Definition: Acute or chronic inflammation of JOINTS....
+
+5. Chest Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.012283
+   - Definition: Pressure, burning, or numbness in the chest....
+
+6. Back
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.010239
+   - Definition: The rear surface of an upright primate from the shoulders to the hip, or the dorsal surface of tetrapods....
+
+7. Body Region
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.009949
+   - Definition: Anatomical areas of the body....
+
+8. Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.009851
+   - Definition: An unpleasant sensation induced by noxious stimuli which are detected by NERVE ENDINGS of NOCICEPTIVE NEURONS....
+
+9. Degenerative polyarthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009732
+   - Definition: A progressive, degenerative joint disease, the most common form of arthritis, especially in older persons. The disease is thought to result not from t...
+
+10. Abdomen
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.008887
+   - Definition: That portion of the body that lies between the THORAX and the PELVIS....
+
+11. Gouty Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008038
+   - Definition: Arthritis, especially of the great toe, as a result of gout. Acute gouty arthritis often is precipitated by trauma, infection, surgery, etc. The initi...
+
+12. Neck Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.007419
+   - Definition: Discomfort or more intense forms of pain that are localized to the cervical region. This term generally refers to pain in the posterior or lateral reg...
+
+13. Rheumatoid Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.007377
+   - Definition: A chronic systemic disease, primarily of the joints, marked by inflammatory changes in the synovial membranes and articular structures, widespread fib...
+
+14. Limb structure
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.006822
+   - Definition: Body part, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with a complete set of bones of the appe...
+
+15. Thoracic back pain
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.006649
+   - Definition: No definition available...
+
+16. Body part
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.006514
+   - Definition: Anatomical structure, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with either the skull, a segm...
+
+17. Acute thoracic back pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.006465
+   - Definition: No definition available...
+
+18. Psoriatic Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006461
+   - Definition: A type of inflammatory arthritis associated with PSORIASIS, often involving the axial joints and the peripheral terminal interphalangeal joints. It is...
+
+19. viral arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006335
+   - Definition: No definition available...
+
+20. Osteoarthritis of hip
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006072
+   - Definition: Noninflammatory degenerative disease of the hip joint which usually appears in late middle or old age. It is characterized by growth or maturational d...
+
+**Key Relationships:**
+**Location Of:**
+  - Acute abdomen, NOS --[Location Of]--> Abdomen
+
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:152] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:153] - 上下文长度: 5074 字符
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:154] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.retriever - INFO - [retriever.py:157] - 步骤7: 使用LLM生成最终响应...
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:96] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:97] - 发送完整prompt到LLM
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:98] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:99] - You are a professional physician proficient in clinical case analysis and medical exam question-solving (focusing on Step2&3 logic). Your core task is to analyze the patient’s case, deduce the suspected diagnosis, evaluate each option based on clinical evidence, and select the most accurate answer to confirm the diagnosis.
+**Premises**:
+- All information is based solely on the provided patient report and structured background (no external information added).
+- Adhere to authoritative clinical guidelines (referenced from UMLS) to match "suspected diagnosis → confirmatory examination" core logic.
+- Prioritize practicality: focus on "which examination can directly confirm the disease" rather than irrelevant indicator analysis.
+**Core Tasks**:
+ - Extract key clinical information from the patient’s report (symptoms, history, physical signs, exposure factors) and list it concisely.
+ - Deduce 1-2 most likely suspected diagnoses based on key information.
+ - Analyze each option one by one: explain why it is the correct answer (if applicable) or why it is excluded (clinical rationality, sensitivity/specificity, invasiveness, etc.).
+ - Clearly output the final answer (specify option letter + name) and summarize the core reasoning chain.
+
+**Structured Background Information:**
+**User Query:** A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis?
+
+**PageRank Retrieval Results:**
+- Total Entities: 34
+- Total Relationships: 1
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. Back Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.033284
+   - Definition: Acute or chronic pain located in the posterior regions of the THORAX; LUMBOSACRAL REGION; or the adjacent regions....
+
+2. Abdominal Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.020260
+   - Definition: Sensation of discomfort, distress, or agony in the abdominal region....
+
+3. Infectious Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015110
+   - Definition: Arthritis caused by BACTERIA; RICKETTSIA; MYCOPLASMA; VIRUSES; FUNGI; or PARASITES....
+
+4. Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.013169
+   - Definition: Acute or chronic inflammation of JOINTS....
+
+5. Chest Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.012283
+   - Definition: Pressure, burning, or numbness in the chest....
+
+6. Back
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.010239
+   - Definition: The rear surface of an upright primate from the shoulders to the hip, or the dorsal surface of tetrapods....
+
+7. Body Region
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.009949
+   - Definition: Anatomical areas of the body....
+
+8. Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.009851
+   - Definition: An unpleasant sensation induced by noxious stimuli which are detected by NERVE ENDINGS of NOCICEPTIVE NEURONS....
+
+9. Degenerative polyarthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009732
+   - Definition: A progressive, degenerative joint disease, the most common form of arthritis, especially in older persons. The disease is thought to result not from t...
+
+10. Abdomen
+   - Type: Body Location or Region
+   - CUI: None
+   - PageRank Score: 0.008887
+   - Definition: That portion of the body that lies between the THORAX and the PELVIS....
+
+11. Gouty Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008038
+   - Definition: Arthritis, especially of the great toe, as a result of gout. Acute gouty arthritis often is precipitated by trauma, infection, surgery, etc. The initi...
+
+12. Neck Pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.007419
+   - Definition: Discomfort or more intense forms of pain that are localized to the cervical region. This term generally refers to pain in the posterior or lateral reg...
+
+13. Rheumatoid Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.007377
+   - Definition: A chronic systemic disease, primarily of the joints, marked by inflammatory changes in the synovial membranes and articular structures, widespread fib...
+
+14. Limb structure
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.006822
+   - Definition: Body part, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with a complete set of bones of the appe...
+
+15. Thoracic back pain
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.006649
+   - Definition: No definition available...
+
+16. Body part
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.006514
+   - Definition: Anatomical structure, which consists of a maximal set of diverse subclasses of organ and organ part spatially associated with either the skull, a segm...
+
+17. Acute thoracic back pain
+   - Type: Sign or Symptom
+   - CUI: None
+   - PageRank Score: 0.006465
+   - Definition: No definition available...
+
+18. Psoriatic Arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006461
+   - Definition: A type of inflammatory arthritis associated with PSORIASIS, often involving the axial joints and the peripheral terminal interphalangeal joints. It is...
+
+19. viral arthritis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006335
+   - Definition: No definition available...
+
+20. Osteoarthritis of hip
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006072
+   - Definition: Noninflammatory degenerative disease of the hip joint which usually appears in late middle or old age. It is characterized by growth or maturational d...
+
+**Key Relationships:**
+**Location Of:**
+  - Acute abdomen, NOS --[Location Of]--> Abdomen
+
+
+**User Report:**
+A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left knee was swollen a few weeks ago, but now with both joints affected, he has difficulty walking and feels frustrated. He also has back pain which makes it extremely difficult to move around and be active during the day. He says his pain significantly improves with rest. He also suffers from dandruff for which he uses special shampoos. Physical examination is notable for pitting of his nails. Which of the following is the most likely diagnosis? 
+
+**Output Format (Strictly Follow)**:
+0. Key Clinical Information Extraction
+- List core symptoms, medical history, travel/exposure factors, and critical physical signs (only relevant to the rash/diagnosis).
+I. Suspected Diagnosis
+- Propose the most likely diagnosis(es) and briefly explain the matching basis with clinical information.
+II. Option-by-Option Analysis
+- For each option (A-E), write 1-2 sentences explaining:
+  - If it is the correct answer: Why it is the gold standard / 首选 confirmatory examination for the suspected diagnosis.
+  - If it is an incorrect answer: Why it is not suitable (e.g., low sensitivity, auxiliary only, irrelevant to diagnosis).
+III. Final Answer
+Explicitly state: "The most likely answer is [Option Letter]: [Option Name]."
+IV. Core Reasoning Chain Summary
+Connect "clinical information → suspected diagnosis → confirmatory examination (correct option)" in a logical line.
+Data Source: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:100] - ================================================================================
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:101] - Prompt总长度: 8224 字符
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:102] - 结构化上下文长度: 5074 字符
+2025-11-06 14:12:11,022 - src.retrieval.llm_integration - INFO - [llm_integration.py:103] - ================================================================================
+2025-11-06 14:12:28,680 - root - INFO - [llm_integration.py:114] - LLM成功生成响应。
+2025-11-06 14:12:28,681 - src.retrieval.retriever - INFO - [retriever.py:161] - 步骤7完成: LLM响应长度 2127 字符
+2025-11-06 14:12:28,681 - src.retrieval.retriever - INFO - [retriever.py:162] - ================================================================================
+2025-11-06 14:12:28,681 - src.retrieval.retriever - INFO - [retriever.py:172] - 完整检索流程完成
+2025-11-06 14:12:28,681 - evaluation.answer_predictor - INFO - [answer_predictor.py:280] - 调用LLM进行答案预测...
+2025-11-06 14:12:45,615 - evaluation.answer_predictor - INFO - [answer_predictor.py:297] - LLM预测答案: A
+2025-11-06 14:12:45,615 - evaluation.evaluator - INFO - [evaluator.py:176] - ✅ 正确 - 预测: A, 正确答案: A
+2025-11-06 14:12:45,615 - evaluation.evaluator - INFO - [evaluator.py:132] - 
+================================================================================
+2025-11-06 14:12:45,615 - evaluation.evaluator - INFO - [evaluator.py:133] - 评估进度: 3/10
+2025-11-06 14:12:45,615 - evaluation.evaluator - INFO - [evaluator.py:134] - 问题: A 27-year-old woman presents to the office with concerns about her long struggle with her physical a...
+2025-11-06 14:12:45,615 - evaluation.evaluator - INFO - [evaluator.py:139] - 执行检索: A 27-year-old woman presents to the office with concerns about her long struggle with her physical a...
+2025-11-06 14:12:45,615 - src.retrieval.retriever - INFO - [retriever.py:81] - 开始完整检索流程: A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+2025-11-06 14:12:45,615 - src.retrieval.retriever - INFO - [retriever.py:82] - ================================================================================
+2025-11-06 14:12:45,615 - src.retrieval.retriever - INFO - [retriever.py:85] - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-06 14:12:45,615 - root - INFO - [identifier.py:93] - 发送实体提取请求，问题: A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+2025-11-06 14:12:54,713 - root - INFO - [identifier.py:102] - 实体提取原始响应:
+acne, facial hair, glucose tolerance test, plasma glucose level, type 2 diabetes mellitus, blood pressure, inflammatory acne, coarse hairs, menstrual cycle
+2025-11-06 14:12:54,713 - root - INFO - [identifier.py:110] - 使用最后一行进行解析: acne, facial hair, glucose tolerance test, plasma glucose level, type 2 diabetes mellitus, blood pressure, inflammatory acne, coarse hairs, menstrual cycle
+2025-11-06 14:12:54,713 - root - INFO - [identifier.py:130] - LLM提取的实体（处理后）: ['acne', 'facial hair', 'glucose tolerance test', 'plasma glucose level', 'type 2 diabetes mellitus', 'blood pressure', 'inflammatory acne', 'coarse hairs', 'menstrual cycle']
+2025-11-06 14:12:54,714 - src.retrieval.retriever - INFO - [retriever.py:87] - LLM提取的实体: ['blood pressure', 'acne', 'menstrual cycle', 'coarse hairs', 'inflammatory acne', 'type 2 diabetes mellitus', 'glucose tolerance test', 'plasma glucose level', 'facial hair']
+2025-11-06 14:12:54,714 - src.retrieval.retriever - INFO - [retriever.py:88] - ================================================================================
+2025-11-06 14:12:54,714 - src.retrieval.retriever - INFO - [retriever.py:99] - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-06 14:12:54,714 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:65] - 开始PageRank检索: A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+2025-11-06 14:12:54,714 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:67] - 使用LLM提取的种子实体: ['blood pressure', 'acne', 'menstrual cycle', 'coarse hairs', 'inflammatory acne', 'type 2 diabetes mellitus', 'glucose tolerance test', 'plasma glucose level', 'facial hair']
+2025-11-06 14:12:54,714 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:130] - 使用种子实体查找初始节点: ['blood pressure', 'acne', 'menstrual cycle', 'coarse hairs', 'inflammatory acne', 'type 2 diabetes mellitus', 'glucose tolerance test', 'plasma glucose level', 'facial hair']
+2025-11-06 14:12:57,515 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:134] - 已达到初始节点总数上限 (50)，停止查找
+2025-11-06 14:12:57,515 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:242] - 总共找到 50 个初始节点
+2025-11-06 14:12:57,515 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:83] - 找到 50 个初始节点
+2025-11-06 14:12:57,515 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:265] - 子图限制已启用: 最大深度=3, 每层最大节点数=3000, 总节点数上限=10000
+2025-11-06 14:12:57,525 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 1: 添加了 972 个新节点，子图总节点数: 1022
+2025-11-06 14:12:57,552 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 2: 添加了 2880 个新节点，子图总节点数: 3902
+2025-11-06 14:12:57,581 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 3: 添加了 2770 个新节点，子图总节点数: 6672
+2025-11-06 14:12:57,581 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:337] - 子图构建完成，总节点数: 6672 (限制: 10000)
+2025-11-06 14:12:57,581 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:88] - 子图包含 6672 个节点
+2025-11-06 14:12:57,581 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:92] - 使用Personalized PageRank (PPR)
+2025-11-06 14:12:57,582 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:452] - Personalized PageRank: 50 个初始节点，reset probability总和: 1.000000
+2025-11-06 14:13:37,050 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:506] - Personalized PageRank计算完成，计算了 6672 个节点的分数
+2025-11-06 14:13:37,080 - neo4j.notifications - WARNING - [result.py:337] - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-06 14:13:37,087 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:105] - PageRank检索完成，返回 50 个节点和 144 个关系
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:101] - 步骤2完成: 找到 50 个节点, 144 个关系
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:102] - ================================================================================
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:105] - 步骤3: 生成结构化上下文Context...
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:109] - 步骤3完成: 上下文长度 7411 字符
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:110] - ================================================================================
+2025-11-06 14:13:37,087 - src.retrieval.retriever - INFO - [retriever.py:115] - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-06 14:13:37,087 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:116] - 开始分析查询类型: A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+2025-11-06 14:13:37,087 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:148] - 步骤1: 使用LLM改写query...
+2025-11-06 14:13:45,666 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:123] - 改写后的query: A 27-year-old female patient presents with a history of body image concerns since adolescence, including being targeted due to her weight. She reports persistent inflammatory acne and hirsutism (unwanted facial hair on the upper lip) despite multiple unsuccessful attempts at treatment. Recent glucose tolerance test results show a plasma glucose level of 160 mg/dL (8.9 mmol/L) 2 hours after a 75g oral glucose load. She has a family history of type 2 diabetes mellitus and reports a menstrual cycle occurring every 45 days. Vital signs are: pulse 72 bpm, blood pressure 138/80 mmHg. Physical examination reveals a height of 160 cm, weight of 85 kg, severe inflammatory acne on the cheeks and forehead, and dark, coarse hairs on the back. What is the most likely diagnosis for this patient, considering these clinical findings?
+2025-11-06 14:13:45,666 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:189] - 步骤2: 根据改写后的query筛选类型...
+2025-11-06 14:13:55,077 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:131] - 筛选结果 - 节点类型: 9 个, 关系类型: 4 个
+2025-11-06 14:13:55,077 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:133] - 筛选出的节点类型: ['Disease or Syndrome', 'Sign or Symptom', 'Finding', 'Body Part', 'Body Substance', 'Laboratory or Test Result', 'Quantitative Concept', 'Patient or Disabled Group', 'Clinical Attribute']
+2025-11-06 14:13:55,077 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:134] - 筛选出的关系类型: ['has_sign_or_symptom', 'result_of', 'has_measured_component', 'manifestation_of']
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:118] - 改写后的query: A 27-year-old female patient presents with a history of body image concerns since adolescence, including being targeted due to her weight. She reports persistent inflammatory acne and hirsutism (unwanted facial hair on the upper lip) despite multiple unsuccessful attempts at treatment. Recent glucose tolerance test results show a plasma glucose level of 160 mg/dL (8.9 mmol/L) 2 hours after a 75g oral glucose load. She has a family history of type 2 diabetes mellitus and reports a menstrual cycle occurring every 45 days. Vital signs are: pulse 72 bpm, blood pressure 138/80 mmHg. Physical examination reveals a height of 160 cm, weight of 85 kg, severe inflammatory acne on the cheeks and forehead, and dark, coarse hairs on the back. What is the most likely diagnosis for this patient, considering these clinical findings?
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:119] - 步骤4完成: 识别出 9 个节点类型, 4 个关系类型
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:123] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:128] - 步骤5: 根据节点类型和关系类型过滤结果...
+2025-11-06 14:13:55,077 - src.retrieval.result_filter - INFO - [result_filter.py:44] - 根据节点类型过滤: 9 个类型
+2025-11-06 14:13:55,077 - src.retrieval.result_filter - INFO - [result_filter.py:51] - 节点过滤: 50 -> 26
+2025-11-06 14:13:55,077 - src.retrieval.result_filter - INFO - [result_filter.py:57] - 根据关系类型过滤: 4 个类型
+2025-11-06 14:13:55,077 - src.retrieval.result_filter - INFO - [result_filter.py:73] - 关系过滤: 144 -> 0
+2025-11-06 14:13:55,077 - src.retrieval.result_filter - INFO - [result_filter.py:78] - 过滤完成: 最终节点数 26, 最终关系数 0
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:134] - 步骤5完成: 过滤后剩余 26 个节点, 0 个关系
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:138] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:141] - 步骤6: 生成结构化上下文Context（过滤后）...
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:145] - 步骤6完成: 上下文长度 5643 字符
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:148] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:149] - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:150] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:151] - **User Query:** A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+
+**PageRank Retrieval Results:**
+- Total Entities: 26
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. non-insulin dependent diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.033179
+   - Definition: subclass of diabetes mellitus that is not insulin responsive or dependent; characterized initially by insulin resistance and hyperinsulinemia and even...
+
+2. Diabetes Mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.029546
+   - Definition: A heterogeneous group of disorders characterized by HYPERGLYCEMIA and GLUCOSE INTOLERANCE....
+
+3. Measure of duration of menstrual cycle
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025850
+   - Definition: The length of time of the menses cycle, measured from the beginning of one menstrual period to the beginning of the next....
+
+4. ACNE VULGARIS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.016139
+   - Definition: A chronic disorder of the pilosebaceous apparatus associated with an increase in sebum secretion. It is characterized by open comedones (blackheads), ...
+
+5. Acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015138
+   - Definition: chronic inflammatory disease of the pilosebaceous apparatus marked by an increase in sebum secretions causing lesions most frequently occurring on the...
+
+6. Usual length of menstrual cycle
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.012775
+   - Definition: No definition available...
+
+7. Female Genitalia
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.012481
+   - Definition: The female reproductive organs. The external organs include the VULVA; BARTHOLIN'S GLANDS; and CLITORIS. The internal organs include the VAGINA; UTERU...
+
+8. Disorder of endocrine pancreas
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.011657
+   - Definition: deviation from or interruption of the normal structure or function of the pancreatic islet....
+
+9. Other acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009914
+   - Definition: No definition available...
+
+10. Amenorrhea
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.009416
+   - Definition: Absence of menstruation....
+
+11. Hair
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.009014
+   - Definition: A filament-like structure consisting of a shaft which projects to the surface of the SKIN from a root which is softer than the shaft and lodges in the...
+
+12. Air
+   - Type: Substance
+   - CUI: None
+   - PageRank Score: 0.007317
+   - Definition: The mixture of gases present in the earth's atmosphere consisting of oxygen, nitrogen, carbon dioxide, and small amounts of other gases....
+
+13. Cystic acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.007066
+   - Definition: A severe type of acne characterized by the formation of cysts enclosing a mixture of keratin and sebum. [PMID:9212761]...
+
+14. Type 2 diabetes mellitus in obese
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006845
+   - Definition: No definition available...
+
+15. Non-insulin-dependent diabetes mellitus without complications
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006310
+   - Definition: Evidence of type 2 diabetes mellitus without complications....
+
+16. Disorder of skin appendage
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006064
+   - Definition: No definition available...
+
+17. Disease
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005916
+   - Definition: A definite pathologic process with a characteristic set of signs and symptoms. It may affect the whole body or any of its parts, and its etiology, pat...
+
+18. Unspecified disorder of female genital organs
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005714
+   - Definition: Pathological processes involving the female reproductive tract (GENITALIA, FEMALE)....
+
+19. Acne Keloid
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005695
+   - Definition: A type of acneiform disorder in which secondary pyogenic infection in and around pilosebaceous structures ends in keloidal scarring. It manifests as p...
+
+20. Disease of sebaceous glands, NOS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005470
+   - Definition: Diseases of the sebaceous glands such as sebaceous hyperplasia and sebaceous cell carcinoma (SEBACEOUS GLAND NEOPLASMS)....
+
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:152] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:153] - 上下文长度: 5643 字符
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:154] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.retriever - INFO - [retriever.py:157] - 步骤7: 使用LLM生成最终响应...
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:96] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:97] - 发送完整prompt到LLM
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:98] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:99] - You are a professional physician proficient in clinical case analysis and medical exam question-solving (focusing on Step2&3 logic). Your core task is to analyze the patient’s case, deduce the suspected diagnosis, evaluate each option based on clinical evidence, and select the most accurate answer to confirm the diagnosis.
+**Premises**:
+- All information is based solely on the provided patient report and structured background (no external information added).
+- Adhere to authoritative clinical guidelines (referenced from UMLS) to match "suspected diagnosis → confirmatory examination" core logic.
+- Prioritize practicality: focus on "which examination can directly confirm the disease" rather than irrelevant indicator analysis.
+**Core Tasks**:
+ - Extract key clinical information from the patient’s report (symptoms, history, physical signs, exposure factors) and list it concisely.
+ - Deduce 1-2 most likely suspected diagnoses based on key information.
+ - Analyze each option one by one: explain why it is the correct answer (if applicable) or why it is excluded (clinical rationality, sensitivity/specificity, invasiveness, etc.).
+ - Clearly output the final answer (specify option letter + name) and summarize the core reasoning chain.
+
+**Structured Background Information:**
+**User Query:** A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient?
+
+**PageRank Retrieval Results:**
+- Total Entities: 26
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. non-insulin dependent diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.033179
+   - Definition: subclass of diabetes mellitus that is not insulin responsive or dependent; characterized initially by insulin resistance and hyperinsulinemia and even...
+
+2. Diabetes Mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.029546
+   - Definition: A heterogeneous group of disorders characterized by HYPERGLYCEMIA and GLUCOSE INTOLERANCE....
+
+3. Measure of duration of menstrual cycle
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025850
+   - Definition: The length of time of the menses cycle, measured from the beginning of one menstrual period to the beginning of the next....
+
+4. ACNE VULGARIS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.016139
+   - Definition: A chronic disorder of the pilosebaceous apparatus associated with an increase in sebum secretion. It is characterized by open comedones (blackheads), ...
+
+5. Acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.015138
+   - Definition: chronic inflammatory disease of the pilosebaceous apparatus marked by an increase in sebum secretions causing lesions most frequently occurring on the...
+
+6. Usual length of menstrual cycle
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.012775
+   - Definition: No definition available...
+
+7. Female Genitalia
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.012481
+   - Definition: The female reproductive organs. The external organs include the VULVA; BARTHOLIN'S GLANDS; and CLITORIS. The internal organs include the VAGINA; UTERU...
+
+8. Disorder of endocrine pancreas
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.011657
+   - Definition: deviation from or interruption of the normal structure or function of the pancreatic islet....
+
+9. Other acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009914
+   - Definition: No definition available...
+
+10. Amenorrhea
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.009416
+   - Definition: Absence of menstruation....
+
+11. Hair
+   - Type: Body Part, Organ, or Organ Component
+   - CUI: None
+   - PageRank Score: 0.009014
+   - Definition: A filament-like structure consisting of a shaft which projects to the surface of the SKIN from a root which is softer than the shaft and lodges in the...
+
+12. Air
+   - Type: Substance
+   - CUI: None
+   - PageRank Score: 0.007317
+   - Definition: The mixture of gases present in the earth's atmosphere consisting of oxygen, nitrogen, carbon dioxide, and small amounts of other gases....
+
+13. Cystic acne
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.007066
+   - Definition: A severe type of acne characterized by the formation of cysts enclosing a mixture of keratin and sebum. [PMID:9212761]...
+
+14. Type 2 diabetes mellitus in obese
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006845
+   - Definition: No definition available...
+
+15. Non-insulin-dependent diabetes mellitus without complications
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006310
+   - Definition: Evidence of type 2 diabetes mellitus without complications....
+
+16. Disorder of skin appendage
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006064
+   - Definition: No definition available...
+
+17. Disease
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005916
+   - Definition: A definite pathologic process with a characteristic set of signs and symptoms. It may affect the whole body or any of its parts, and its etiology, pat...
+
+18. Unspecified disorder of female genital organs
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005714
+   - Definition: Pathological processes involving the female reproductive tract (GENITALIA, FEMALE)....
+
+19. Acne Keloid
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005695
+   - Definition: A type of acneiform disorder in which secondary pyogenic infection in and around pilosebaceous structures ends in keloidal scarring. It manifests as p...
+
+20. Disease of sebaceous glands, NOS
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.005470
+   - Definition: Diseases of the sebaceous glands such as sebaceous hyperplasia and sebaceous cell carcinoma (SEBACEOUS GLAND NEOPLASMS)....
+
+
+**User Report:**
+A 27-year-old woman presents to the office with concerns about her long struggle with her physical appearance since adolescence. She says she has always been "large" and was constantly targeted by her classmates and coworkers for being so. Her main concern at the moment is her acne and unwanted facial hair on her upper lip, for which she often visits a local spa. She has tried numerous diet plans, exercise regimens, and cosmetic products with little to no effect. Recently, she underwent a glucose tolerance test that showed a plasma glucose level of 160 mg/dL (8.9 mmol/L) after 2 hours of a 75 g dose of oral glucose. She has a family history of type 2 diabetes mellitus and a menstrual cycle that occurs every 45 days. Her pulse is 72/min and the blood pressure is 138/80 mm Hg. On physical examination, her height is 160 cm (5 ft 3 in) and her weight is 85 kg (187 lb), and she has severe inflammatory acne over the cheeks and forehead and dark coarse hairs on the back. What is the most likely diagnosis of this patient? 
+
+**Output Format (Strictly Follow)**:
+0. Key Clinical Information Extraction
+- List core symptoms, medical history, travel/exposure factors, and critical physical signs (only relevant to the rash/diagnosis).
+I. Suspected Diagnosis
+- Propose the most likely diagnosis(es) and briefly explain the matching basis with clinical information.
+II. Option-by-Option Analysis
+- For each option (A-E), write 1-2 sentences explaining:
+  - If it is the correct answer: Why it is the gold standard / 首选 confirmatory examination for the suspected diagnosis.
+  - If it is an incorrect answer: Why it is not suitable (e.g., low sensitivity, auxiliary only, irrelevant to diagnosis).
+III. Final Answer
+Explicitly state: "The most likely answer is [Option Letter]: [Option Name]."
+IV. Core Reasoning Chain Summary
+Connect "clinical information → suspected diagnosis → confirmatory examination (correct option)" in a logical line.
+Data Source: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:100] - ================================================================================
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:101] - Prompt总长度: 9259 字符
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:102] - 结构化上下文长度: 5643 字符
+2025-11-06 14:13:55,077 - src.retrieval.llm_integration - INFO - [llm_integration.py:103] - ================================================================================
+2025-11-06 14:14:10,605 - root - INFO - [llm_integration.py:114] - LLM成功生成响应。
+2025-11-06 14:14:10,605 - src.retrieval.retriever - INFO - [retriever.py:161] - 步骤7完成: LLM响应长度 2098 字符
+2025-11-06 14:14:10,605 - src.retrieval.retriever - INFO - [retriever.py:162] - ================================================================================
+2025-11-06 14:14:10,605 - src.retrieval.retriever - INFO - [retriever.py:172] - 完整检索流程完成
+2025-11-06 14:14:10,606 - evaluation.answer_predictor - INFO - [answer_predictor.py:280] - 调用LLM进行答案预测...
+2025-11-06 14:14:26,886 - evaluation.answer_predictor - INFO - [answer_predictor.py:297] - LLM预测答案: D
+2025-11-06 14:14:26,886 - evaluation.evaluator - INFO - [evaluator.py:176] - ✅ 正确 - 预测: D, 正确答案: D
+2025-11-06 14:14:26,886 - evaluation.evaluator - INFO - [evaluator.py:132] - 
+================================================================================
+2025-11-06 14:14:26,886 - evaluation.evaluator - INFO - [evaluator.py:133] - 评估进度: 4/10
+2025-11-06 14:14:26,886 - evaluation.evaluator - INFO - [evaluator.py:134] - 问题: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of...
+2025-11-06 14:14:26,886 - evaluation.evaluator - INFO - [evaluator.py:139] - 执行检索: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of...
+2025-11-06 14:14:26,886 - src.retrieval.retriever - INFO - [retriever.py:81] - 开始完整检索流程: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of his right foot when he raises it above chest level during exercises. He reports that he started exercising regularly 2 months ago and that his right calf cramps when he uses the incline feature on the treadmill, forcing him to take frequent breaks. The pain completely disappears after resting for a few minutes. He has an 8-year history of type 2 diabetes mellitus. He has smoked two packs of cigarettes daily for 34 years. His only medication is metformin. His pulse is 82/min, and blood pressure is 170/92 mm Hg. Straight leg raise test elicits pallor and tingling pain in the right foot. There is no pain in the back. His muscle strength is normal. Femoral pulses are palpable; right pedal pulses are absent. Which of the following is the most likely diagnosis?
+2025-11-06 14:14:26,886 - src.retrieval.retriever - INFO - [retriever.py:82] - ================================================================================
+2025-11-06 14:14:26,886 - src.retrieval.retriever - INFO - [retriever.py:85] - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-06 14:14:26,886 - root - INFO - [identifier.py:93] - 发送实体提取请求，问题: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of his right foot when he raises it above chest level during exercises. He reports that he started exercising regularly 2 months ago and that his right calf cramps when he uses the incline feature on the treadmill, forcing him to take frequent breaks. The pain completely disappears after resting for a few minutes. He has an 8-year history of type 2 diabetes mellitus. He has smoked two packs of cigarettes daily for 34 years. His only medication is metformin. His pulse is 82/min, and blood pressure is 170/92 mm Hg. Straight leg raise test elicits pallor and tingling pain in the right foot. There is no pain in the back. His muscle strength is normal. Femoral pulses are palpable; right pedal pulses are absent. Which of the following is the most likely diagnosis?
+2025-11-06 14:14:37,084 - root - INFO - [identifier.py:102] - 实体提取原始响应:
+type 2 diabetes mellitus, metformin, blood pressure, muscle strength, femoral pulses, pedal pulses
+2025-11-06 14:14:37,084 - root - INFO - [identifier.py:110] - 使用最后一行进行解析: type 2 diabetes mellitus, metformin, blood pressure, muscle strength, femoral pulses, pedal pulses
+2025-11-06 14:14:37,084 - root - INFO - [identifier.py:130] - LLM提取的实体（处理后）: ['type 2 diabetes mellitus', 'metformin', 'blood pressure', 'muscle strength', 'femoral pulses', 'pedal pulses']
+2025-11-06 14:14:37,084 - src.retrieval.retriever - INFO - [retriever.py:87] - LLM提取的实体: ['blood pressure', 'metformin', 'muscle strength', 'pedal pulses', 'femoral pulses', 'type 2 diabetes mellitus']
+2025-11-06 14:14:37,084 - src.retrieval.retriever - INFO - [retriever.py:88] - ================================================================================
+2025-11-06 14:14:37,084 - src.retrieval.retriever - INFO - [retriever.py:99] - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-06 14:14:37,084 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:65] - 开始PageRank检索: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of his right foot when he raises it above chest level during exercises. He reports that he started exercising regularly 2 months ago and that his right calf cramps when he uses the incline feature on the treadmill, forcing him to take frequent breaks. The pain completely disappears after resting for a few minutes. He has an 8-year history of type 2 diabetes mellitus. He has smoked two packs of cigarettes daily for 34 years. His only medication is metformin. His pulse is 82/min, and blood pressure is 170/92 mm Hg. Straight leg raise test elicits pallor and tingling pain in the right foot. There is no pain in the back. His muscle strength is normal. Femoral pulses are palpable; right pedal pulses are absent. Which of the following is the most likely diagnosis?
+2025-11-06 14:14:37,084 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:67] - 使用LLM提取的种子实体: ['blood pressure', 'metformin', 'muscle strength', 'pedal pulses', 'femoral pulses', 'type 2 diabetes mellitus']
+2025-11-06 14:14:37,084 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:130] - 使用种子实体查找初始节点: ['blood pressure', 'metformin', 'muscle strength', 'pedal pulses', 'femoral pulses', 'type 2 diabetes mellitus']
+2025-11-06 14:14:39,938 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:242] - 总共找到 50 个初始节点
+2025-11-06 14:14:39,939 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:83] - 找到 50 个初始节点
+2025-11-06 14:14:39,939 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:265] - 子图限制已启用: 最大深度=3, 每层最大节点数=3000, 总节点数上限=10000
+2025-11-06 14:14:39,944 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 1: 添加了 373 个新节点，子图总节点数: 423
+2025-11-06 14:14:39,971 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 2: 添加了 2864 个新节点，子图总节点数: 3287
+2025-11-06 14:14:40,001 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:330] - 深度 3: 添加了 2677 个新节点，子图总节点数: 5964
+2025-11-06 14:14:40,001 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:337] - 子图构建完成，总节点数: 5964 (限制: 10000)
+2025-11-06 14:14:40,001 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:88] - 子图包含 5964 个节点
+2025-11-06 14:14:40,001 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:92] - 使用Personalized PageRank (PPR)
+2025-11-06 14:14:40,002 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:452] - Personalized PageRank: 50 个初始节点，reset probability总和: 1.000000
+2025-11-06 14:15:12,212 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:506] - Personalized PageRank计算完成，计算了 5964 个节点的分数
+2025-11-06 14:15:12,239 - neo4j.notifications - WARNING - [result.py:337] - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-06 14:15:12,243 - src.retrieval.pagerank_retriever - INFO - [pagerank_retriever.py:105] - PageRank检索完成，返回 50 个节点和 83 个关系
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:101] - 步骤2完成: 找到 50 个节点, 83 个关系
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:102] - ================================================================================
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:105] - 步骤3: 生成结构化上下文Context...
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:109] - 步骤3完成: 上下文长度 6718 字符
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:110] - ================================================================================
+2025-11-06 14:15:12,243 - src.retrieval.retriever - INFO - [retriever.py:115] - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-06 14:15:12,243 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:116] - 开始分析查询类型: A 55-year-old man comes to the physician because of a 6-week history of tingling pain in the sole of his right foot when he raises it above chest level during exercises. He reports that he started exercising regularly 2 months ago and that his right calf cramps when he uses the incline feature on the treadmill, forcing him to take frequent breaks. The pain completely disappears after resting for a few minutes. He has an 8-year history of type 2 diabetes mellitus. He has smoked two packs of cigarettes daily for 34 years. His only medication is metformin. His pulse is 82/min, and blood pressure is 170/92 mm Hg. Straight leg raise test elicits pallor and tingling pain in the right foot. There is no pain in the back. His muscle strength is normal. Femoral pulses are palpable; right pedal pulses are absent. Which of the following is the most likely diagnosis?
+2025-11-06 14:15:12,243 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:148] - 步骤1: 使用LLM改写query...
+2025-11-06 14:15:18,798 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:123] - 改写后的query: A 55-year-old male patient presents with a 6-week history of tingling pain in the plantar surface of the right foot, exacerbated by dorsiflexion during exercise. He reports onset of regular exercise 2 months prior, with associated right calf cramping during treadmill incline use, requiring frequent rest. Pain resolves with rest. He has an 8-year history of type 2 diabetes mellitus and a 34-year smoking history (2 packs per day). Current medication is metformin. Vital signs: pulse 82 bpm, blood pressure 170/92 mmHg. Straight leg raise test elicits pallor and tingling in the right foot; no back pain reported. Muscle strength is normal. Femoral pulses are palpable, but right pedal pulses are absent. What is the most likely diagnosis?
+2025-11-06 14:15:18,798 - src.retrieval.type_analyzer - INFO - [type_analyzer.py:189] - 步骤2: 根据改写后的query筛选类型...

@@ -1,0 +1,27 @@
+2025-10-10 17:21:14,784 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cuda:0
+2025-10-10 17:21:14,865 - scripts.build_private_kg - INFO - 从文件 ./data/notepad_content_new.txt 添加新数据到私有图谱，医院编号: 12345
+2025-10-10 17:21:14,898 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-10-10 17:21:14,898 - scripts.build_private_kg - INFO - ✓ 数据库连接成功
+2025-10-10 17:21:14,899 - scripts.build_private_kg - INFO - 从文件 ./data/notepad_content_new.txt 读取notepad内容
+2025-10-10 17:21:15,058 - scripts.build_private_kg - INFO - 找到现有患者节点: 9ccb5f6b-c97f-4c6d-ac54-57caf53f174f，将合并新数据
+2025-10-10 17:21:15,065 - scripts.build_private_kg - INFO - 更新患者节点 9ccb5f6b-c97f-4c6d-ac54-57caf53f174f 的属性
+2025-10-10 17:21:15,065 - scripts.build_private_kg - INFO - 更新关系源ID: 8852f32d-b526-4830-aad2-4cb4135cdc14 -> 9ccb5f6b-c97f-4c6d-ac54-57caf53f174f
+2025-10-10 17:21:15,065 - scripts.build_private_kg - INFO - 插入实体: Encounter - Encounter_2025-09-19 (ID: 04845f00-3eab-482b-b33d-36cdb4a3d065)
+2025-10-10 17:21:15,070 - scripts.build_private_kg - INFO - 插入实体: Laboratory_Tests - Laboratory_Tests (ID: 0a4df2da-f693-48c2-b2c3-1161167810f4)
+2025-10-10 17:21:15,079 - scripts.build_private_kg - INFO - 插入实体: Test_Type - White_Blood_Cell_Count (ID: 344ed932-0910-4745-83ee-50f886c58b15)
+2025-10-10 17:21:15,089 - scripts.build_private_kg - INFO - 插入实体: Test_Result - white blood cell count elevated (ID: d78f9505-067c-4091-8831-e9097708c131)
+2025-10-10 17:21:15,102 - scripts.build_private_kg - INFO - 插入实体: Test_Type - Lymphocyte_Count (ID: 8a0a3fa7-b49e-423b-ba86-9708548b0d6a)
+2025-10-10 17:21:15,112 - scripts.build_private_kg - INFO - 插入实体: Test_Result - lymphocyte count elevated (ID: 7c33e1d0-04db-48b7-a8a1-ae91ae09e1b0)
+2025-10-10 17:21:15,124 - scripts.build_private_kg - INFO - 插入实体: Test_Type - Lymphocyte_Percent_Differential_Count (ID: 3cfc12dd-7873-4443-b293-e78dc8fef829)
+2025-10-10 17:21:15,132 - scripts.build_private_kg - INFO - 插入实体: Test_Result - lymphocyte percent differential count normal (ID: 857d70e0-eb29-43eb-9b6e-8f751159ad5c)
+2025-10-10 17:21:15,141 - scripts.build_private_kg - INFO - 插入实体: Assessment - Juvenile_Arthritis_Activity (ID: 830801ba-8720-4596-bf6e-21a3c99d9b11)
+2025-10-10 17:21:15,153 - scripts.build_private_kg - INFO - 插入关系: 9ccb5f6b-c97f-4c6d-ac54-57caf53f174f -> 04845f00-3eab-482b-b33d-36cdb4a3d065 (has_encountered)
+2025-10-10 17:21:15,157 - scripts.build_private_kg - INFO - 插入关系: 04845f00-3eab-482b-b33d-36cdb4a3d065 -> 0a4df2da-f693-48c2-b2c3-1161167810f4 (includes)
+2025-10-10 17:21:15,164 - scripts.build_private_kg - INFO - 插入关系: 0a4df2da-f693-48c2-b2c3-1161167810f4 -> 344ed932-0910-4745-83ee-50f886c58b15 (has_test_type)
+2025-10-10 17:21:15,167 - scripts.build_private_kg - INFO - 插入关系: 344ed932-0910-4745-83ee-50f886c58b15 -> d78f9505-067c-4091-8831-e9097708c131 (has_result)
+2025-10-10 17:21:15,172 - scripts.build_private_kg - INFO - 插入关系: 0a4df2da-f693-48c2-b2c3-1161167810f4 -> 8a0a3fa7-b49e-423b-ba86-9708548b0d6a (has_test_type)
+2025-10-10 17:21:15,179 - scripts.build_private_kg - INFO - 插入关系: 8a0a3fa7-b49e-423b-ba86-9708548b0d6a -> 7c33e1d0-04db-48b7-a8a1-ae91ae09e1b0 (has_result)
+2025-10-10 17:21:15,185 - scripts.build_private_kg - INFO - 插入关系: 0a4df2da-f693-48c2-b2c3-1161167810f4 -> 3cfc12dd-7873-4443-b293-e78dc8fef829 (has_test_type)
+2025-10-10 17:21:15,187 - scripts.build_private_kg - INFO - 插入关系: 3cfc12dd-7873-4443-b293-e78dc8fef829 -> 857d70e0-eb29-43eb-9b6e-8f751159ad5c (has_result)
+2025-10-10 17:21:15,188 - scripts.build_private_kg - INFO - 插入关系: 04845f00-3eab-482b-b33d-36cdb4a3d065 -> 830801ba-8720-4596-bf6e-21a3c99d9b11 (includes)
+2025-10-10 17:21:15,190 - scripts.build_private_kg - INFO - ✓ 成功添加 9 个实体和 9 个关系

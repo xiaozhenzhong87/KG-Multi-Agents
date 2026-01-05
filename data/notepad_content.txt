@@ -1,0 +1,20 @@
+Lin { "gender": "woman", "age": 7 } ——[has_encountered]——> Encounter_2025-09-12 { "date": "2025-09-12" }
+
+Encounter_2025-09-12 ——[includes]——> Laboratory_Tests
+
+Laboratory_Tests ——[has_test]——> White_Blood_Cell_Count
+White_Blood_Cell_Count ——[has_result]——> { "name": "white blood cell count elevated", "value": 14.5, "unit": "10^9/L", "reference": "4.0-10.0" }
+
+Laboratory_Tests ——[has_test]——> Lymphocyte_Count
+Lymphocyte_Count ——[has_result]——> { "name": "lymphocyte count elevated", "value": 5.2, "unit": "10^9/L", "reference": "1.2-3.0" }
+
+Laboratory_Tests ——[has_test]——> Lymphocyte_Percent_Differential_Count
+Lymphocyte_Percent_Differential_Count ——[has_result]——> { "name": "lymphocyte percent differential count normal", "value": 35.8, "unit": "%", "reference": "20.0-40.0" }
+
+Encounter_2025-09-12 ——[includes]——> Juvenile_Arthritis_Activity
+Juvenile_Arthritis_Activity ——[has_result]——> { 
+  "score": 13, 
+  "activity_level": "moderate", 
+  "scoring_system": { "mild": "0-10", "moderate": "11-20", "severe": "≥21" },
+  "assessment_note": "Comprehensive evaluation based on joint symptoms and inflammation-related manifestations indicates that juvenile arthritis is in a moderate activity phase."
+}

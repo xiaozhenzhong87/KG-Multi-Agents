@@ -1,0 +1,429 @@
+nohup: 忽略输入
+============================================================
+🏥 医疗知识图谱系统 v2.0
+============================================================
+📋 功能：多层级知识图谱构建、智能检索、动态更新
+⚠️  注意：API功能目前处于开发阶段，仅供参考
+============================================================
+2025-11-06 11:21:47,347 - __main__ - INFO - 🔗 正在连接数据库...
+2025-11-06 11:21:47,507 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-06 11:21:47,507 - __main__ - INFO - 数据库连接成功
+2025-11-06 11:21:47,507 - __main__ - INFO - 🔍 查询系统: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+
+🔍 正在查询: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:47,507 - __main__ - INFO - 开始查询: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:47,508 - src.retrieval.type_analyzer - INFO - 成功加载prompt配置: /home/ymkj/zxz-new/healthcare-modeling-v01/healthcare-modeling/src/retrieval/prompts/query_rewrite_prompt.yaml
+2025-11-06 11:21:47,510 - src.retrieval.type_analyzer - INFO - 成功加载prompt配置: /home/ymkj/zxz-new/healthcare-modeling-v01/healthcare-modeling/src/retrieval/prompts/type_analysis_prompt.yaml
+2025-11-06 11:21:47,510 - src.retrieval.type_analyzer - INFO - 加载了 127 个节点类型和 389 个关系类型
+2025-11-06 11:21:47,510 - src.retrieval.retriever - INFO - 开始完整检索流程: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:47,510 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:47,510 - src.retrieval.retriever - INFO - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-06 11:21:47,510 - root - INFO - 发送实体提取请求，问题: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:48,261 - root - INFO - 实体提取原始响应:
+pruritus, hypopigmented rash, type 1 diabetes mellitus, hemoglobin A1C, Wood lamp examination, Skin culture, Potassium hydroxide preparation, Skin biopsy, Antinuclear antibody testing
+2025-11-06 11:21:48,261 - root - INFO - 使用最后一行进行解析: pruritus, hypopigmented rash, type 1 diabetes mellitus, hemoglobin A1C, Wood lamp examination, Skin culture, Potassium hydroxide preparation, Skin biopsy, Antinuclear antibody testing
+2025-11-06 11:21:48,261 - root - INFO - LLM提取的实体（处理后）: ['pruritus', 'hypopigmented rash', 'type 1 diabetes mellitus', 'hemoglobin A1C', 'Wood lamp examination', 'Skin culture', 'Potassium hydroxide preparation', 'Skin biopsy', 'Antinuclear antibody testing']
+2025-11-06 11:21:48,261 - src.retrieval.retriever - INFO - LLM提取的实体: ['hemoglobin A1C', 'Wood lamp examination', 'Potassium hydroxide preparation', 'type 1 diabetes mellitus', 'Skin culture', 'hypopigmented rash', 'Antinuclear antibody testing', 'Skin biopsy', 'pruritus']
+2025-11-06 11:21:48,261 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:48,261 - src.retrieval.retriever - INFO - 步骤2: 使用提取的实体作为种子，进行PageRank检索...
+2025-11-06 11:21:48,261 - src.retrieval.pagerank_retriever - INFO - 开始PageRank检索: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:48,261 - src.retrieval.pagerank_retriever - INFO - 使用LLM提取的种子实体: ['hemoglobin A1C', 'Wood lamp examination', 'Potassium hydroxide preparation', 'type 1 diabetes mellitus', 'Skin culture', 'hypopigmented rash', 'Antinuclear antibody testing', 'Skin biopsy', 'pruritus']
+2025-11-06 11:21:48,261 - src.retrieval.pagerank_retriever - INFO - 使用种子实体查找初始节点: ['hemoglobin A1C', 'Wood lamp examination', 'Potassium hydroxide preparation', 'type 1 diabetes mellitus', 'Skin culture', 'hypopigmented rash', 'Antinuclear antibody testing', 'Skin biopsy', 'pruritus']
+2025-11-06 11:21:49,612 - src.retrieval.pagerank_retriever - INFO - 已达到初始节点总数上限 (15)，停止查找
+2025-11-06 11:21:49,612 - src.retrieval.pagerank_retriever - INFO - 总共找到 15 个初始节点
+2025-11-06 11:21:49,612 - src.retrieval.pagerank_retriever - INFO - 找到 15 个初始节点
+2025-11-06 11:21:49,612 - src.retrieval.pagerank_retriever - INFO - 子图限制已启用: 最大深度=2, 每层最大节点数=1000, 总节点数上限=5000
+2025-11-06 11:21:49,614 - src.retrieval.pagerank_retriever - INFO - 深度 1: 添加了 113 个新节点，子图总节点数: 128
+2025-11-06 11:21:49,624 - src.retrieval.pagerank_retriever - INFO - 深度 2: 添加了 962 个新节点，子图总节点数: 1090
+2025-11-06 11:21:49,624 - src.retrieval.pagerank_retriever - INFO - 子图构建完成，总节点数: 1090 (限制: 5000)
+2025-11-06 11:21:49,624 - src.retrieval.pagerank_retriever - INFO - 子图包含 1090 个节点
+2025-11-06 11:21:49,624 - src.retrieval.pagerank_retriever - INFO - 使用Personalized PageRank (PPR)
+2025-11-06 11:21:49,624 - src.retrieval.pagerank_retriever - INFO - Personalized PageRank: 15 个初始节点，reset probability总和: 1.000000
+2025-11-06 11:21:50,403 - src.retrieval.pagerank_retriever - INFO - Personalized PageRank计算完成，计算了 1090 个节点的分数
+2025-11-06 11:21:50,427 - neo4j.notifications - WARNING - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-06 11:21:50,432 - src.retrieval.pagerank_retriever - INFO - PageRank检索完成，返回 50 个节点和 93 个关系
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - 步骤2完成: 找到 50 个节点, 93 个关系
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - 步骤3: 生成结构化上下文Context...
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - 步骤3完成: 上下文长度 7570 字符
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:50,432 - src.retrieval.retriever - INFO - 步骤4: LLM改写query并分析涉及的节点类型和关系类型...
+2025-11-06 11:21:50,432 - src.retrieval.type_analyzer - INFO - 开始分析查询类型: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:50,432 - src.retrieval.type_analyzer - INFO - 步骤1: 使用LLM改写query...
+2025-11-06 11:21:53,727 - src.retrieval.type_analyzer - INFO - 改写后的query: A 21-year-old male presents with pruritus and a hypopigmented rash on the upper body, onset 5 days ago. Symptoms began after a recent trip to the Bahamas, involving beach visits and hiking. The rash started as a single lesion on the upper back and has spread to the shoulders. Patient has a history of type 1 diabetes mellitus, managed with an insulin pump, and a hemoglobin A1C of 7.8% one month prior. He is sexually active with inconsistent condom use. Vital signs: temperature 37.2°C, pulse 78/min, blood pressure 130/84 mm Hg. Given this clinical presentation, which diagnostic test is most likely to confirm the diagnosis? Options: A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:53,727 - src.retrieval.type_analyzer - INFO - 步骤2: 根据改写后的query筛选类型...
+2025-11-06 11:21:56,947 - src.retrieval.type_analyzer - INFO - 筛选结果 - 节点类型: 8 个, 关系类型: 5 个
+2025-11-06 11:21:56,948 - src.retrieval.type_analyzer - INFO - 筛选出的节点类型: ['Sign or Symptom', 'Disease or Syndrome', 'Finding', 'Body Location or Region', 'Patient or Disabled Group', 'Clinical Attribute', 'Laboratory or Test Result', 'Diagnostic Procedure']
+2025-11-06 11:21:56,948 - src.retrieval.type_analyzer - INFO - 筛选出的关系类型: ['has_sign_or_symptom', 'manifestation_of', 'result_of', 'may_diagnose', 'has_associated_condition']
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 改写后的query: A 21-year-old male presents with pruritus and a hypopigmented rash on the upper body, onset 5 days ago. Symptoms began after a recent trip to the Bahamas, involving beach visits and hiking. The rash started as a single lesion on the upper back and has spread to the shoulders. Patient has a history of type 1 diabetes mellitus, managed with an insulin pump, and a hemoglobin A1C of 7.8% one month prior. He is sexually active with inconsistent condom use. Vital signs: temperature 37.2°C, pulse 78/min, blood pressure 130/84 mm Hg. Given this clinical presentation, which diagnostic test is most likely to confirm the diagnosis? Options: A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤4完成: 识别出 8 个节点类型, 5 个关系类型
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤5: 根据节点类型和关系类型过滤结果...
+2025-11-06 11:21:56,948 - src.retrieval.result_filter - INFO - 根据节点类型过滤: 8 个类型
+2025-11-06 11:21:56,948 - src.retrieval.result_filter - INFO - 节点过滤: 50 -> 21
+2025-11-06 11:21:56,948 - src.retrieval.result_filter - INFO - 根据关系类型过滤: 5 个类型
+2025-11-06 11:21:56,948 - src.retrieval.result_filter - INFO - 关系过滤: 93 -> 0
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤5完成: 过滤后剩余 21 个节点, 0 个关系
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤6: 生成结构化上下文Context（过滤后）...
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤6完成: 上下文长度 5173 字符
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 最终格式化后的上下文（将传递给LLM的prompt）:
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - **User Query:** A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+
+**PageRank Retrieval Results:**
+- Total Entities: 21
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. type 1 diabetes mellitus with ophthalmic manifestations
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.044322
+   - Definition: No definition available...
+
+2. Hemoglobin A1c less than 7 percent indicating good diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.035964
+   - Definition: No definition available...
+
+3. Disorder of eye due to diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.035520
+   - Definition: A group of disorders affecting the eye in patients with diabetes mellitus. It includes cataract, glaucoma, retinopathy, and blindness....
+
+4. Hyperosmolar coma due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.026234
+   - Definition: No definition available...
+
+5. Ketoacidosis due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.026212
+   - Definition: No definition available...
+
+6. Hemoglobin A1C - diabetic control finding
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.025442
+   - Definition: No definition available...
+
+7. Hemoglobin A1C - diabetic control interpretation
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025442
+   - Definition: No definition available...
+
+8. Insulin dependent diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.014822
+   - Definition: subtype of diabetes mellitus that is characterized by insulin deficiency; it is manifested by the sudden onset of severe hyperglycemia, rapid progress...
+
+9. Potassium hydroxide preparation negative
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+10. Hemoglobin A1c between 7 percent to 10 percent indicating borderline diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+11. skin culture Streptococcus
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+12. Hemoglobin A1c greater than 10 percent indicating poor diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+13. uncontrolled type 1 diabetes mellitus with ophthalmic manifestations
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.012488
+   - Definition: No definition available...
+
+14. Parasite cervical specimen test positive
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.012165
+   - Definition: No definition available...
+
+15. type 1 diabetes mellitus with coma
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009477
+   - Definition: No definition available...
+
+16. Diabetic Ketoacidosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008096
+   - Definition: A life-threatening complication of diabetes mellitus, primarily of TYPE 1 DIABETES MELLITUS with severe INSULIN deficiency and extreme HYPERGLYCEMIA. ...
+
+17. Diabetes with hyperosmolar coma
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006367
+   - Definition: A serious complication of TYPE 2 DIABETES MELLITUS. It is characterized by extreme HYPERGLYCEMIA; DEHYDRATION; serum hyperosmolarity; and depressed co...
+
+18. Acidosis due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006293
+   - Definition: No definition available...
+
+19. uncontrolled type 1 diabetes mellitus with diabetic ketoacidosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.004316
+   - Definition: No definition available...
+
+20. most recent hemoglobin A1C level 7.0 - 9.0%
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.004063
+   - Definition: No definition available...
+
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 上下文长度: 5173 字符
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.retriever - INFO - 步骤7: 使用LLM生成最终响应...
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - 发送完整prompt到LLM
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - You are a professional physician proficient in clinical case analysis and medical exam question-solving (focusing on Step2&3 logic). Your core task is to analyze the patient’s case, deduce the suspected diagnosis, evaluate each option based on clinical evidence, and select the most accurate answer to confirm the diagnosis.
+**Premises**:
+- All information is based solely on the provided patient report and structured background (no external information added).
+- Adhere to authoritative clinical guidelines (referenced from UMLS) to match "suspected diagnosis → confirmatory examination" core logic.
+- Prioritize practicality: focus on "which examination can directly confirm the disease" rather than irrelevant indicator analysis.
+**Core Tasks**:
+ - Extract key clinical information from the patient’s report (symptoms, history, physical signs, exposure factors) and list it concisely.
+ - Deduce 1-2 most likely suspected diagnoses based on key information.
+ - Analyze each option one by one: explain why it is the correct answer (if applicable) or why it is excluded (clinical rationality, sensitivity/specificity, invasiveness, etc.).
+ - Clearly output the final answer (specify option letter + name) and summarize the core reasoning chain.
+
+**Structured Background Information:**
+**User Query:** A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+
+**PageRank Retrieval Results:**
+- Total Entities: 21
+- Total Relationships: 0
+
+**Top Relevant Entities (sorted by PageRank score):**
+1. type 1 diabetes mellitus with ophthalmic manifestations
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.044322
+   - Definition: No definition available...
+
+2. Hemoglobin A1c less than 7 percent indicating good diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.035964
+   - Definition: No definition available...
+
+3. Disorder of eye due to diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.035520
+   - Definition: A group of disorders affecting the eye in patients with diabetes mellitus. It includes cataract, glaucoma, retinopathy, and blindness....
+
+4. Hyperosmolar coma due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.026234
+   - Definition: No definition available...
+
+5. Ketoacidosis due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.026212
+   - Definition: No definition available...
+
+6. Hemoglobin A1C - diabetic control finding
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.025442
+   - Definition: No definition available...
+
+7. Hemoglobin A1C - diabetic control interpretation
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.025442
+   - Definition: No definition available...
+
+8. Insulin dependent diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.014822
+   - Definition: subtype of diabetes mellitus that is characterized by insulin deficiency; it is manifested by the sudden onset of severe hyperglycemia, rapid progress...
+
+9. Potassium hydroxide preparation negative
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+10. Hemoglobin A1c between 7 percent to 10 percent indicating borderline diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+11. skin culture Streptococcus
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+12. Hemoglobin A1c greater than 10 percent indicating poor diabetic control
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.014340
+   - Definition: No definition available...
+
+13. uncontrolled type 1 diabetes mellitus with ophthalmic manifestations
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.012488
+   - Definition: No definition available...
+
+14. Parasite cervical specimen test positive
+   - Type: Laboratory or Test Result
+   - CUI: None
+   - PageRank Score: 0.012165
+   - Definition: No definition available...
+
+15. type 1 diabetes mellitus with coma
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.009477
+   - Definition: No definition available...
+
+16. Diabetic Ketoacidosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.008096
+   - Definition: A life-threatening complication of diabetes mellitus, primarily of TYPE 1 DIABETES MELLITUS with severe INSULIN deficiency and extreme HYPERGLYCEMIA. ...
+
+17. Diabetes with hyperosmolar coma
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006367
+   - Definition: A serious complication of TYPE 2 DIABETES MELLITUS. It is characterized by extreme HYPERGLYCEMIA; DEHYDRATION; serum hyperosmolarity; and depressed co...
+
+18. Acidosis due to type 1 diabetes mellitus
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.006293
+   - Definition: No definition available...
+
+19. uncontrolled type 1 diabetes mellitus with diabetic ketoacidosis
+   - Type: Disease or Syndrome
+   - CUI: None
+   - PageRank Score: 0.004316
+   - Definition: No definition available...
+
+20. most recent hemoglobin A1C level 7.0 - 9.0%
+   - Type: Finding
+   - CUI: None
+   - PageRank Score: 0.004063
+   - Definition: No definition available...
+
+
+**User Report:**
+A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing 
+
+**Output Format (Strictly Follow)**:
+0. Key Clinical Information Extraction
+- List core symptoms, medical history, travel/exposure factors, and critical physical signs (only relevant to the rash/diagnosis).
+I. Suspected Diagnosis
+- Propose the most likely diagnosis(es) and briefly explain the matching basis with clinical information.
+II. Option-by-Option Analysis
+- For each option (A-E), write 1-2 sentences explaining:
+  - If it is the correct answer: Why it is the gold standard / 首选 confirmatory examination for the suspected diagnosis.
+  - If it is an incorrect answer: Why it is not suitable (e.g., low sensitivity, auxiliary only, irrelevant to diagnosis).
+III. Final Answer
+Explicitly state: "The most likely answer is [Option Letter]: [Option Name]."
+IV. Core Reasoning Chain Summary
+Connect "clinical information → suspected diagnosis → confirmatory examination (correct option)" in a logical line.
+Data Source: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - Prompt总长度: 8874 字符
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - 结构化上下文长度: 5173 字符
+2025-11-06 11:21:56,948 - src.retrieval.llm_integration - INFO - ================================================================================
+2025-11-06 11:22:05,937 - root - INFO - LLM成功生成响应。
+2025-11-06 11:22:05,937 - src.retrieval.retriever - INFO - 步骤7完成: LLM响应长度 2417 字符
+2025-11-06 11:22:05,937 - src.retrieval.retriever - INFO - ================================================================================
+2025-11-06 11:22:05,937 - src.retrieval.retriever - INFO - 完整检索流程完成
+
+=== 查询结果 ===
+查询: A 21-year-old man comes to the physician because of pruritus and a hypopigmented rash on his upper body for 5 days. He first noticed the symptoms after returning from a business trip last week in the Bahamas. While he was there, he visited a couple of beaches and went hiking with some coworkers. The rash initially started as a single lesion on his upper back but since then has extended to his shoulders. He has a history of type 1 diabetes mellitus controlled with an insulin pump. He works as an office manager and has no known exposure to melanocytotoxic chemicals. He has been sexually active with three female partners over the past year and uses condoms inconsistently. He is 183 cm (6 ft) tall and weighs 80 kg (176 lb); BMI is 23.9 kg/m2. His temperature is 37.2°C (99°F), pulse is 78/min, and blood pressure is 130/84 mm Hg. A photograph of the rash is shown. One month ago, his hemoglobin A1C was 7.8%. Which of the following is most likely to confirm the diagnosis?
+ options:A: Wood lamp examination, B: Skin culture, C: Potassium hydroxide preparation, D: Skin biopsy, E: Antinuclear antibody testing
+检索方法: PageRank
+找到 21 个实体, 0 个关系
+
+--- 相关实体 ---
+- Disease or Syndrome: type 1 diabetes mellitus with ophthalmic manifestations (PageRank: 0.0443)
+- Finding: Hemoglobin A1c less than 7 percent indicating good diabetic control (PageRank: 0.0360)
+- Disease or Syndrome: Disorder of eye due to diabetes mellitus (PageRank: 0.0355)
+- Disease or Syndrome: Hyperosmolar coma due to type 1 diabetes mellitus (PageRank: 0.0262)
+- Disease or Syndrome: Ketoacidosis due to type 1 diabetes mellitus (PageRank: 0.0262)
+- Laboratory or Test Result: Hemoglobin A1C - diabetic control finding (PageRank: 0.0254)
+- Finding: Hemoglobin A1C - diabetic control interpretation (PageRank: 0.0254)
+- Disease or Syndrome: Insulin dependent diabetes mellitus (PageRank: 0.0148)
+- Laboratory or Test Result: Potassium hydroxide preparation negative (PageRank: 0.0143)
+- Finding: Hemoglobin A1c between 7 percent to 10 percent indicating borderline diabetic control (PageRank: 0.0143)
+
+--- 推理链 ---
+0. Key Clinical Information Extraction
+- Pruritic, hypopigmented rash on upper body for 5 days.
+- Rash started as a single lesion on the back and spread to shoulders.
+- Recent travel to the Bahamas with beach visits and hiking.
+- History of type 1 diabetes mellitus (HbA1c 7.8% one month ago).
+- Inconsistent condom use with multiple sexual partners.
+
+I. Suspected Diagnosis
+- **Tinea versicolor (Pityriasis versicolor)**: This fungal infection presents as hypopigmented or hyperpigmented macules, often on the trunk and upper extremities, and is associated with warm, humid climates (like the Bahamas) and can be exacerbated by sweating (hiking/beach visits). The rash's spread and pruritus are consistent with this diagnosis.
+- **Secondary syphilis**: Given the patient’s sexual history and the description of the rash, secondary syphilis should also be considered, although the hypopigmentation is less typical.
+
+II. Option-by-Option Analysis
+- **A: Wood lamp examination**: This is the gold standard for diagnosing Tinea versicolor, as the fungus will fluoresce yellow-orange under Wood's lamp.
+- **B: Skin culture**: While skin culture can identify fungal infections, it is less specific and slower than Wood's lamp for Tinea versicolor. It's also useful for bacterial infections, but less likely in this case.
+- **C: Potassium hydroxide preparation**: This is used to detect fungal elements in skin scrapings, but is less sensitive than Wood's lamp for Tinea versicolor and requires scraping the lesion, which may not be necessary if the Wood's lamp is positive.
+- **D: Skin biopsy**: This is invasive and generally not required for diagnosing Tinea versicolor, which can be diagnosed clinically and with a Wood's lamp. It would be reserved for atypical presentations or if the diagnosis is uncertain. It would be more useful in ruling out other conditions, like cutaneous lymphoma.
+- **E: Antinuclear antibody testing**: This is used to diagnose autoimmune diseases and is irrelevant to the patient's presentation.
+
+III. Final Answer
+The most likely answer is A: Wood lamp examination.
+
+IV. Core Reasoning Chain Summary
+Patient presents with a pruritic, hypopigmented rash after travel to a warm, humid climate → Suspect Tinea versicolor (Pityriasis versicolor) → Wood's lamp examination is the most direct and non-invasive method to confirm the diagnosis by visualizing the characteristic fungal fluorescence.
+
+✅ 查询完成
+2025-11-06 11:22:05,939 - __main__ - INFO - 🔌 正在关闭数据库连接...
+👋 程序结束

@@ -1,0 +1,4 @@
+nohup: 忽略输入
+2025-10-10 14:31:59,898 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-10-10 14:31:59,898 - __main__ - INFO - 数据库连接成功
+2025-10-10 14:31:59,898 - __main__ - INFO - 执行命令: /home/ymkj/anaconda3/envs/orthographrag/bin/python /home/ymkj/zxz-new/healthcare-modeling/healthcare-modeling/scripts/connect_graphs.py --similarity-threshold 0.5

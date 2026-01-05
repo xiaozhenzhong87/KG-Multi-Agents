@@ -1,0 +1,20 @@
+Lin {"gender": "woman", "age": 7} ——[has_encountered]——> Encounter_2025-09-19 { "date": "2025-09-19"}
+Encounter_2025-09-19 ——[includes]——> Laboratory_Tests_Worsened
+Laboratory_Tests_Worsened ——[has_test]——> White_Blood_Cell_Count
+White_Blood_Cell_Count ——[has_result]——> { "name": "white blood cell count significantly elevated", "value": 22.8, "unit": "10^9/L", "reference": "4.0-10.0"}
+Laboratory_Tests_Worsened ——[has_test]——> Lymphocyte_Count
+Lymphocyte_Count ——[has_result]——> { "name": "lymphocyte count severely elevated", "value": 8.9, "unit": "10^9/L", "reference": "1.2-3.0"}
+Laboratory_Tests_Worsened ——[has_test]——> Lymphocyte_Percent_Differential_Count
+Lymphocyte_Percent_Differential_Count ——[has_result]——> { "name": "lymphocyte percent differential count abnormal (decreased)", "value": 18.3, "unit": "%", "reference": "20.0-40.0"}
+Laboratory_Tests_Worsened ——[has_test]——> C_Reactive_Protein
+C_Reactive_Protein ——[has_result]——> { "name": "C-reactive protein markedly elevated", "value": 85.6, "unit": "mg/L", "reference": "0-10"}
+Laboratory_Tests_Worsened ——[has_test]——> Erythrocyte_Sedimentation_Rate
+Erythrocyte_Sedimentation_Rate ——[has_result]——> { "name": "erythrocyte sedimentation rate significantly increased", "value": 62, "unit": "mm/h", "reference": "0-20"}
+Encounter_2025-09-19 ——[includes]——> Juvenile_Arthritis_Activity_Worsened
+Juvenile_Arthritis_Activity_Worsened ——[has_result]——> {
+"score": 28,
+"activity_level": "severe",
+"scoring_system": { "mild": "0-10", "moderate": "11-20", "severe": "≥21" },
+"assessment_note": "The child now has significant swelling in the wrists, knees, and ankles on both sides, morning stiffness lasting up to 2.5 hours, and joint mobility becoming increasingly restricted. He also has systemic inflammation (low-grade fever, fatigue), meeting the criteria for severe activity.",
+"joint_involvement": "New bilateral elbow involvement"
+}

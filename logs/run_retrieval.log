@@ -1,0 +1,336 @@
+nohup: 忽略输入
+INFO:src.core.database:成功连接到Neo4j数据库
+INFO:__main__:✓ 系统就绪
+INFO:src.retrieval.retriever:开始完整检索流程: This physical examination report is for a 7-year-old female, whose name is Miss Lin and her hospital number is 12345.
+INFO:root:步骤1: 识别核心标识...
+INFO:root:检测医院号码
+INFO:root:检测到医院号码: 12345
+INFO:root:检测患者姓名
+INFO:root:检测到潜在患者姓名: This
+INFO:root:发送实体提取请求，问题: This physical examination report is for a 7-year-old female, whose name is Miss Lin and her hospital number is 12345.
+INFO:root:实体提取原始响应:
+Miss Lin, 12345
+INFO:root:使用最后一行进行解析: Miss Lin, 12345
+INFO:root:LLM提取的实体（处理后）: ['Miss Lin', '12345']
+INFO:root:检测结果 - 医院号码: 12345, 患者姓名: This, 实体: ['12345', 'Miss Lin']
+INFO:src.retrieval.retriever:核心标识符识别完成: {'hospital_number': '12345', 'patient_name': 'This', 'entities': ['12345', 'Miss Lin']}
+INFO:src.retrieval.retriever:通过医院号码找到患者ID: 4:4e5444f3-9500-4fce-9ed8-063ea74b42fa:1450223
+INFO:src.retrieval.retriever:开始私有层检索
+INFO:root:=== 私有层完整遍历 (最大跳数: 5, 最大实体数: 50) ===
+INFO:root:跳数 1 配额分配: Test_Result=20, Test_Type=15, Other=15
+INFO:root:私有层跳数 1 找到 2 个实体
+INFO:root:跳数 1 类型分布: {'Other': 2}
+INFO:root:跳数 2 配额分配: Test_Result=20, Test_Type=15, Other=15
+INFO:root:私有层跳数 2 找到 4 个实体
+INFO:root:跳数 2 类型分布: {'Other': 4}
+INFO:root:跳数 3 配额分配: Test_Result=20, Test_Type=15, Other=15
+INFO:root:私有层跳数 3 找到 29 个实体
+INFO:root:跳数 3 类型分布: {'Test_Result': 3, 'Test_Type': 11, 'Other': 15}
+INFO:root:跳数 4 配额分配: Test_Result=20, Test_Type=15, Other=15
+INFO:root:私有层跳数 4 找到 50 个实体
+INFO:root:跳数 4 类型分布: {'Test_Result': 20, 'Test_Type': 15, 'Other': 15}
+INFO:root:跳数 5 配额分配: Test_Result=20, Test_Type=15, Other=15
+INFO:root:私有层跳数 5 找到 50 个实体
+INFO:root:跳数 5 类型分布: {'Test_Result': 20, 'Test_Type': 15, 'Other': 15}
+INFO:root:私有层完整遍历总共找到 24 个节点和 16 个推理链
+INFO:src.retrieval.retriever:开始公有层检索
+INFO:root:=== 公有层完整遍历 (最大跳数: 3, 最大概念数: 50) ===
+INFO:root:实体ID类型: <class 'str'>, 值: 03f85411-b6b2-45c1-be62-3b88700cd2ab
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient 12-19 years old, 2-3 physician visits (相似度: 0.6338221015228372)
+INFO:root:找到UMLS概念关联: NYTS 2022 Version - Watch TV How Often See Ads E-Cigs (相似度: 0.6308158621542516)
+INFO:root:找到UMLS概念关联: End-stage renal disease (ESRD) related services monthly, for patients 12-19 years of age to include monitoring for the adequacy of nutrition, assessment of growth and development, and counseling of parents; with 2-3 face-to-face visits by a physician or other qualified health care professional per month (相似度: 0.6296248784402099)
+INFO:root:找到UMLS概念关联: Annual wellness visit, includes a personalized prevention plan of service (pps), subsequent visit (相似度: 0.6277536216302967)
+INFO:root:找到UMLS概念关联: Ambulatory Visit (相似度: 0.6269817693989643)
+INFO:root:找到UMLS概念关联: End-stage renal disease (ESRD) related services monthly, for patients 12-19 years of age to include monitoring for the adequacy of nutrition, assessment of growth and development, and counseling of parents; with 4 or more face-to-face visits by a physician or other qualified health care professional per month (相似度: 0.6249575841640087)
+INFO:root:找到UMLS概念关联: End-stage renal disease (ESRD) related services monthly, for patients 12-19 years of age to include monitoring for the adequacy of nutrition, assessment of growth and development, and counseling of parents; with 1 face-to-face visit by a physician or other qualified health care professional per month (相似度: 0.6241674097184476)
+INFO:root:找到UMLS概念关联: Annual wellness visit; includes a personalized prevention plan of service (pps), initial visit (相似度: 0.6240803373841841)
+INFO:root:找到UMLS概念关联: Initial preventive physical examination; face-to-face visit, services limited to new beneficiary during the first 12 months of medicare enrollment (相似度: 0.6217331985265939)
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient 12-19 years old, one physician visit (相似度: 0.6206477880592858)
+INFO:root:实体ID类型: <class 'str'>, 值: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Immunization counseling by a physician or other qualified health care professional for covid-19, ages under 21, 16-30 mins time (this code is used for the medicaid early and periodic screening, diagnostic, and treatment benefit (epsdt) (相似度: 0.6461002164832318)
+INFO:root:找到UMLS概念关联: Ellume COVID-19 Home Test (相似度: 0.6385933665862811)
+INFO:root:找到UMLS概念关联: Ambulatory Visit (相似度: 0.6309014899306702)
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient 12-19 years old, 2-3 physician visits (相似度: 0.6264387422226929)
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient over 19 years old, one physician visit (相似度: 0.6227477847600571)
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient over 19 years old, 2-3 physician visits (相似度: 0.6209803300778591)
+INFO:root:找到UMLS概念关联: ESRD management monthly, patient 12-19 years old, one physician visit (相似度: 0.6173007646980068)
+INFO:root:找到UMLS概念关联: Specialty Care Physician's Office Visit (相似度: 0.6150745630377221)
+INFO:root:找到UMLS概念关联: End-stage renal disease (ESRD) related services monthly, for patients 12-19 years of age to include monitoring for the adequacy of nutrition, assessment of growth and development, and counseling of parents; with 2-3 face-to-face visits by a physician or other qualified health care professional per month (相似度: 0.6139873983404052)
+INFO:root:找到UMLS概念关联: Nine total medicare diabetes prevention program (mdpp) core sessions were attended by an mdpp beneficiary under the mdpp expanded model (em). a core session is an mdpp service that: (1) is furnished by an mdpp supplier during months 1 through 6 of the mdpp services period; (2) is approximately 1 hour in length; and (3) adheres to a cdc-approved dpp curriculum for core sessions (相似度: 0.6123201303840395)
+INFO:root:实体ID类型: <class 'str'>, 值: fed1ab79-c588-4fbf-a1e7-bb63aec6466d
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Juvenile Arthritis Disease Activity Score (相似度: 0.6620735035833318)
+INFO:root:找到UMLS概念关联: juvenile arthritis of multiple sites (相似度: 0.6335941653282451)
+INFO:root:找到UMLS概念关联: Juvenile arthritis with systemic onset, multiple sites (相似度: 0.6322708415598834)
+INFO:root:找到UMLS概念关联: Juvenile arthritis, unspecified, multiple sites (相似度: 0.6189125182619248)
+INFO:root:找到UMLS概念关联: Oligoarticular juvenile idiopathic arthritis (相似度: 0.6171131347641112)
+INFO:root:找到UMLS概念关联: Juvenile Spondyloarthritis Disease Activity Index (相似度: 0.6166749684163036)
+INFO:root:找到UMLS概念关联: acute monoarticular juvenile idiopathic arthritis (相似度: 0.6133546682087793)
+INFO:root:找到UMLS概念关联: systemic onset juvenile idiopathic arthritis of joint of multiple sites (相似度: 0.6129483661668936)
+INFO:root:找到UMLS概念关联: juvenile arthritis (相似度: 0.6121467737644392)
+INFO:root:找到UMLS概念关联: Monoarticular juvenile rheumatoid arthritis (相似度: 0.6091227262562332)
+INFO:root:实体ID类型: <class 'str'>, 值: d99e625e-37d9-468d-8b6a-7edd04fba609
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Disease activity score using 28 joint count (相似度: 0.6749016718138376)
+INFO:root:找到UMLS概念关联: Swollen 28 joint count (相似度: 0.6453897206801631)
+INFO:root:找到UMLS概念关联: Disease activity score 28 joint in rheumatoid arthritis (相似度: 0.6259710045036291)
+INFO:root:找到UMLS概念关联: disease activity score das28 (相似度: 0.6192778795506226)
+INFO:root:找到UMLS概念关联: Severe Adverse Event (相似度: 0.611929246969662)
+INFO:root:找到UMLS概念关联: Overall Comorbidity Score (相似度: 0.6091244843076781)
+INFO:root:找到UMLS概念关联: Juvenile Arthritis Disease Activity Score (相似度: 0.6074194351297679)
+INFO:root:找到UMLS概念关联: Juvenile arthritis in psoriasis, multiple sites (相似度: 0.6056829594466873)
+INFO:root:找到UMLS概念关联: Systemic onset juvenile chronic arthritis (相似度: 0.602527803724262)
+INFO:root:找到UMLS概念关联: shoulder joint pain worsens with extended activity (相似度: 0.6025141521399021)
+INFO:root:实体ID类型: <class 'str'>, 值: 46517187-98ae-43e7-bd03-d5efa69a2207
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Test;blood;blood (相似度: 0.7822794360767362)
+INFO:root:找到UMLS概念关联: Blood--Examination (相似度: 0.7732410046088902)
+INFO:root:找到UMLS概念关联: Test;other lab;blood (相似度: 0.7595642853060994)
+INFO:root:找到UMLS概念关联: blood test (相似度: 0.7452773608661869)
+INFO:root:找到UMLS概念关联: Peripheral Blood Analysis (相似度: 0.7435405937993202)
+INFO:root:找到UMLS概念关联: Test;blood group (相似度: 0.742806301254469)
+INFO:root:找到UMLS概念关联: Specimen analysis for blood (相似度: 0.7411400437051835)
+INFO:root:找到UMLS概念关联: Laboratory procedure (相似度: 0.7275702169149061)
+INFO:root:找到UMLS概念关联: Test;blood;psychological (相似度: 0.7233547970455618)
+INFO:root:找到UMLS概念关联: Analytical Laboratory Testing, Not Otherwise Specified (相似度: 0.7232477692512368)
+INFO:root:实体ID类型: <class 'str'>, 值: 28959336-cf9b-4528-bb4e-02d306b494cf
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Elevated Test Result (相似度: 0.6861084188272052)
+INFO:root:找到UMLS概念关联: Hematology test outside reference range (相似度: 0.6807803351810617)
+INFO:root:找到UMLS概念关联: LAB ELEVATED (相似度: 0.6744742944646206)
+INFO:root:找到UMLS概念关联: Abnormal Blood Chemistry and Hematology Test Result (相似度: 0.6663205555559584)
+INFO:root:找到UMLS概念关联: Lab Findings of New or Worsening Heart Failure (相似度: 0.6659118946970517)
+INFO:root:找到UMLS概念关联: Laboratory test due (相似度: 0.6407028947280597)
+INFO:root:找到UMLS概念关联: Laboratory test result abnormal (相似度: 0.6342108747222956)
+INFO:root:找到UMLS概念关联: LE SYNDROME AGGRAVATED (相似度: 0.632019019834593)
+INFO:root:找到UMLS概念关联: blood profile abnormal bleeding (相似度: 0.6307247493260604)
+INFO:root:找到UMLS概念关联: Laboratory Test Original Result (相似度: 0.6289826853079095)
+INFO:root:实体ID类型: <class 'str'>, 值: 5356a5a5-92ca-416a-8b38-4708e8c3db15
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Analyzers, Laboratory, Hematology, Erythrocyte Sedimentation Rate (相似度: 0.6310068125051898)
+INFO:root:找到UMLS概念关联: Streptococcus pyogenes type emm62 (相似度: 0.6184303828938951)
+INFO:root:找到UMLS概念关联: Elevated Sedimentation Rate (相似度: 0.6007446249710787)
+INFO:root:找到UMLS概念关联: Seconds Per Hour (相似度: 0.5857871871298306)
+INFO:root:找到UMLS概念关联: DEVICE, AUTOMATED SEDIMENTATION RATE (相似度: 0.5813982912194432)
+INFO:root:找到UMLS概念关联: ribosomal protein SA pseudogene 62 (相似度: 0.577252447340042)
+INFO:root:找到UMLS概念关联: Elevated sedimentation rate (相似度: 0.5717724053961962)
+INFO:root:找到UMLS概念关联: Baseline mrs > 2 (相似度: 0.5699176225294693)
+INFO:root:找到UMLS概念关联: Farnsworth-Munsell 100 hue position 62 (相似度: 0.5686221993442244)
+INFO:root:找到UMLS概念关联: Erythrocyte sedimentation rate outside reference range (相似度: 0.5675040024257212)
+INFO:root:实体ID类型: <class 'str'>, 值: 8a2937b5-eaba-4686-be51-105e798f8247
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Measurement C-reactive protein for detection of infection or inflammation (相似度: 0.8689663840987538)
+INFO:root:找到UMLS概念关联: C-reactive protein measurement (相似度: 0.8671704471041393)
+INFO:root:找到UMLS概念关联: c reactive protein test (相似度: 0.8269957179959333)
+INFO:root:找到UMLS概念关联: serum C-reactive protein measurement (相似度: 0.8226005540472128)
+INFO:root:找到UMLS概念关联: Serum C-Reactive Protein Test (相似度: 0.8187900638676602)
+INFO:root:找到UMLS概念关联: Measurement C-reactive protein for detection of infection or inflammation, high sensitivity (相似度: 0.8153679219020742)
+INFO:root:找到UMLS概念关联: Plasma C-reactive protein measurement (相似度: 0.8130571948254497)
+INFO:root:找到UMLS概念关联: Serum C reactive protein level (相似度: 0.8113901680470802)
+INFO:root:找到UMLS概念关联: C-REACTIVE PROTEIN, ANTIGEN, ANTISERUM, AND CONTROL (相似度: 0.8015727740915322)
+INFO:root:找到UMLS概念关联: SYSTEM, TEST, C-REACTIVE PROTEIN (相似度: 0.78981661811383)
+INFO:root:实体ID类型: <class 'str'>, 值: 6c23fe33-4264-416e-8f3a-4b4657c86556
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Erythrocyte sedimentation rate - finding (相似度: 0.8852075855290114)
+INFO:root:找到UMLS概念关联: Erythrocyte sedimentation rate, non-automated (相似度: 0.8662578829338907)
+INFO:root:找到UMLS概念关联: Erythrocyte sedimentation rate, automated (相似度: 0.8381904945302678)
+INFO:root:找到UMLS概念关联: nonautomated erythrocyte sedimentation rate (相似度: 0.83667003881293)
+INFO:root:找到UMLS概念关联: TEST, ERYTHROCYTE SEDIMENTATION RATE (相似度: 0.8310337166967119)
+INFO:root:找到UMLS概念关联: Sedimentation rate, Westergren (相似度: 0.8203201314357088)
+INFO:root:找到UMLS概念关联: Red blood cell sedimentation rate, to detect inflammation, automated (相似度: 0.800891211203796)
+INFO:root:找到UMLS概念关联: TUBE, SEDIMENTATION RATE (相似度: 0.7990357591561967)
+INFO:root:找到UMLS概念关联: Red blood cell sedimentation rate, to detect inflammation, non-automated (相似度: 0.7984489828068009)
+INFO:root:找到UMLS概念关联: Blood Sedimentation (相似度: 0.7898972261789071)
+INFO:root:实体ID类型: <class 'str'>, 值: de54a4fa-7cf1-401f-bdb1-6f1f66d08bbc
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Lymphocyte Count (相似度: 0.8852499033310848)
+INFO:root:找到UMLS概念关联: Lymphocytic (相似度: 0.8603351356075863)
+INFO:root:找到UMLS概念关联: Lymphocyte component of blood (相似度: 0.8139938203146246)
+INFO:root:找到UMLS概念关联: Large Lymphocyte Count (相似度: 0.8133860157310158)
+INFO:root:找到UMLS概念关联: Lymphocyte to Leukocyte Ratio (相似度: 0.8009279936973281)
+INFO:root:找到UMLS概念关联: Lymphocyte to Total Cell Ratio Measurement (相似度: 0.7929600358759885)
+INFO:root:找到UMLS概念关联: Lymphoid Cell Count (相似度: 0.7807175635876127)
+INFO:root:找到UMLS概念关联: Absolute Blood Lymphocyte Count (相似度: 0.7688787022716758)
+INFO:root:找到UMLS概念关联: Lymphocyte Count Increased, CTCAE (相似度: 0.7661866401561003)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes (相似度: 0.7619029592112689)
+INFO:root:实体ID类型: <class 'str'>, 值: f0c1fd1a-7025-4626-bbb0-eee26b293013
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Lymphocyte Count (相似度: 0.8852499033310848)
+INFO:root:找到UMLS概念关联: Lymphocytic (相似度: 0.8603351356075863)
+INFO:root:找到UMLS概念关联: Lymphocyte component of blood (相似度: 0.8139938203146246)
+INFO:root:找到UMLS概念关联: Large Lymphocyte Count (相似度: 0.8133860157310158)
+INFO:root:找到UMLS概念关联: Lymphocyte to Leukocyte Ratio (相似度: 0.8009279936973281)
+INFO:root:找到UMLS概念关联: Lymphocyte to Total Cell Ratio Measurement (相似度: 0.7929600358759885)
+INFO:root:找到UMLS概念关联: Lymphoid Cell Count (相似度: 0.7807175635876127)
+INFO:root:找到UMLS概念关联: Absolute Blood Lymphocyte Count (相似度: 0.7688787022716758)
+INFO:root:找到UMLS概念关联: Lymphocyte Count Increased, CTCAE (相似度: 0.7661866401561003)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes (相似度: 0.7619029592112689)
+INFO:root:实体ID类型: <class 'str'>, 值: 422a5712-bd81-4492-aa9d-720a5e9c29c8
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Lymphocyte percent differential count (相似度: 0.8029557890126078)
+INFO:root:找到UMLS概念关联: Lymphocyte to Total Cell Ratio Measurement (相似度: 0.7821967904978224)
+INFO:root:找到UMLS概念关联: Lymphocyte to Leukocyte Ratio (相似度: 0.7777664701598364)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes (相似度: 0.7714375613345394)
+INFO:root:找到UMLS概念关联: Percent of Lymphocytes (相似度: 0.7627113040901559)
+INFO:root:找到UMLS概念关联: Lymphocyte Count (相似度: 0.742715021644857)
+INFO:root:找到UMLS概念关联: Lymphocyte Count Increased, CTCAE (相似度: 0.741600980235519)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes, automated count (相似度: 0.7352893169613148)
+INFO:root:找到UMLS概念关联: Lymphocytic (相似度: 0.726985547749996)
+INFO:root:找到UMLS概念关联: Lymphocyte Subpopulation to Leukocyte Ratio Measurement (相似度: 0.7222783653742106)
+INFO:root:实体ID类型: <class 'str'>, 值: af2a11eb-0fb6-4b5b-92ed-be4bff58f249
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: Lymphocyte percent differential count (相似度: 0.8029557890126078)
+INFO:root:找到UMLS概念关联: Lymphocyte to Total Cell Ratio Measurement (相似度: 0.7821967904978224)
+INFO:root:找到UMLS概念关联: Lymphocyte to Leukocyte Ratio (相似度: 0.7777664701598364)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes (相似度: 0.7714375613345394)
+INFO:root:找到UMLS概念关联: Percent of Lymphocytes (相似度: 0.7627113040901559)
+INFO:root:找到UMLS概念关联: Lymphocyte Count (相似度: 0.742715021644857)
+INFO:root:找到UMLS概念关联: Lymphocyte Count Increased, CTCAE (相似度: 0.741600980235519)
+INFO:root:找到UMLS概念关联: lymphocytes per 100 leukocytes, automated count (相似度: 0.7352893169613148)
+INFO:root:找到UMLS概念关联: Lymphocytic (相似度: 0.726985547749996)
+INFO:root:找到UMLS概念关联: Lymphocyte Subpopulation to Leukocyte Ratio Measurement (相似度: 0.7222783653742106)
+INFO:root:实体ID类型: <class 'str'>, 值: 18a55bf5-0e40-4f58-a3b5-0a229bce6806
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: White blood cell number - finding (相似度: 0.8236605710331133)
+INFO:root:找到UMLS概念关联: White blood cell test (相似度: 0.8127806806931129)
+INFO:root:找到UMLS概念关联: Total white blood count (相似度: 0.8042647188701213)
+INFO:root:找到UMLS概念关联: Microscopic examination for white blood cells (相似度: 0.7878507520773503)
+INFO:root:找到UMLS概念关联: Leukocyte Cell Morphology (相似度: 0.7713542698216906)
+INFO:root:找到UMLS概念关联: White blood cell antigen measurement (相似度: 0.7659789972325524)
+INFO:root:找到UMLS概念关联: Measurement of white blood cell function (相似度: 0.7657528976216427)
+INFO:root:找到UMLS概念关联: Non-cytochemical white blood cell test (相似度: 0.7551831667594531)
+INFO:root:找到UMLS概念关联: White blood cell morphology - finding (相似度: 0.7489907736954617)
+INFO:root:找到UMLS概念关联: white blood cell type (相似度: 0.748152495311092)
+INFO:root:实体ID类型: <class 'str'>, 值: c177550d-2aad-4588-a947-9b4b6678efb5
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: White blood cell number - finding (相似度: 0.8236605710331133)
+INFO:root:找到UMLS概念关联: White blood cell test (相似度: 0.8127806806931129)
+INFO:root:找到UMLS概念关联: Total white blood count (相似度: 0.8042647188701213)
+INFO:root:找到UMLS概念关联: Microscopic examination for white blood cells (相似度: 0.7878507520773503)
+INFO:root:找到UMLS概念关联: Leukocyte Cell Morphology (相似度: 0.7713542698216906)
+INFO:root:找到UMLS概念关联: White blood cell antigen measurement (相似度: 0.7659789972325524)
+INFO:root:找到UMLS概念关联: Measurement of white blood cell function (相似度: 0.7657528976216427)
+INFO:root:找到UMLS概念关联: Non-cytochemical white blood cell test (相似度: 0.7551831667594531)
+INFO:root:找到UMLS概念关联: White blood cell morphology - finding (相似度: 0.7489907736954617)
+INFO:root:找到UMLS概念关联: white blood cell type (相似度: 0.748152495311092)
+INFO:root:实体ID类型: <class 'str'>, 值: 2ad9f962-49f9-4324-b836-0208cd934cbb
+INFO:root:为实体查询REFERENCE_OF关系，相似度阈值: 0.5
+INFO:root:查询结果数量: 10
+INFO:root:找到UMLS概念关联: C-reactive protein (相似度: 0.6340339945549045)
+INFO:root:找到UMLS概念关联: C-reactive protein above reference range (相似度: 0.6274903769599096)
+INFO:root:找到UMLS概念关联: Elevated circulating C-reactive protein concentration (相似度: 0.6197973995028825)
+INFO:root:找到UMLS概念关联: C-REACTIVE PROTEIN POSITIVE (相似度: 0.591696343193443)
+INFO:root:找到UMLS概念关联: Ultra High Sensitivity C-Reactive Protein Measurement (相似度: 0.5910205210886619)
+INFO:root:找到UMLS概念关联: C-reactive protein outside reference range (相似度: 0.5873023520142782)
+INFO:root:找到UMLS概念关联: Elevated circulating calprotectin concentration (相似度: 0.5833481102289253)
+INFO:root:找到UMLS概念关联: Reduced circulating C-reactive protein concecntration (相似度: 0.5829415718124289)
+INFO:root:找到UMLS概念关联: C-reactive protein level (相似度: 0.5817155119947315)
+INFO:root:找到UMLS概念关联: IVD Test Reagent/Kits, Immunoassay, Protein, C-Reactive Protein (相似度: 0.5811379171257904)
+INFO:root:总共找到 119 个UMLS概念ID，开始多跳遍历
+INFO:root:公有层跳数 1 找到 16 个概念
+INFO:root:公有层跳数 2 找到 16 个概念
+INFO:root:公有层跳数 3 找到 16 个概念
+INFO:root:公有层完整遍历总共找到 2 个节点和 48 个推理链
+INFO:root:开始构建跨层推理链: 私有层节点数=24, 公有层概念数=2
+INFO:root:构建了 48 个跨层推理链
+INFO:root:--- 发送提示到LLM ---
+INFO:root:--- 提示结束 ---
+INFO:root:LLM成功生成响应。
+INFO:src.retrieval.retriever:完整检索流程完成
+查询: This physical examination report is for a 7-year-old female, whose name is Miss Lin and her hospital number is 12345.
+置信度: 0.000
+找到 26 个实体, 54 个关系
+
+--- 相关实体 ---
+1. Encounter: Encounter_2025-09-12
+2. Patient: Lin
+3. Laboratory_Tests: Laboratory_Tests
+4. Assessment: Juvenile_Arthritis_Activity
+5. Entity: History and physical examination, annual for health maintenance
+6. Encounter: Encounter_2025-09-19
+7. Laboratory_Tests: Laboratory_Tests_Worsened
+8. Assessment: Juvenile_Arthritis_Activity_Worsened
+9. Test_Result: erythrocyte sedimentation rate significantly increased
+10. Test_Type: Erythrocyte_Sedimentation_Rate
+
+--- 相关关系 ---
+1. has_encountered: 03f85411-b6b2-45c1-be62-3b88700cd2ab -> 2d4ddb6d-0bdd-4d7c-afc4-c7cc5ff7eef2
+2. includes: 03f85411-b6b2-45c1-be62-3b88700cd2ab -> 46517187-98ae-43e7-bd03-d5efa69a2207
+3. includes: 03f85411-b6b2-45c1-be62-3b88700cd2ab -> fed1ab79-c588-4fbf-a1e7-bb63aec6466d
+4. REFERENCE_OF: 03f85411-b6b2-45c1-be62-3b88700cd2ab -> neo4j_None
+5. REFERENCE_OF: 03f85411-b6b2-45c1-be62-3b88700cd2ab -> neo4j_None
+6. has_encountered: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb -> 2d4ddb6d-0bdd-4d7c-afc4-c7cc5ff7eef2
+7. includes: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb -> 28959336-cf9b-4528-bb4e-02d306b494cf
+8. includes: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb -> d99e625e-37d9-468d-8b6a-7edd04fba609
+9. REFERENCE_OF: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb -> neo4j_None
+10. REFERENCE_OF: dcd6262b-9ddb-4ce1-bc71-0a32a5e8ddfb -> neo4j_None
+
+--- LLM分析报告 ---
+## Analysis of Miss Lin's Medical Examination Report
+
+**0. Overall Analysis of the Patient's Medical/Physical Examination Report**
+
+The report details laboratory test results for Miss Lin, a 7-year-old female (Hospital Number: 12345). Two encounters are documented: September 12th and September 19th. The following indicators were detected:
+
+*   **Erythrocyte Sedimentation Rate (ESR):** September 12th: 62.0 mm/h (significantly increased).
+*   **C-Reactive Protein (CRP):** September 12th: 85.6 mg/L (markedly elevated).
+*   **Lymphocyte Count:** September 12th: 8.9 10^9/L (severely elevated); September 12th: 5.2 10^9/L (elevated).
+*   **Lymphocyte Percent Differential Count:** September 12th: 18.3% (decreased); September 12th: 35.8% (normal).
+*   **White Blood Cell Count (WBC):** September 12th: 22.8 10^9/L (significantly elevated); September 12th: 14.5 10^9/L (elevated).
+*   **Juvenile Arthritis Activity:** September 12th: Score 13; September 19th: Score 28.
+
+**I. Risk Warning for Indicators**
+
+*   **Erythrocyte Sedimentation Rate (ESR):** Over Alert - Value of 62.0 mm/h is significantly above the reference range of 0-20 mm/h.
+*   **C-Reactive Protein (CRP):** Over Alert - Value of 85.6 mg/L is markedly above the reference range of 0-10 mg/L.
+*   **Lymphocyte Count:** Over Alert - Values of 8.9 10^9/L and 5.2 10^9/L are both significantly above the reference range of 1.2-3.0 10^9/L.
+*   **Lymphocyte Percent Differential Count:** Under Alert - Value of 18.3% is below the reference range of 20.0-40.0%.
+*   **White Blood Cell Count (WBC):** Over Alert - Values of 22.8 10^9/L and 14.5 10^9/L are both significantly above the reference range of 4.0-10.0 10^9/L.
+*   **Juvenile Arthritis Activity:** Trend Change Alert - Score increased from 13 on September 12th to 28 on September 19th, indicating worsening activity.
+
+**II. Disease Attribution (Reasoning Chain)**
+
+1.  **Elevated ESR & CRP:** These are non-specific markers of inflammation. (Based on general medical knowledge).
+2.  **Elevated WBC & Lymphocyte Count:** Suggests an active immune response, potentially due to infection or inflammation. (Based on general medical knowledge).
+3.  **Decreased Lymphocyte Percent Differential Count:** While lymphocyte count is elevated, the percentage decrease suggests a possible shift in lymphocyte populations. (Based on general medical knowledge).
+4.  **Worsening Juvenile Arthritis Activity Score:** Directly indicates increased disease activity in the context of potential juvenile arthritis. (Based on provided assessment node).
+
+**III. Prediction of Potential Disease Risks (Comprehensive Information)**
+
+Based on the elevated inflammatory markers (ESR, CRP), elevated white blood cell and lymphocyte counts, decreased lymphocyte percent differential count, and significantly worsening Juvenile Arthritis Activity score, the following potential disease risks are predicted:
+
+*   **Active Juvenile Idiopathic Arthritis (JIA):** The worsening activity score strongly suggests active JIA. The elevated inflammatory markers and white blood cell count support this diagnosis.
+*   **Infection:** While JIA is a strong possibility, an active infection cannot be ruled out. The elevated WBC and lymphocyte count could indicate an infectious process. Further investigation (e.g., cultures) would be needed to confirm or exclude this.
+*   **Systemic Inflammatory Condition:** The combination of elevated inflammatory markers and blood cell abnormalities could indicate a broader systemic inflammatory condition beyond JIA.
+
+**IV. Basis for Judgments and Reasoning Chain**
+
+This analysis is based on the following:
+
+*   **Laboratory Test Results:** The provided numerical values for ESR, CRP, WBC, and lymphocyte counts.
+*   **Juvenile Arthritis Activity Score:** The documented increase in score from September 12th to September 19th.
+*   **General Medical Knowledge:** Understanding of inflammatory markers, white blood cell function, and the clinical presentation of JIA and infections.
+*   **UMLS Integration:** The analysis leverages the Unified Medical Language System (UMLS) to ensure consistent terminology and understanding of biomedical concepts. The associations between the test results and potential conditions are informed by the knowledge contained within the UMLS.
+
+**V. Final Addition**
+
+**Disclaimer**: This analysis is based solely on the information provided and should not replace professional medical advice. Please consult a qualified healthcare professional for diagnosis and treatment.
+
+**Data Source**: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.

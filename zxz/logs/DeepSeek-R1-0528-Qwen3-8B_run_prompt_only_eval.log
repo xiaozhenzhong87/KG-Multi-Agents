@@ -1,0 +1,45 @@
+nohup: 忽略输入
+2025-11-20 17:16:10,817 | INFO | Evaluating question 1/20
+2025-11-20 17:17:10,860 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:17:10,875 | INFO | Evaluating question 2/20
+2025-11-20 17:18:30,995 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:18:30,997 | INFO | Evaluating question 3/20
+2025-11-20 17:20:31,001 | INFO | Retrying request to /chat/completions in 0.467607 seconds
+2025-11-20 17:22:00,693 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:22:00,695 | INFO | Evaluating question 4/20
+2025-11-20 17:23:24,672 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:23:24,678 | INFO | Evaluating question 5/20
+2025-11-20 17:24:24,805 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:24:24,808 | INFO | Evaluating question 6/20
+2025-11-20 17:25:34,413 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:25:34,419 | INFO | Evaluating question 7/20
+2025-11-20 17:26:55,677 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:26:55,683 | INFO | Evaluating question 8/20
+2025-11-20 17:28:55,786 | INFO | Retrying request to /chat/completions in 0.442921 seconds
+2025-11-20 17:30:29,116 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:30:29,118 | INFO | Evaluating question 9/20
+2025-11-20 17:31:42,420 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:31:42,424 | INFO | Evaluating question 10/20
+2025-11-20 17:33:42,434 | INFO | Retrying request to /chat/completions in 0.494200 seconds
+2025-11-20 17:35:30,832 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:35:30,836 | INFO | Evaluating question 11/20
+2025-11-20 17:36:15,301 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:36:15,306 | INFO | Evaluating question 12/20
+2025-11-20 17:37:05,227 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:37:05,231 | INFO | Evaluating question 13/20
+2025-11-20 17:37:49,780 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:37:49,784 | INFO | Evaluating question 14/20
+2025-11-20 17:39:29,803 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:39:29,811 | INFO | Evaluating question 15/20
+2025-11-20 17:41:27,986 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:41:27,993 | INFO | Evaluating question 16/20
+2025-11-20 17:43:03,842 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:43:03,855 | INFO | Evaluating question 17/20
+2025-11-20 17:44:16,447 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:44:16,449 | INFO | Evaluating question 18/20
+2025-11-20 17:44:47,238 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:44:47,241 | INFO | Evaluating question 19/20
+2025-11-20 17:46:03,154 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:46:03,158 | INFO | Evaluating question 20/20
+2025-11-20 17:46:41,966 | INFO | HTTP Request: POST https://api.siliconflow.cn/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 17:46:41,971 | INFO | Prompt-only evaluation finished | 14/20 correct (70.00%) | Output: zxz/prompt_results/prompt_eval_20251120_091610.jsonl

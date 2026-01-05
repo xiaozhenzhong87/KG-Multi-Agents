@@ -1,0 +1,391 @@
+entity_type,relationship_type
+Acquired Abnormality,RELATIONSHIP
+Activity,access_device_used_by
+Age Group,access_instrument_of
+Amino Acid Sequence,access_of
+Amino Acid, Peptide, or Protein,active_ingredient_of
+Amphibian,active_metabolites_of
+Anatomical Abnormality,active_moiety_of
+Anatomical Structure,actual_outcome_of
+Animal,alias_of
+Antibiotic,allowed_qualifier
+Archaeon,alternative_of
+Bacterium,answer_to_is_sterile
+Behavior,approach_of
+Biologic Function,associated_etiologic_finding_of
+Biologically Active Substance,associated_finding_of
+Biomedical Occupation or Discipline,associated_morphology_of
+Biomedical or Dental Material,associated_procedure_of
+Bird,associated_procedure_of_excluded
+Body Location or Region,associated_procedure_of_possibly_included
+Body Part, Organ, or Organ Component,associated_with
+Body Space or Junction,branch_of
+Body Substance,causative_agent_of
+Body System,cause_of
+Carbohydrate Sequence,characterized_by
+Cell,characterizes
+Cell Component,classified_as
+Cell Function,classifies
+Cell or Molecular Dysfunction,clinical_course_of
+Chemical,clinically_associated_with
+Chemical Viewed Functionally,clinically_related_to
+Chemical Viewed Structurally,clinically_similar
+Classification,clinician_form_of
+Clinical Attribute,co_occurs_with
+Clinical Drug,component_of
+Conceptual Entity,compositional_material_of
+Congenital Abnormality,consider
+Daily or Recreational Activity,consider_from
+Diagnostic Procedure,constitutional_part_of
+Disease or Syndrome,consumer_friendly_form_of
+Drug Delivery Device,contained_in
+Educational Activity,contains
+Element, Ion, or Isotope,context_binding_of
+Embryonic Structure,contraindicated_class_of
+Entity,contraindicated_with_disease
+Environmental Effect of Humans,count_of_active_ingredient_of
+Enzyme,count_of_base_of_active_ingredient_of
+Eukaryote,course_of
+Event,ddx
+Experimental Model of Disease,default_mapped_from
+Family Group,default_mapped_to
+Finding,definitional_manifestation_of
+Fish,device_characteristic_of
+Food,device_intended_site_of
+Fully Formed Anatomical Structure,device_used_by
+Functional Concept,diagnoses
+Fungus,diagnostic_criteria_of
+Gene or Genome,direct_device_of
+Genetic Function,direct_morphology_of
+Geographic Area,direct_procedure_site_of
+Governmental or Regulatory Activity,direct_site_of
+Group,direct_substance_of
+Group Attribute,disposition_of
+Hazardous or Poisonous Substance,dose_form_intended_site_of
+Health Care Activity,dose_form_of
+Health Care Related Organization,due_to
+Hormone,during
+Human,energy_used_by
+Human-caused Phenomenon or Process,entire_anatomy_structure_of
+Idea or Concept,entry_combination_of
+Immunologic Factor,entry_term_of
+Indicator, Reagent, or Diagnostic Aid,episodicity_of
+Individual Behavior,exhibited_by
+Injury or Poisoning,exhibits
+Inorganic Chemical,expanded_form_of
+Intellectual Product,extent_of
+Laboratory Procedure,finding_context_of
+Laboratory or Test Result,finding_informer_of
+Language,finding_method_of
+Machine Activity,finding_site_of
+Mammal,focus_of
+Manufactured Object,form_of
+Medical Device,has_access
+Mental Process,has_access_instrument
+Mental or Behavioral Dysfunction,has_active_ingredient
+Molecular Biology Research Technique,has_active_metabolites
+Molecular Function,has_active_moiety
+Molecular Sequence,has_actual_outcome
+Natural Phenomenon or Process,has_alias
+Neoplastic Process,has_alternative
+Nucleic Acid, Nucleoside, or Nucleotide,has_approach
+Nucleotide Sequence,has_associated_condition
+Occupation or Discipline,has_associated_etiologic_finding
+Occupational Activity,has_associated_finding
+Organ or Tissue Function,has_associated_function
+Organic Chemical,has_associated_morphology
+Organism,has_associated_observation
+Organism Attribute,has_associated_procedure
+Organism Function,has_at_risk_population
+Organization,has_basic_dose_form
+Pathologic Function,has_basis_of_strength_substance
+Patient or Disabled Group,has_boss
+Pharmacologic Substance,has_branch
+Phenomenon or Process,has_causative_agent
+Physical Object,has_clinical_course
+Physiologic Function,has_clinician_form
+Plant,has_coating_material
+Population Group,has_component
+Professional Society,has_compositional_material
+Professional or Occupational Group,has_concentration_strength_denominator_value
+Qualitative Concept,has_concentration_strength_numerator_value
+Quantitative Concept,has_conceptual_part
+Receptor,has_consumer_friendly_form
+Regulation or Law,has_context_binding
+Reptile,has_contraindicated_class
+Research Activity,has_contraindicated_drug
+Research Device,has_contraindicated_mechanism_of_action
+Self-help or Relief Organization,has_contraindicated_physiologic_effect
+Sign or Symptom,has_count_of_base_of_active_ingredient
+Social Behavior,has_course
+Spatial Concept,has_defining_characteristic
+Substance,has_definitional_manifestation
+Temporal Concept,has_degree
+Therapeutic or Preventive Procedure,has_dependent
+Tissue,has_device_characteristic
+Vertebrate,has_device_intended_site
+Virus,has_diagnostic_criteria
+Vitamin,has_direct_device
+,has_direct_morphology
+,has_direct_procedure_site
+,has_direct_site
+,has_direct_substance
+,has_disposition
+,has_dose_form
+,has_dose_form_administration_method
+,has_entire_anatomy_structure
+,has_entry_combination
+,has_entry_term
+,has_episodicity
+,has_evaluation
+,has_excluded_associated_finding
+,has_excluded_component
+,has_excluded_method
+,has_excluded_pathology
+,has_excluded_procedure_device
+,has_excluded_procedure_site
+,has_excluded_specimen
+,has_excluded_surgical_extent
+,has_expanded_form
+,has_expected_outcome
+,has_extent
+,has_filling
+,has_finding_context
+,has_finding_informer
+,has_finding_method
+,has_finding_site
+,has_focus
+,has_form
+,has_grade
+,has_inactive_ingredient
+,has_indirect_device
+,has_indirect_morphology
+,has_indirect_procedure_site
+,has_ingredient
+,has_ingredients
+,has_inherent_attribute
+,has_inherent_location
+,has_instrumentation
+,has_intent
+,has_interpretation
+,has_lab_number
+,has_laterality
+,has_locale
+,has_location
+,has_manifestation
+,has_measured_component
+,has_measurement_method
+,has_mechanism_of_action
+,has_member
+,has_method
+,has_modification
+,has_occurrence
+,has_onset
+,has_parent
+,has_part
+,has_part_anatomy_structure
+,has_pathological_process
+,has_pathology
+,has_patient_type
+,has_physiologic_state
+,has_possibly_included_approach
+,has_possibly_included_associated_finding
+,has_possibly_included_component
+,has_possibly_included_method
+,has_possibly_included_pathology
+,has_possibly_included_patient_type
+,has_possibly_included_procedure_device
+,has_possibly_included_procedure_site
+,has_possibly_included_route_of_administration
+,has_possibly_included_surgical_extent
+,has_precise_active_ingredient
+,has_precondition
+,has_presentation_strength_denominator_value
+,has_presentation_strength_numerator_value
+,has_print_name
+,has_priority
+,has_procedure_context
+,has_procedure_device
+,has_procedure_morphology
+,has_procedure_site
+,has_process_duration
+,has_process_output
+,has_property
+,has_property_type
+,has_quantified_form
+,has_realization
+,has_recipient_category
+,has_regional_part
+,has_related_factor
+,has_result
+,has_revision_status
+,has_risk_factor
+,has_route_of_administration
+,has_scale_type
+,has_severity
+,has_sign_or_symptom
+,has_specialty
+,has_specimen
+,has_specimen_procedure
+,has_specimen_source_identity
+,has_specimen_source_morphology
+,has_specimen_source_topography
+,has_specimen_substance
+,has_structural_class
+,has_subject_relationship_context
+,has_subtype
+,has_supported_concept_property
+,has_surgical_approach
+,has_surgical_extent
+,has_technique
+,has_temporal_context
+,has_time_aspect
+,has_tradename
+,has_translation
+,has_transliterated_form
+,has_tributary
+,inactive_ingredient_of
+,included_in
+,includes
+,includes_sub_specimen
+,indirect_morphology_of
+,indirect_procedure_site_of
+,induced_by
+,induces
+,ingredient_of
+,inherent_location_of
+,inheres_in
+,inheritance_type_of
+,intent_of
+,interpretation_of
+,interprets
+,inverse_during
+,inverse_was_a
+,is_a
+,is_broader_than
+,is_child_of
+,is_interpreted_by
+,is_modification_of
+,is_narrower_than
+,is_parent_of
+,is_pcdc_gct_authorized_value_for_variable
+,lab_number_of
+,laterality_of
+,life_circumstance_of
+,location_of
+,manifestation_of
+,manufactured_by
+,manufactures
+,mapped_from
+,mapped_to
+,may_be_diagnosed_by
+,may_be_prevented_by
+,may_be_treated_by
+,may_diagnose
+,may_prevent
+,may_treat
+,measured_by
+,measured_component_of
+,measurement_method_of
+,measures
+,mechanism_of_action_of
+,member_of
+,method_of
+,moved_from
+,moved_to
+,multiply_mapped_from
+,multiply_mapped_to
+,noun_form_of
+,occurs_after
+,occurs_before
+,occurs_in
+,onset_of
+,other_mapped_from
+,other_mapped_to
+,other_relation
+,parent_of
+,part_anatomy_structure_of
+,part_of
+,partially_equivalent_to
+,pathological_process_of
+,pharmacokinetics_of
+,physiologic_effect_of
+,place_traveled_to
+,plays_role
+,possibly_equivalent_to
+,possibly_replaced_by
+,possibly_replaces
+,precise_ingredient_of
+,primary_mapped_from
+,primary_mapped_to
+,print_name_of
+,priority_of
+,procedure_context_of
+,procedure_device_of
+,procedure_morphology_of
+,procedure_site_of
+,process_acts_on
+,process_duration_of
+,process_extends_to
+,process_output_of
+,property_of
+,qualified_by
+,realization_of
+,recipient_category_of
+,referred_to_by
+,refers_to
+,regulates
+,related_to
+,relative_to
+,relative_to_part_of
+,replaced_by
+,replaces
+,result_of
+,revision_status_of
+,role_has_domain
+,role_has_range
+,role_played_by
+,route_of_administration_of
+,same_as
+,scale_type_of
+,see_from
+,severity_of
+,sign_or_symptom_of
+,specimen_of
+,specimen_procedure_of
+,specimen_source_identity_of
+,specimen_source_morphology_of
+,specimen_source_topography_of
+,specimen_substance_of
+,state_of_matter_of
+,structural_class_of
+,subject_of_information_of
+,subject_relationship_context_of
+,substance_used_by
+,supported_concept_property_in
+,surgical_approach_of
+,synonym_of
+,technique_of
+,temporal_context_of
+,temporally_followed_by
+,temporally_follows
+,temporally_related_to
+,therapeutic_class_of
+,tradename_of
+,translation_of
+,transliterated_form_of
+,treats
+,tributary_of
+,uniquely_mapped_from
+,uniquely_mapped_to
+,used_by
+,used_for
+,uses
+,uses_access_device
+,uses_device
+,uses_energy
+,uses_excluded_substance
+,uses_possibly_included_substance
+,uses_substance
+,was_a
+,wound_has_communication_with

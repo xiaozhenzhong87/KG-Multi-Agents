@@ -1,0 +1,6 @@
+nohup: 忽略输入
+2025-12-27 18:06:27,632 | INFO | 成功连接到Neo4j数据库
+2025-12-27 18:06:27,633 | INFO | Evaluating reasoning chain for question 1/20
+2025-12-27 18:07:55,813 | ERROR | Failed to parse JSON from ollama response: Extra data: line 3 column 1 (char 17)
+2025-12-27 18:07:55,814 | WARNING | LLM筛选失败，返回原始子图: Extra data: line 3 column 1 (char 17)
+2025-12-27 18:08:04,614 | INFO | Evaluating reasoning chain for question 2/20

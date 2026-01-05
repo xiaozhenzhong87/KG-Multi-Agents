@@ -1,0 +1,75 @@
+nohup: 忽略输入
+2025-11-19 20:35:19,330 | INFO | 成功连接到Neo4j数据库
+2025-11-19 20:35:19,331 | INFO | Evaluating reasoning chain for question 1/20
+2025-11-19 20:35:19,685 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:36:08,176 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:36:18,306 | INFO | Evaluating reasoning chain for question 2/20
+2025-11-19 20:36:18,372 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:36:59,353 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:38:10,255 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:39:39,695 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:39:49,958 | INFO | Evaluating reasoning chain for question 3/20
+2025-11-19 20:39:50,035 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:40:42,202 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:40:54,811 | INFO | Evaluating reasoning chain for question 4/20
+2025-11-19 20:40:54,879 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:41:31,725 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:42:32,738 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:42:45,805 | INFO | Evaluating reasoning chain for question 5/20
+2025-11-19 20:42:45,873 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:43:26,593 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:43:38,619 | INFO | Evaluating reasoning chain for question 6/20
+2025-11-19 20:43:38,694 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:44:17,093 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:45:52,620 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:46:08,155 | INFO | Evaluating reasoning chain for question 7/20
+2025-11-19 20:46:08,222 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:46:54,061 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:47:03,768 | INFO | Evaluating reasoning chain for question 8/20
+2025-11-19 20:47:03,831 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:47:47,300 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:48:02,315 | INFO | Evaluating reasoning chain for question 9/20
+2025-11-19 20:48:02,381 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:48:34,564 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:48:43,866 | INFO | Evaluating reasoning chain for question 10/20
+2025-11-19 20:48:43,974 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:49:29,544 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:49:51,844 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:50:00,710 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 23-year-old woman comes to the physician because she is embarrassed about the appearance of her nails. She has no h...
+2025-11-19 20:50:00,713 | INFO | Evaluating reasoning chain for question 11/20
+2025-11-19 20:50:00,781 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:50:47,786 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:51:53,756 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:53:37,548 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:53:48,015 | INFO | Evaluating reasoning chain for question 12/20
+2025-11-19 20:53:48,092 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:54:20,776 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:54:29,469 | INFO | Evaluating reasoning chain for question 13/20
+2025-11-19 20:54:29,533 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:55:22,439 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:57:06,828 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:57:19,736 | INFO | Evaluating reasoning chain for question 14/20
+2025-11-19 20:57:19,812 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:57:54,847 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:58:53,996 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:59:06,262 | INFO | Evaluating reasoning chain for question 15/20
+2025-11-19 20:59:06,333 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 20:59:53,870 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:01:12,028 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:01:22,269 | INFO | Evaluating reasoning chain for question 16/20
+2025-11-19 21:01:22,338 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:02:05,296 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:02:13,937 | INFO | Evaluating reasoning chain for question 17/20
+2025-11-19 21:02:14,012 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:02:49,588 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:04:11,333 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:04:22,058 | INFO | Evaluating reasoning chain for question 18/20
+2025-11-19 21:04:22,128 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:04:54,520 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:05:03,458 | INFO | Evaluating reasoning chain for question 19/20
+2025-11-19 21:05:03,531 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:05:27,465 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:05:37,842 | INFO | Evaluating reasoning chain for question 20/20
+2025-11-19 21:05:37,910 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:06:24,742 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 21:06:37,285 | INFO | Reasoning logs written to zxz/outputs/reasoning_chain_eval_20251119_123519.jsonl | Answered 20/20 (100.00%)

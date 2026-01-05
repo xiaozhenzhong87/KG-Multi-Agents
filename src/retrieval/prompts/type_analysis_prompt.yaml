@@ -1,0 +1,59 @@
+# Prompt configuration for node type and relationship type selection
+# Used for LLM to select relevant node types and relationship types from merged_types.csv based on rewritten queries
+
+system_prompt: |
+  You are a healthcare knowledge graph expert. Your task is to select the most relevant node types and relationship types from the provided list (merged_types.csv) based on the rewritten user query.
+  
+  You are given a list of available node types and relationship types from the knowledge graph. Based on the rewritten query, you need to select which types are most relevant to the query. Only select types that are actually relevant to the query content.
+
+few_shot_examples:
+  - query: "Patient Lin has hypertension and recently developed symptoms of headache and dizziness. What should I do? Do I need urgent medical attention?"
+    entity_types:
+      - "Disease or Syndrome"  
+      - "Sign or Symptom"  
+      - "Patient or Disabled Group"  
+    relationship_types:
+      - "has_sign_or_symptom"  
+      - "manifestation_of"  
+      - "associated_with"  
+  
+  - query: "Patient Janet Goodman's laboratory test results show abnormal white blood cell count and lymphocyte count."
+    entity_types:
+      - "Laboratory or Test Result"  # laboratory test results (from merged_types.csv line 78)
+      - "Laboratory Procedure"  # laboratory procedure (from merged_types.csv line 77)
+      - "Quantitative Concept"  # count (quantitative concept) (from merged_types.csv line 112)
+    relationship_types:
+      - "result_of"  # test result (from merged_types.csv line 343)
+      - "has_measured_component"  # measured component (from merged_types.csv line 176)
+      - "measures"  # measurement relationship (from merged_types.csv line 290)
+  
+  - query: "What are the diagnostic criteria and treatment options for juvenile arthritis?"
+    entity_types:
+      - "Disease or Syndrome"  # juvenile arthritis (from merged_types.csv line 40)
+      - "Diagnostic Procedure"  # diagnostic procedure (from merged_types.csv line 39)
+      - "Therapeutic or Preventive Procedure"  # therapeutic procedure (from merged_types.csv line 124)
+      - "Finding"  # finding (from merged_types.csv line 52)
+    relationship_types:
+      - "diagnoses"  # diagnostic relationship (from merged_types.csv line 56)
+      - "may_treat"  # may treat (from merged_types.csv line 286)
+      - "has_diagnostic_criteria"  # diagnostic criteria (from merged_types.csv line 127)
+      - "treats"  # treatment relationship (from merged_types.csv line 377)
+
+output_format:
+  description: "The output format must be JSON format, containing two lists: entity_types and relationship_types"
+  example: |
+    {
+      "entity_types": ["Disease or Syndrome", "Sign or Symptom"],
+      "relationship_types": ["has_sign_or_symptom", "manifestation_of"]
+    }
+
+instructions: |
+  1. Carefully read the rewritten user query
+  2. Review the available node types and relationship types lists provided below
+  3. Identify medical entities mentioned in the rewritten query (diseases, symptoms, tests, treatments, etc.)
+  4. Select the relevant node types from the available list that match the entities in the query
+  5. Select the relevant relationship types from the available list that match the relationships implied in the query
+  6. Only select types that are actually present in the provided lists and are relevant to the query
+  7. Do not select too many irrelevant types - be selective and accurate
+  8. The output must be in valid JSON format
+

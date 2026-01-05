@@ -1,0 +1,14 @@
+nohup: 忽略输入
+2025-12-27 23:31:36,374 | INFO | 成功连接到Neo4j数据库
+2025-12-27 23:31:36,375 | INFO | Evaluating reasoning chain for question 1/2
+2025-12-27 23:32:23,530 | INFO | Evaluating reasoning chain for question 2/2
+2025-12-27 23:34:06,701 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 67-year-old man who was diagnosed with arthritis 16 years ago presents with right knee swelling and pain. His left ...
+2025-12-27 23:34:06,717 | INFO | Reasoning logs written to /media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/zxz-251227/match_results/reasoning_chain_eval_20251227_153136.jsonl | Answered 2/2 (100.00%)
+2025-12-27 23:34:06,724 | INFO | === ACCURACY STATISTICS ===
+2025-12-27 23:34:06,724 | INFO | Total Questions: 2
+2025-12-27 23:34:06,724 | INFO | Answered Questions: 2 (100.00% coverage)
+2025-12-27 23:34:06,724 | INFO | Correct Answers: 1
+2025-12-27 23:34:06,724 | INFO | Incorrect Answers: 1
+2025-12-27 23:34:06,725 | INFO | Accuracy: 50.00% (1/2)
+2025-12-27 23:34:06,725 | INFO | Correct Question Indices: [1]
+2025-12-27 23:34:06,725 | INFO | Incorrect Question Indices: [2]

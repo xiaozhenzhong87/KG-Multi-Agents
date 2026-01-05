@@ -1,0 +1,122 @@
+nohup: 忽略输入
+============================================================
+🏥 医疗知识图谱系统 v2.0
+============================================================
+📋 功能：多层级知识图谱构建、智能检索、动态更新
+⚠️  注意：API功能目前处于开发阶段，仅供参考
+============================================================
+2025-11-04 11:07:17,516 - __main__ - INFO - 🔗 正在连接数据库...
+2025-11-04 11:07:17,549 - src.core.database - INFO - 成功连接到Neo4j数据库
+2025-11-04 11:07:17,549 - __main__ - INFO - 数据库连接成功
+2025-11-04 11:07:17,549 - __main__ - INFO - 🔍 查询系统: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+
+🔍 正在查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:07:17,549 - __main__ - INFO - 开始查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:07:17,549 - src.retrieval.retriever - INFO - 开始PageRank检索流程: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:07:17,549 - src.retrieval.retriever - INFO - 步骤1: 使用LLM提取查询中的医疗实体...
+2025-11-04 11:07:17,549 - root - INFO - 发送实体提取请求，问题: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:07:20,405 - root - INFO - 实体提取原始响应:
+hypertension, headaches, dizziness
+2025-11-04 11:07:20,405 - root - INFO - 使用最后一行进行解析: hypertension, headaches, dizziness
+2025-11-04 11:07:20,405 - root - INFO - LLM提取的实体（处理后）: ['hypertension', 'headaches', 'dizziness']
+2025-11-04 11:07:20,405 - src.retrieval.retriever - INFO - LLM提取的实体: ['dizziness', 'hypertension', 'headaches']
+2025-11-04 11:07:20,405 - src.retrieval.pagerank_retriever - INFO - 开始PageRank检索: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+2025-11-04 11:07:20,405 - src.retrieval.pagerank_retriever - INFO - 使用LLM提取的种子实体: ['dizziness', 'hypertension', 'headaches']
+2025-11-04 11:07:20,406 - src.retrieval.pagerank_retriever - INFO - 使用种子实体查找初始节点: ['dizziness', 'hypertension', 'headaches']
+2025-11-04 11:07:20,720 - src.retrieval.pagerank_retriever - INFO - 总共找到 9 个初始节点
+2025-11-04 11:07:20,720 - src.retrieval.pagerank_retriever - INFO - 找到 9 个初始节点
+2025-11-04 11:07:20,720 - src.retrieval.pagerank_retriever - INFO - 子图限制已启用: 最大深度=2, 每层最大节点数=1000, 总节点数上限=5000
+2025-11-04 11:07:20,740 - src.retrieval.pagerank_retriever - INFO - 深度 1: 添加了 156 个新节点，子图总节点数: 165
+2025-11-04 11:07:20,762 - src.retrieval.pagerank_retriever - INFO - 深度 2: 添加了 984 个新节点，子图总节点数: 1149
+2025-11-04 11:07:20,762 - src.retrieval.pagerank_retriever - INFO - 子图构建完成，总节点数: 1149 (限制: 5000)
+2025-11-04 11:07:20,762 - src.retrieval.pagerank_retriever - INFO - 子图包含 1149 个节点
+2025-11-04 11:07:21,618 - src.retrieval.pagerank_retriever - INFO - PageRank计算完成，计算了 1149 个节点的分数
+2025-11-04 11:07:21,670 - neo4j.notifications - WARNING - Received notification from DBMS server: {severity: WARNING} {code: Neo.ClientNotification.Statement.UnknownPropertyKeyWarning} {category: UNRECOGNIZED} {title: The provided property key is not in the database} {description: One of the property names in your query is not available in the database, make sure you didn't misspell it or that the label is available when you run this statement in your application (the missing property name is: CUI)} {position: line: 6, column: 48, offset: 218} for query: '\n        UNWIND $node_ids as node_id\n        MATCH (n:Entity)\n        WHERE elementId(n) = node_id\n        RETURN elementId(n) as element_id, n.id as id, n.name as name, \n               n.entity_type as entity_type, n.CUI as cui, n.namespace as namespace,\n               properties(n) as properties\n        '
+2025-11-04 11:07:21,700 - src.retrieval.pagerank_retriever - INFO - PageRank检索完成，返回 50 个节点和 224 个关系
+2025-11-04 11:07:21,700 - src.retrieval.retriever - INFO - 步骤3: 格式化PageRank检索结果为结构化上下文...
+2025-11-04 11:07:21,700 - src.retrieval.retriever - INFO - 步骤4: 使用LLM生成响应...
+2025-11-04 11:07:21,700 - root - INFO - --- 发送提示到LLM ---
+2025-11-04 11:07:21,700 - root - INFO - --- 提示结束 ---
+2025-11-04 11:07:35,326 - root - INFO - LLM成功生成响应。
+2025-11-04 11:07:35,327 - src.retrieval.retriever - INFO - PageRank检索流程完成
+
+=== 查询结果 ===
+查询: I have hypertension and lately have [symptoms, e.g., headaches/dizziness]. What should I do? Do I need urgent care?
+检索方法: PageRank
+找到 50 个实体, 224 个关系
+
+--- 相关实体 ---
+- Disease or Syndrome: Disease of liver (PageRank: 0.0705)
+- Body Part, Organ, or Organ Component: Liver (PageRank: 0.0577)
+- Disease or Syndrome: Ascites (PageRank: 0.0372)
+- Sign or Symptom: Abdominal Pain (PageRank: 0.0199)
+- Injury or Poisoning: Contusion (PageRank: 0.0187)
+- Finding: Abdominal distention (PageRank: 0.0147)
+- Disease or Syndrome: Hepatitis (PageRank: 0.0113)
+- Body System: Gastrointestinal system (PageRank: 0.0112)
+- Disease or Syndrome: other diseases of liver (PageRank: 0.0108)
+- Body Location or Region: Abdomen (PageRank: 0.0104)
+
+--- 相关关系 ---
+- is_a: C0023895 -> C0003962
+- is_a: C0023895 -> C0156194
+- associated_with: C0023895 -> C0012634
+- is_parent_of: C0023895 -> C0012240
+- is_parent_of: C0023895 -> C0023884
+- is_parent_of: C0023895 -> C0156194
+- is_broader_than: C0023895 -> C0267792
+- is_child_of: C0023895 -> C0156194
+- is_child_of: C0023895 -> C0019158
+- is_child_of: C0023895 -> C0019209
+
+--- 推理链 ---
+## Analysis of Patient Report – Hypertension with Headaches/Dizziness
+
+**0. Overall Analysis of the Patient's Medical/Physical Examination Report**
+
+The patient reports a history of hypertension and recent onset of headaches and dizziness. No specific numerical data or detection times are provided in the user report or the provided background information. Therefore, a detailed analysis of indicator changes is not possible.
+
+**I. Risk Warning for Indicators (over/under alert, trend change alert)**
+
+Based on the provided information, we can only infer potential risks.
+
+*   **Hypertension:** The patient *has* hypertension, indicating an ongoing risk. Without specific blood pressure readings, we cannot assess if it's currently uncontrolled (over alert) or improving (trend change alert).
+*   **Headaches/Dizziness:** These are new symptoms. This constitutes a *trend change alert* as they represent a deviation from the patient’s baseline. The severity and characteristics of these symptoms are unknown, preventing a more specific assessment.
+
+**II. Disease Attribution (reasoning chain)**
+
+The reasoning chain connecting the reported symptoms to potential underlying conditions is as follows:
+
+1.  **Hypertension (Existing Condition):** The patient has a pre-existing condition of hypertension.
+2.  **New Symptoms (Headaches/Dizziness):** The patient is experiencing new symptoms of headaches and dizziness.
+3.  **Potential Link:** Headaches and dizziness can be symptoms of uncontrolled hypertension, but also of other conditions.
+4.  **Relevant Entities (from background information):** The background information highlights several liver-related diseases (Disease of liver, Hepatitis, Liver damage, CARCINOMA OF LIVER, Hepatobiliary Disorder) and conditions like Portal Hypertension. While hypertension is not directly linked to these in the provided data, the liver and circulatory system are interconnected. Dizziness can also be a symptom of various conditions not explicitly mentioned.
+
+**III. Prediction of Potential Disease Risks (comprehensive information)**
+
+Based on the limited information and the provided background data, potential disease risks include:
+
+*   **Uncontrolled Hypertension:** The most immediate risk is that the patient’s hypertension is not adequately controlled, leading to headaches and dizziness.
+*   **Liver-Related Complications:** The background information emphasizes liver diseases. While not directly linked to hypertension in the provided data, the liver plays a crucial role in blood pressure regulation and overall health. Uncontrolled hypertension can contribute to liver damage, and vice versa. Conditions like Portal Hypertension could exacerbate symptoms.
+*   **Other Cardiovascular or Neurological Issues:** Headaches and dizziness are non-specific symptoms that could indicate a range of other conditions, including stroke, transient ischemic attack (TIA), or other neurological problems.
+*   **Complications related to Wounds and Injuries:** The background information includes "Wounds and Injuries" which, while seemingly unrelated, highlights the potential for underlying conditions to be exacerbated by physical trauma.
+
+**IV. Basis for Judgments and Reasoning Chain**
+
+The analysis is based on:
+
+*   **User Report:** The patient’s self-reported history of hypertension and recent onset of headaches/dizziness.
+*   **Background Information:** The provided list of entities and relationships from the UMLS. The focus on liver-related diseases prompted consideration of potential connections between hypertension and liver health.
+*   **Medical Knowledge:** General medical knowledge regarding the symptoms of hypertension and the potential causes of headaches and dizziness.
+
+The reasoning chain connects the patient’s symptoms to potential underlying conditions based on the available information and established medical principles.
+
+**V. Final Addition:**
+
+**Disclaimer**: This analysis is based solely on the information provided and should not replace professional medical advice. Please consult a qualified healthcare professional for diagnosis and treatment.
+
+**Data Source**: The analysis references the Unified Medical Language System (UMLS), a comprehensive and authoritative biomedical terminology database developed by the U.S. National Library of Medicine. UMLS integrates various health and biomedical vocabularies and standards to enable interoperability between computer systems and support advanced medical data analysis.
+
+✅ 查询完成
+2025-11-04 11:07:35,329 - __main__ - INFO - 🔌 正在关闭数据库连接...
+👋 程序结束

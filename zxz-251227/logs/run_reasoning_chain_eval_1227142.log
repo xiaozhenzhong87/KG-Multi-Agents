@@ -1,0 +1,11 @@
+nohup: 忽略输入
+Traceback (most recent call last):
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/zxz-251227/run_reasoning_chain_eval.py", line 23, in <module>
+    from src.core.database import Neo4jManager
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/src/__init__.py", line 9, in <module>
+    from .core import *
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/src/core/__init__.py", line 4, in <module>
+    from .database import Neo4jManager, get_db_manager, db_manager
+  File "/media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/src/core/database.py", line 4, in <module>
+    from neo4j import GraphDatabase
+ModuleNotFoundError: No module named 'neo4j'

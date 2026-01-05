@@ -1,0 +1,42 @@
+nohup: 忽略输入
+2025-11-20 16:12:41,046 | INFO | Evaluating question 1/20
+2025-11-20 16:12:41,369 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:12:52,315 | INFO | Evaluating question 2/20
+2025-11-20 16:12:52,404 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:02,014 | INFO | Evaluating question 3/20
+2025-11-20 16:13:02,086 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:13,855 | INFO | Evaluating question 4/20
+2025-11-20 16:13:13,931 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:25,801 | INFO | Evaluating question 5/20
+2025-11-20 16:13:25,869 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:34,646 | INFO | Evaluating question 6/20
+2025-11-20 16:13:34,726 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:44,613 | INFO | Evaluating question 7/20
+2025-11-20 16:13:44,680 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:13:53,088 | INFO | Evaluating question 8/20
+2025-11-20 16:13:53,164 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:03,112 | INFO | Evaluating question 9/20
+2025-11-20 16:14:03,188 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:12,032 | INFO | Evaluating question 10/20
+2025-11-20 16:14:12,105 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:22,641 | INFO | Evaluating question 11/20
+2025-11-20 16:14:22,727 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:31,746 | INFO | Evaluating question 12/20
+2025-11-20 16:14:31,829 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:42,474 | INFO | Evaluating question 13/20
+2025-11-20 16:14:42,540 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:14:52,773 | INFO | Evaluating question 14/20
+2025-11-20 16:14:52,847 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:03,837 | INFO | Evaluating question 15/20
+2025-11-20 16:15:03,901 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:13,320 | INFO | Evaluating question 16/20
+2025-11-20 16:15:13,398 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:23,649 | INFO | Evaluating question 17/20
+2025-11-20 16:15:23,724 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:33,347 | INFO | Evaluating question 18/20
+2025-11-20 16:15:33,419 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:42,528 | INFO | Evaluating question 19/20
+2025-11-20 16:15:42,600 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:15:53,272 | INFO | Evaluating question 20/20
+2025-11-20 16:15:53,349 | INFO | HTTP Request: POST https://api.deepseek.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-20 16:16:03,097 | INFO | Prompt-only evaluation finished | 17/20 correct (85.00%) | Output: zxz/prompt_results/prompt_eval_20251120_081241.jsonl

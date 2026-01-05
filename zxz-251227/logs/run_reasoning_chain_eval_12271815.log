@@ -1,0 +1,33 @@
+nohup: 忽略输入
+2025-12-27 18:15:31,644 | INFO | 成功连接到Neo4j数据库
+2025-12-27 18:15:31,645 | INFO | Evaluating reasoning chain for question 1/20
+2025-12-27 18:16:43,369 | WARNING | LackOfEvidence | Forced answer with limited context for question: A junior orthopaedic surgery resident is completing a carpal tunnel repair with the department chairman as the attend...
+2025-12-27 18:16:43,375 | INFO | Evaluating reasoning chain for question 2/20
+2025-12-27 18:18:52,264 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 67-year-old man with transitional cell carcinoma of the bladder comes to the physician because of a 2-day history o...
+2025-12-27 18:18:52,273 | INFO | Evaluating reasoning chain for question 3/20
+2025-12-27 18:20:28,866 | INFO | Evaluating reasoning chain for question 4/20
+2025-12-27 18:22:22,730 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 39-year-old woman is brought to the emergency department because of fevers, chills, and left lower quadrant pain. H...
+2025-12-27 18:22:22,737 | INFO | Evaluating reasoning chain for question 5/20
+2025-12-27 18:23:12,826 | INFO | Evaluating reasoning chain for question 6/20
+2025-12-27 18:24:02,472 | INFO | Evaluating reasoning chain for question 7/20
+2025-12-27 18:25:23,518 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 68-year-old male comes to the physician for evaluation of right flank pain. He has a history of diabetes and periph...
+2025-12-27 18:25:23,528 | INFO | Evaluating reasoning chain for question 8/20
+2025-12-27 18:26:47,786 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 65-year-old man is brought to the emergency department 30 minutes after the onset of acute chest pain. He has hyper...
+2025-12-27 18:26:47,797 | INFO | Evaluating reasoning chain for question 9/20
+2025-12-27 18:27:27,006 | INFO | Evaluating reasoning chain for question 10/20
+2025-12-27 18:28:24,558 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 23-year-old woman comes to the physician because she is embarrassed about the appearance of her nails. She has no h...
+2025-12-27 18:28:24,561 | INFO | Evaluating reasoning chain for question 11/20
+2025-12-27 18:29:14,971 | INFO | Evaluating reasoning chain for question 12/20
+2025-12-27 18:30:30,675 | INFO | Evaluating reasoning chain for question 13/20
+2025-12-27 18:31:39,310 | INFO | Evaluating reasoning chain for question 14/20
+2025-12-27 18:32:44,085 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 47-year-old executive schedules an appointment his physician for a routine medical check-up. He currently has no co...
+2025-12-27 18:32:44,088 | INFO | Evaluating reasoning chain for question 15/20
+2025-12-27 18:33:29,277 | WARNING | LackOfEvidence | Forced answer with limited context for question: A microbiologist is studying the emergence of a virulent strain of the virus. After a detailed study of the virus and...
+2025-12-27 18:33:29,280 | INFO | Evaluating reasoning chain for question 16/20
+2025-12-27 18:34:26,054 | INFO | Evaluating reasoning chain for question 17/20
+2025-12-27 18:35:18,518 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 7-year-old boy is brought to his pediatrician’s office for a follow-up visit. He was diagnosed with asthma when he ...
+2025-12-27 18:35:18,525 | INFO | Evaluating reasoning chain for question 18/20
+2025-12-27 18:35:56,332 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 3-month-old boy is brought the emergency department by his parents after an episode of cyanosis and muscle hypotoni...
+2025-12-27 18:35:56,334 | INFO | Evaluating reasoning chain for question 19/20
+2025-12-27 18:38:12,424 | INFO | Evaluating reasoning chain for question 20/20
+2025-12-27 18:39:03,401 | INFO | Reasoning logs written to /media/inspur/DATA/home/inspur/zxz/orthographrag/health-modeling-v01/KG-Multi-Agents/zxz-251227/match_results/reasoning_chain_eval_20251227_101531.jsonl | Answered 20/20 (100.00%)

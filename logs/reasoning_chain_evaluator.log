@@ -1,0 +1,16 @@
+nohup: 忽略输入
+
+推理链评估汇总:
+- 输入文件: /home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling/eval_data/fast_test_medqa_20.jsonl
+- 条目总数: 20
+- 支持预测答案 (support) 数/比: 0/0.00%
+- 连通比 (connected): 0.00%
+- 平均 Aggregate Score: 0.000
+- 平均实体重叠: 0.000
+- 平均关系相关性: 0.000
+- 平均链长度 (节点数): 0.00
+- 分类分布: {'not_support': 20}
+- 建议频次 (top 10): []
+- 汇总已保存到: /home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling/zxz/outputs/rc_eval_summary.json
+- 详细带评估结果已保存到: /home/inspur/zxz/orthographrag/health-modeling-v01/healthcare-modeling/zxz/outputs/rc_eval_enriched.jsonl
+

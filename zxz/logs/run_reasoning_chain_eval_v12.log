@@ -1,0 +1,76 @@
+nohup: 忽略输入
+2025-11-19 18:49:38,055 | INFO | 成功连接到Neo4j数据库
+2025-11-19 18:49:38,056 | INFO | Evaluating reasoning chain for question 1/20
+2025-11-19 18:49:44,361 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:50:19,720 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:50:19,724 | INFO | Evaluating reasoning chain for question 2/20
+2025-11-19 18:50:25,812 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:51:06,967 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:52:00,732 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:52:22,822 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:52:22,823 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 67-year-old man with transitional cell carcinoma of the bladder comes to the physician because of a 2-day history o...
+2025-11-19 18:52:22,828 | INFO | Evaluating reasoning chain for question 3/20
+2025-11-19 18:52:31,781 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:53:35,807 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:53:35,813 | INFO | Evaluating reasoning chain for question 4/20
+2025-11-19 18:53:43,905 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:54:16,984 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:55:17,898 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:55:17,903 | INFO | Evaluating reasoning chain for question 5/20
+2025-11-19 18:55:24,924 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:55:54,182 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:55:54,186 | INFO | Evaluating reasoning chain for question 6/20
+2025-11-19 18:56:02,802 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:56:39,455 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:56:39,459 | INFO | Evaluating reasoning chain for question 7/20
+2025-11-19 18:56:46,854 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:57:27,318 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:58:31,947 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:58:31,954 | INFO | Evaluating reasoning chain for question 8/20
+2025-11-19 18:58:39,991 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:59:26,986 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 18:59:26,991 | INFO | Evaluating reasoning chain for question 9/20
+2025-11-19 18:59:35,436 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:00:00,767 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:00:00,770 | INFO | Evaluating reasoning chain for question 10/20
+2025-11-19 19:00:05,379 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:00:24,442 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:01:06,867 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:01:31,267 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:01:31,268 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 23-year-old woman comes to the physician because she is embarrassed about the appearance of her nails. She has no h...
+2025-11-19 19:01:31,271 | INFO | Evaluating reasoning chain for question 11/20
+2025-11-19 19:01:38,828 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:02:13,882 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:02:51,712 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:02:51,717 | INFO | Evaluating reasoning chain for question 12/20
+2025-11-19 19:02:59,345 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:03:37,300 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:03:37,304 | INFO | Evaluating reasoning chain for question 13/20
+2025-11-19 19:03:46,219 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:04:34,394 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:06:34,709 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:06:34,721 | INFO | Evaluating reasoning chain for question 14/20
+2025-11-19 19:06:42,177 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:07:07,279 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:08:07,323 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:08:49,234 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:08:49,236 | WARNING | LackOfEvidence | Forced answer with limited context for question: A 47-year-old executive schedules an appointment his physician for a routine medical check-up. He currently has no co...
+2025-11-19 19:08:49,247 | INFO | Evaluating reasoning chain for question 15/20
+2025-11-19 19:08:58,562 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:09:33,955 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:09:33,958 | INFO | Evaluating reasoning chain for question 16/20
+2025-11-19 19:09:41,915 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:10:19,271 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:10:19,277 | INFO | Evaluating reasoning chain for question 17/20
+2025-11-19 19:10:27,618 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:11:01,011 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:11:01,015 | INFO | Evaluating reasoning chain for question 18/20
+2025-11-19 19:11:07,953 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:11:40,450 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:11:40,454 | INFO | Evaluating reasoning chain for question 19/20
+2025-11-19 19:11:47,539 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:12:24,049 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:12:24,052 | INFO | Evaluating reasoning chain for question 20/20
+2025-11-19 19:12:33,127 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:13:22,372 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-19 19:13:22,376 | INFO | Reasoning logs written to zxz/outputs/reasoning_chain_eval_20251119_104938.jsonl | Answered 20/20 (100.00%)

@@ -1,0 +1,88 @@
+nohup: 忽略输入
+2025-11-17 18:16:30,950 | INFO | 成功连接到Neo4j数据库
+2025-11-17 18:16:30,951 | INFO | Evaluating reasoning chain for question 1/20
+2025-11-17 18:16:37,012 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:17:12,139 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:17:12,144 | INFO | Evaluating reasoning chain for question 2/20
+2025-11-17 18:17:19,717 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:17:55,451 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:19:04,510 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:19:24,184 | INFO | Evaluating reasoning chain for question 3/20
+2025-11-17 18:19:33,805 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:20:35,045 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:20:35,051 | INFO | Evaluating reasoning chain for question 4/20
+2025-11-17 18:20:43,638 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:21:18,609 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:22:17,684 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:22:32,958 | INFO | Evaluating reasoning chain for question 5/20
+2025-11-17 18:22:41,497 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:23:13,817 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:24:43,810 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:24:43,819 | INFO | Evaluating reasoning chain for question 6/20
+2025-11-17 18:24:52,266 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:25:28,819 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:26:41,498 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:27:02,934 | INFO | Evaluating reasoning chain for question 7/20
+2025-11-17 18:27:10,789 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:27:54,190 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:29:01,851 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:29:26,946 | INFO | Evaluating reasoning chain for question 8/20
+2025-11-17 18:29:34,995 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:30:12,855 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:31:13,920 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:31:13,928 | INFO | Evaluating reasoning chain for question 9/20
+2025-11-17 18:31:21,619 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:31:51,775 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:33:22,434 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:33:52,312 | INFO | Evaluating reasoning chain for question 10/20
+2025-11-17 18:33:55,810 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:34:11,470 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:34:52,522 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:35:33,647 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:35:43,481 | INFO | Evaluating reasoning chain for question 11/20
+2025-11-17 18:35:51,492 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:36:33,499 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:37:45,421 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:37:45,430 | INFO | Evaluating reasoning chain for question 12/20
+2025-11-17 18:37:53,475 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:38:29,464 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:39:44,367 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:40:09,528 | INFO | Evaluating reasoning chain for question 13/20
+2025-11-17 18:40:17,670 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:41:14,532 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:41:14,538 | INFO | Evaluating reasoning chain for question 14/20
+2025-11-17 18:41:23,380 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:42:04,603 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:43:29,281 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:45:01,206 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:45:31,391 | INFO | Evaluating reasoning chain for question 15/20
+2025-11-17 18:45:39,435 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:46:26,059 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:47:33,559 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:47:33,566 | INFO | Evaluating reasoning chain for question 16/20
+2025-11-17 18:47:42,178 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:48:20,397 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:49:35,789 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:50:46,025 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-11-17 18:50:46,027 | WARNING | Deepseek request failed on attempt 1/3: Error code: 400 - {'object': 'error', 'message': 'input prompt contain 70108 tokens ,but max-model-len is 65536', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-11-17 18:50:50,187 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-11-17 18:50:50,188 | WARNING | Deepseek request failed on attempt 2/3: Error code: 400 - {'object': 'error', 'message': 'input prompt contain 70108 tokens ,but max-model-len is 65536', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-11-17 18:50:56,104 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-11-17 18:50:56,105 | WARNING | Deepseek request failed on attempt 3/3: Error code: 400 - {'object': 'error', 'message': 'input prompt contain 70108 tokens ,but max-model-len is 65536', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-11-17 18:51:04,113 | ERROR | Agent iteration failed: Deepseek request failed after 3 attempts: Error code: 400 - {'object': 'error', 'message': 'input prompt contain 70108 tokens ,but max-model-len is 65536', 'type': 'BadRequestError', 'param': None, 'code': 400}
+2025-11-17 18:51:04,115 | INFO | Evaluating reasoning chain for question 17/20
+2025-11-17 18:51:12,218 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:51:51,550 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:53:25,314 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:53:25,324 | INFO | Evaluating reasoning chain for question 18/20
+2025-11-17 18:53:33,375 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:54:02,515 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:54:02,519 | INFO | Evaluating reasoning chain for question 19/20
+2025-11-17 18:54:11,618 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:54:53,231 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:55:59,432 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:55:59,440 | INFO | Evaluating reasoning chain for question 20/20
+2025-11-17 18:56:08,349 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:56:45,503 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:57:54,512 | INFO | HTTP Request: POST https://api.modelarts-maas.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 18:57:54,518 | INFO | Reasoning logs written to zxz/match_results/reasoning_chain_eval_20251117_101630.jsonl | Answered 11/20 (55.00%)

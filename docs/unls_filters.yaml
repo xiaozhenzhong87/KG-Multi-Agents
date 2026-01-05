@@ -1,0 +1,433 @@
+version: 0.3
+notes:
+  - "关系层维持上一版强黑名单与白名单（已内置），新增实体类型保守过滤与分组。"
+  - "core_allowlist 默认启用；conditional_allowlist 可按问型开启，避免无关扩展。"
+  - "type_weights 可作为节点先验（w_type），与关系权重 w_rel 叠加。"
+
+# =========================
+# 关系方向规范化（节选常用）
+# =========================
+inverse_unify:
+  manifestation_of: has_manifestation
+  sign_or_symptom_of: has_sign_or_symptom
+  finding_site_of: has_finding_site
+  direct_site_of: has_direct_site
+  mechanism_of_action_of: has_mechanism_of_action
+  due_to: cause_of
+  induced_by: induces
+  pathological_process_of: has_pathological_process
+  diagnostic_criteria_of: has_diagnostic_criteria
+  route_of_administration_of: has_route_of_administration
+  component_of: has_component
+  ingredient_of: has_ingredient
+  inactive_ingredient_of: has_inactive_ingredient
+  active_ingredient_of: has_active_ingredient
+  active_metabolites_of: has_active_metabolites
+  active_moiety_of: has_active_moiety
+  part_of: has_part
+  included_in: includes
+  location_of: has_location
+  property_of: has_property
+  structural_class_of: has_structural_class
+  process_output_of: has_process_output
+  process_duration_of: has_process_duration
+  realization_of: has_realization
+  recipient_category_of: has_recipient_category
+  measurement_method_of: has_measurement_method
+  measured_component_of: has_measured_component
+  severity_of: has_severity
+  onset_of: has_onset
+
+# =========================
+# 关系强黑名单（节选，完整同上一版）
+# =========================
+hard_blacklist_exact:
+  - is_a
+  - is_parent_of
+  - is_child_of
+  - has_subtype
+  - is_broader_than
+  - is_narrower_than
+  - was_a
+  - inverse_was_a
+  - mapped_from
+  - mapped_to
+  - multiply_mapped_from
+  - multiply_mapped_to
+  - primary_mapped_from
+  - primary_mapped_to
+  - other_mapped_from
+  - other_mapped_to
+  - uniquely_mapped_from
+  - uniquely_mapped_to
+  - same_as
+  - synonym_of
+  - alias_of
+  - print_name_of
+  - has_print_name
+  - translation_of
+  - has_translation
+  - transliterated_form_of
+  - has_transliterated_form
+  - entry_term_of
+  - has_entry_term
+  - expanded_form_of
+  - has_expanded_form
+  - tradename_of
+  - has_tradename
+  - noun_form_of
+  - clinician_form_of
+  - has_clinician_form
+  - consumer_friendly_form_of
+  - subject_of_information_of
+  - supported_concept_property_in
+  - role_has_domain
+  - role_has_range
+  - role_played_by
+  - is_interpreted_by
+  - context_binding_of
+  - has_context_binding
+  - finding_context_of
+  - has_finding_context
+  - finding_informer_of
+  - has_finding_informer
+  - lab_number_of
+  - has_lab_number
+  - revision_status_of
+  - has_revision_status
+  - scale_type_of
+  - has_scale_type
+  - procedure_context_of
+  - has_procedure_context
+  - technique_of
+  - has_technique
+  - has_instrumentation
+  - measurement_method_of
+  - has_measurement_method
+  - measured_by
+  - measures
+  - measured_component_of
+  - has_measured_component
+  - co_occurs_with
+  - clinically_similar
+  - other_relation
+  - qualified_by
+  - access_of
+  - access_instrument_of
+  - access_device_used_by
+  - has_access
+  - has_access_instrument
+  - device_used_by
+  - device_intended_site_of
+  - device_characteristic_of
+  - has_device_intended_site
+  - has_device_characteristic
+  - direct_device_of
+  - has_direct_device
+  - specimen_of
+  - has_specimen
+  - specimen_procedure_of
+  - has_specimen_procedure
+  - specimen_source_identity_of
+  - has_specimen_source_identity
+  - specimen_source_morphology_of
+  - has_specimen_source_morphology
+  - specimen_source_topography_of
+  - has_specimen_source_topography
+  - specimen_substance_of
+  - has_specimen_substance
+  - includes_sub_specimen
+  - used_by
+  - uses
+  - uses_device
+  - uses_access_device
+  - uses_energy
+  - uses_excluded_substance
+  - uses_possibly_included_substance
+  - uses_substance
+  - occurs_after
+  - occurs_before
+  - temporally_follows
+  - temporally_followed_by
+  - temporally_related_to
+  - temporal_context_of
+  - has_temporal_context
+  - time_aspect
+hard_blacklist_prefix:
+  - "mapped_"
+  - "multiply_mapped_"
+  - "primary_mapped_"
+  - "other_mapped_"
+  - "uniquely_mapped_"
+  - "specimen_"
+  - "has_specimen_"
+  - "procedure_"
+  - "has_excluded_"
+  - "has_possibly_included_"
+  - "uses_"
+
+# =========================
+# 高价值关系白名单（与上一版一致，省略重复注释）
+# =========================
+relation_whitelist_groups:
+  THERAPY: { weight: 1.0, relations: [treats, may_treat] }
+  CONTRAINDICATION:
+    weight: 0.95
+    relations: [contraindicated_with_disease, has_contraindicated_class, has_contraindicated_drug, has_contraindicated_mechanism_of_action, has_contraindicated_physiologic_effect, contraindicated_class_of]
+  DIAGNOSIS: { weight: 0.9, relations: [diagnoses, may_diagnose, has_diagnostic_criteria, diagnostic_criteria_of, ddx] }
+  MANIFESTATION:
+    weight: 0.88
+    relations: [has_sign_or_symptom, sign_or_symptom_of, has_manifestation, definitional_manifestation_of, has_definitional_manifestation, has_associated_finding, associated_finding_of]
+  ETIOLOGY:
+    weight: 0.85
+    relations: [cause_of, causative_agent_of, induces, induced_by, due_to, has_causative_agent, has_pathological_process, pathological_process_of, has_associated_etiologic_finding, associated_etiologic_finding_of]
+  MECHANISM: { weight: 0.75, relations: [has_mechanism_of_action, mechanism_of_action_of, process_acts_on, physiologic_effect_of, regulates] }
+  ANATOMY:
+    weight: 0.6
+    relations: [has_finding_site, finding_site_of, has_direct_site, direct_site_of, has_location, location_of, has_part, part_of, has_regional_part]
+  RISK: { weight: 0.55, relations: [has_risk_factor, has_at_risk_population, has_related_factor] }
+  PREVENTION: { weight: 0.45, relations: [may_prevent, may_be_prevented_by] }
+  PHARM_LOW: { weight: 0.35, relations: [pharmacokinetics_of, has_route_of_administration, route_of_administration_of, has_dose_form, dose_form_of] }
+  ASSOCIATION_LOW: { weight: 0.25, relations: [associated_with, clinically_associated_with, clinically_related_to] }
+
+relation_whitelist: [
+  treats, may_treat,
+  contraindicated_with_disease, has_contraindicated_class, has_contraindicated_drug, has_contraindicated_mechanism_of_action, has_contraindicated_physiologic_effect, contraindicated_class_of,
+  diagnoses, may_diagnose, has_diagnostic_criteria, diagnostic_criteria_of, ddx,
+  has_sign_or_symptom, sign_or_symptom_of, has_manifestation, definitional_manifestation_of, has_definitional_manifestation, has_associated_finding, associated_finding_of,
+  cause_of, causative_agent_of, induces, induced_by, due_to, has_causative_agent, has_pathological_process, pathological_process_of, has_associated_etiologic_finding, associated_etiologic_finding_of,
+  has_mechanism_of_action, mechanism_of_action_of, process_acts_on, physiologic_effect_of, regulates,
+  has_finding_site, finding_site_of, has_direct_site, direct_site_of, has_location, location_of, has_part, part_of, has_regional_part,
+  has_risk_factor, has_at_risk_population, has_related_factor,
+  may_prevent, may_be_prevented_by,
+  pharmacokinetics_of, has_route_of_administration, route_of_administration_of, has_dose_form, dose_form_of,
+  associated_with, clinically_associated_with, clinically_related_to
+]
+
+relation_alias:
+  has_sign_or_symptom: "has symptom"
+  has_manifestation: "manifests"
+  has_finding_site: "at site"
+  has_mechanism_of_action: "mechanism"
+  contraindicated_with_disease: "contraindicated for"
+  treats: "treats"
+  cause_of: "causes"
+  induces: "induces"
+
+# =========================
+# 实体类型过滤与分组（保守）
+# =========================
+entity_types:
+  # 默认启用的核心类型（保守：覆盖临床诊断/用药/检查/解剖）
+  core_allowlist:
+    # 疾病/病理/损伤
+    - "Disease or Syndrome"
+    - "Injury or Poisoning"
+    - "Pathologic Function"
+    - "Neoplastic Process"
+    - "Mental or Behavioral Dysfunction"
+    - "Cell or Molecular Dysfunction"
+    - "Congenital Abnormality"
+    - "Acquired Abnormality"
+    # 体征/症状/属性/检验结果
+    - "Finding"
+    - "Sign or Symptom"
+    - "Clinical Attribute"
+    - "Laboratory or Test Result"
+    # 药物/化学（保守保留这些，与用药/中毒密切相关）
+    - "Clinical Drug"
+    - "Pharmacologic Substance"
+    - "Organic Chemical"
+    - "Chemical"
+    - "Chemical Viewed Functionally"
+    - "Chemical Viewed Structurally"
+    - "Biologically Active Substance"
+    - "Antibiotic"
+    - "Hormone"
+    - "Vitamin"
+    - "Hazardous or Poisonous Substance"
+    - "Substance"
+    # 操作/检查
+    - "Therapeutic or Preventive Procedure"
+    - "Diagnostic Procedure"
+    - "Laboratory Procedure"
+    # 解剖（含部位、系统、组织、腔隙）
+    - "Anatomical Structure"
+    - "Body Location or Region"
+    - "Body Part, Organ, or Organ Component"
+    - "Body System"
+    - "Fully Formed Anatomical Structure"
+    - "Body Space or Junction"
+    - "Tissue"
+    # 生理/器官功能（用于机制/定位）
+    - "Physiologic Function"
+    - "Organ or Tissue Function"
+    - "Biologic Function"
+  # 只在特定问型/关键词触发时开放，避免噪声
+  conditional_allowlist:
+    INFECTION:           # 感染学/病原题（关键词：infection, pathogen, bacter*, viral, fungal, sepsis 等）
+      - "Bacterium"
+      - "Virus"
+      - "Fungus"
+      - "Organism"
+      - "Eukaryote"
+      - "Archaeon"
+      - "Organism Attribute"
+      - "Organism Function"
+    MECHANISM:           # 药理/靶点/通路题（关键词：mechanism, receptor, enzyme, gene, pathway）
+      - "Gene or Genome"
+      - "Enzyme"
+      - "Receptor"
+      - "Molecular Function"
+      - "Molecular Sequence"
+      - "Amino Acid, Peptide, or Protein"
+      - "Amino Acid Sequence"
+      - "Nucleic Acid, Nucleoside, or Nucleotide"
+      - "Nucleotide Sequence"
+    WORKFLOW:            # 护理/流程/医疗活动（关键词：monitoring, follow-up, nursing, care plan）
+      - "Health Care Activity"
+    EPI:                 # 流行病学/人群（关键词：age group, population, risk group）
+      - "Age Group"
+      - "Population Group"
+      - "Patient or Disabled Group"
+      - "Human"
+      - "Family Group"
+      - "Group"
+      - "Group Attribute"
+    DEVICE:              # 器械相关题（关键词：catheter, stent, pacemaker, device）
+      - "Medical Device"
+      - "Drug Delivery Device"
+      - "Manufactured Object"
+      - "Indicator, Reagent, or Diagnostic Aid"
+  # 永久黑名单（通常无判别力或导致偏航）
+  blacklist:
+    - "Conceptual Entity"
+    - "Classification"
+    - "Intellectual Product"
+    - "Language"
+    - "Geographic Area"
+    - "Organization"
+    - "Health Care Related Organization"
+    - "Professional or Occupational Group"
+    - "Professional Society"
+    - "Governmental or Regulatory Activity"
+    - "Regulation or Law"
+    - "Self-help or Relief Organization"
+    - "Research Activity"
+    - "Research Device"
+    - "Machine Activity"
+    - "Manufactured Object"    # 通过 DEVICE 条件控制；默认黑
+    - "Medical Device"         # 通过 DEVICE 条件控制；默认黑
+    - "Educational Activity"
+    - "Occupation or Discipline"
+    - "Occupational Activity"
+    - "Daily or Recreational Activity"
+    - "Individual Behavior"
+    - "Social Behavior"
+    - "Natural Phenomenon or Process"
+    - "Phenomenon or Process"
+    - "Environmental Effect of Humans"
+    - "Physical Object"
+    - "Food"
+    - "Plant"
+    - "Animal"
+    - "Mammal"
+    - "Bird"
+    - "Reptile"
+    - "Fish"
+    - "Vertebrate"
+    - "Amphibian"
+    - "Body Substance"         # 可在实验中按需放开；默认黑以防泛化节点
+    - "Spatial Concept"
+    - "Temporal Concept"
+    - "Qualitative Concept"
+    - "Quantitative Concept"
+    - "Idea or Concept"
+  # 高度节点裁剪（按度分位数）
+  drop_high_degree_percentile: 99.9
+
+  # 类型权重（可叠加到节点先验，非必须）
+  entity_type_weights:
+    "Disease or Syndrome": 1.0
+    "Injury or Poisoning": 0.95
+    "Pathologic Function": 0.9
+    "Neoplastic Process": 0.9
+    "Mental or Behavioral Dysfunction": 0.9
+    "Congenital Abnormality": 0.85
+    "Acquired Abnormality": 0.85
+    "Finding": 0.95
+    "Sign or Symptom": 0.95
+    "Clinical Attribute": 0.6
+    "Laboratory or Test Result": 0.7
+    "Therapeutic or Preventive Procedure": 0.8
+    "Diagnostic Procedure": 0.8
+    "Laboratory Procedure": 0.6
+    "Anatomical Structure": 0.6
+    "Body Location or Region": 0.6
+    "Body Part, Organ, or Organ Component": 0.6
+    "Body System": 0.5
+    "Fully Formed Anatomical Structure": 0.5
+    "Body Space or Junction": 0.5
+    "Tissue": 0.5
+    "Physiologic Function": 0.5
+    "Organ or Tissue Function": 0.5
+    "Biologic Function": 0.4
+    "Clinical Drug": 1.0
+    "Pharmacologic Substance": 0.95
+    "Organic Chemical": 0.8
+    "Chemical": 0.6
+    "Chemical Viewed Functionally": 0.6
+    "Chemical Viewed Structurally": 0.6
+    "Biologically Active Substance": 0.7
+    "Antibiotic": 0.85
+    "Hormone": 0.7
+    "Vitamin": 0.6
+    # 条件类型默认不加权，启用条件后按需覆盖
+    "Gene or Genome": 0.5
+    "Enzyme": 0.5
+    "Receptor": 0.5
+    "Molecular Function": 0.4
+    "Molecular Sequence": 0.3
+    "Amino Acid, Peptide, or Protein": 0.4
+    "Amino Acid Sequence": 0.3
+    "Nucleic Acid, Nucleoside, or Nucleotide": 0.3
+    "Nucleotide Sequence": 0.3
+    "Bacterium": 0.5
+    "Virus": 0.5
+    "Fungus": 0.5
+    "Organism": 0.3
+    "Eukaryote": 0.2
+    "Archaeon": 0.2
+    "Age Group": 0.2
+    "Population Group": 0.2
+    "Patient or Disabled Group": 0.2
+    "Human": 0.2
+
+# =========================
+# 问型偏置（用于 re-rank/束搜索）
+# =========================
+meta_paths:
+  DIAGNOSIS:
+    - ["DISEASE|INJURY|Pathologic Function","has_sign_or_symptom|has_manifestation","Finding|Sign or Symptom"]
+  THERAPY:
+    - ["Clinical Drug|Pharmacologic Substance","treats|may_treat","Disease or Syndrome"]
+    - ["Clinical Drug|Pharmacologic Substance","contraindicated_with_disease|has_contraindicated_class|has_contraindicated_drug","Disease or Syndrome"]
+  MECHANISM:
+    - ["Clinical Drug|Pharmacologic Substance","has_mechanism_of_action|physiologic_effect_of|process_acts_on","Gene or Genome|Receptor|Enzyme"]
+
+# =========================
+# 打分参数
+# =========================
+scoring:
+  degree_penalty_mu: 0.6
+  text_sim_lambda: 0.5
+  path_length_penalty: 0.4
+  min_edge_weight: 0.2
+diagnosis_mode:
+  min_symptom_hits: 2
+  disallow_low_specificity_relations_in_core: true
+
+# =========================
+# 条件类型启用（由上游问型/关键词控制）
+# =========================
+conditional_types_enabled: []  # 示例：["INFECTION","MECHANISM","EPI","DEVICE","WORKFLOW"]
