@@ -1,0 +1,9 @@
+
+# 忽略日志和结果大文件
+logs/
+zxz-251227/match_results/
+zxz/match_results/
+zxz/outputs/
+zxz/prompt_results/
+*.log
+*.jsonl
