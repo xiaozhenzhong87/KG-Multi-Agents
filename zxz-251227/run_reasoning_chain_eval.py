@@ -556,13 +556,14 @@ class AgenticRAGEvaluator:
     def __init__(
         self,
         client: ModelClient,
-        matcher: GraphEntityMatcher,
-        retriever: SubgraphRetriever,
+        matcher: Optional[GraphEntityMatcher],
+        retriever: Optional[SubgraphRetriever],
         max_iterations: int = 3,
         use_rag: bool = True,
         enable_iteration: bool = True,
         max_hops: int = 3,
         max_output_tokens: int = 8192,
+        simple_mode: bool = False,
     ) -> None:
         self.client = client
         self.matcher = matcher
@@ -572,6 +573,7 @@ class AgenticRAGEvaluator:
         self.enable_iteration = enable_iteration
         self.max_hops = max_hops
         self.max_output_tokens = max_output_tokens
+        self.simple_mode = simple_mode
 
     def llm_filter_reasoning_chains(
         self,
@@ -656,6 +658,76 @@ Return only the JSON object, nothing else.
     def evaluate_question(self, record: Dict[str, Any]) -> Dict[str, Any]:
         question = record.get("question", "")
         options = record.get("options", {}) or {}
+
+        # Simple mode: direct QA without RAG or reasoning chains
+        if self.simple_mode:
+            option_str = format_options(options)
+            simple_prompt = f"""Please answer the following multiple-choice questions. Please answer the following multiple-choice questions, ensuring your response concludes with the correct option in the format: 'The answer is A.'.
+
+{question}
+{option_str}"""
+
+            try:
+                response = self.client.run_prompt(
+                    system_prompt="You are a medical expert answering multiple-choice questions.",
+                    user_prompt=simple_prompt,
+                    max_output_tokens=self.max_output_tokens,
+                )
+
+                # Extract answer from response (look for "The answer is X" pattern)
+                response_text = response.strip()
+                final_answer = None
+
+                # Try to find answer pattern
+                import re
+                match = re.search(r"The answer is ([A-E])\.", response_text, re.IGNORECASE)
+                if match:
+                    predicted_option = match.group(1).upper()
+                    final_answer = {
+                        "option": predicted_option,
+                        "text": f"Option {predicted_option}",
+                        "confidence": 0.5,  # Default confidence for simple mode
+                    }
+
+                return {
+                    "question": question,
+                    "meta": {
+                        key: record.get(key)
+                        for key in ("answer", "options", "meta_info", "answer_idx")
+                    },
+                    "entities": [],  # No entity extraction in simple mode
+                    "initial_seed": [],
+                    "final_seed_ids": [],
+                    "final_seed_names": [],
+                    "agent_trace": [{
+                        "iteration": 1,
+                        "simple_mode": True,
+                        "prompt": simple_prompt,
+                        "raw_response": response_text,
+                        "reasoning_chain": response_text,  # Use full response as reasoning
+                        "filtered_entities": [],
+                        "status": "ANSWER" if final_answer else "NO_ANSWER_EXTRACTED",
+                        "missing_information": [],
+                    }],
+                    "final_status": "ANSWERED" if final_answer else "FAILED_TO_EXTRACT_ANSWER",
+                    "final_answer": final_answer,
+                }
+            except Exception as err:
+                LOGGER.error("Simple mode evaluation failed: %s", err)
+                return {
+                    "question": question,
+                    "meta": {
+                        key: record.get(key)
+                        for key in ("answer", "options", "meta_info", "answer_idx")
+                    },
+                    "entities": [],
+                    "initial_seed": [],
+                    "final_seed_ids": [],
+                    "final_seed_names": [],
+                    "agent_trace": [],
+                    "final_status": "ERROR",
+                    "final_answer": None,
+                }
 
         entities = extract_medical_entities(self.client, question)
         match_map = self.matcher.batch_match([entity["name"] for entity in entities])
@@ -1068,6 +1140,12 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Enable debug logging.",
     )
+    parser.add_argument(
+        "--simple-mode",
+        action="store_true",
+        default=False,
+        help="Use simple direct QA mode without RAG or reasoning chains.",
+    )
     return parser.parse_args()
 
 
@@ -1125,10 +1203,16 @@ def main() -> None:
         dataset = dataset[: args.limit]
 
     client = ModelClient()
-    neo_manager = Neo4jManager()
+    neo_manager = Neo4jManager() if not args.simple_mode else None
     try:
-        matcher = GraphEntityMatcher(neo_manager, namespace="umls_kg", max_candidates=args.max_candidates)
-        retriever = SubgraphRetriever(neo_manager)
+        if args.simple_mode:
+            # Simple mode doesn't need graph components
+            matcher = None
+            retriever = None
+        else:
+            matcher = GraphEntityMatcher(neo_manager, namespace="umls_kg", max_candidates=args.max_candidates)
+            retriever = SubgraphRetriever(neo_manager)
+
         evaluator = AgenticRAGEvaluator(
             client=client,
             matcher=matcher,
@@ -1138,6 +1222,7 @@ def main() -> None:
             enable_iteration=args.enable_iteration,
             max_hops=args.max_hops,
             max_output_tokens=args.max_output_tokens,
+            simple_mode=args.simple_mode,
         )
 
         timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
